@@ -1,7 +1,2 @@
-import { createClient } from '@supabase/supabase-js';
-
-// Fallbacks for local development testing without real env vars yet
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder-project.supabase.co';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-key';
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { supabase } from '../utils/supabase';
+export { supabase };

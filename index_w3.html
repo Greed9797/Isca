@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo W3 - O Ecossistema</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#000000',
+                            card: '#0D0D0D',
+                            border: '#262626',
+                            accent: '#F55900',
+                            text: '#939393',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #000000; color: #ffffff; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F55900; }
+        
+        .btn-primary {
+            background: #F55900;
+            color: #ffffff;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #D44D00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(245, 89, 0, 0.4);
+        }
+        
+        .hero-bg {
+            background-image: radial-gradient(circle at center, rgba(245, 89, 0, 0.1) 0%, transparent 70%);
+        }
+
+        /* Classes para animação do Modal */
+        .modal-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+        .modal-content-active {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden bg-brand-bg relative">
+
+    <!-- ========================================== -->
+    <!-- 1. NAVBAR                                  -->
+    <!-- ========================================== -->
+    <nav class="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-10 h-[75px] bg-black/80 backdrop-blur-md border-b border-brand-border">
+        <div class="flex items-center text-2xl font-black tracking-tighter text-white">
+            Grupo W3<span class="text-brand-accent">.</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#quem-somos" class="text-brand-text hover:text-white transition-colors text-[13px] font-medium">Quem Somos</a>
+            <a href="#solucoes" class="text-brand-text hover:text-white transition-colors text-[13px] font-medium">Soluções</a>
+            <a href="#cases" class="text-brand-text hover:text-white transition-colors text-[13px] font-medium">Cases</a>
+            <a href="#diferenciais" class="text-brand-text hover:text-white transition-colors text-[13px] font-medium">Diferenciais</a>
+        </div>
+        <button onclick="openModal()" class="hidden md:flex items-center gap-2 btn-primary text-[11px] font-bold px-6 py-3 rounded-lg uppercase tracking-wide">
+            Fale Conosco
+        </button>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION                            -->
+    <!-- ========================================== -->
+    <section class="relative flex flex-col items-center justify-center pt-32 pb-20 px-5 overflow-hidden hero-bg border-b border-brand-border">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[60vh] bg-brand-accent/10 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="relative z-10 flex flex-col items-center text-center w-full mx-auto max-w-[900px]">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-xs font-semibold uppercase tracking-widest mb-8">
+                <i class="fa-solid fa-bolt"></i> Vagas limitadas para 2026
+            </div>
+
+            <h1 class="text-white leading-[1.1] mb-6" style="font-size: clamp(36px, 5vw, 64px); font-weight: 800;">
+                Grupo W3: O Ecossistema que mais transforma <span class="text-brand-accent italic">E-commerces</span> no Brasil
+            </h1>
+            
+            <p class="text-brand-text leading-relaxed mb-10 max-w-[700px] mx-auto" style="font-size: clamp(16px, 2vw, 22px);">
+                Transformamos vidas através do e-commerce, combinando estratégia, execução e tecnologia dentro de um sistema integrado. 
+                <strong class="text-white font-medium">Receba um diagnóstico completo para escalar seu negócio em 2026.</strong>
+            </p>
+
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-12">
+                <div class="flex items-center gap-3 rounded-lg px-5 py-3 bg-brand-card border border-brand-border">
+                    <i class="fa-solid fa-map-location-dot text-brand-accent"></i>
+                    <span class="text-white text-sm font-medium">Sede física em Blumenau – SC</span>
+                </div>
+                <div class="flex items-center gap-3 rounded-lg px-5 py-3 bg-brand-card border border-brand-border">
+                    <i class="fa-solid fa-users text-brand-accent"></i>
+                    <span class="text-white text-sm font-medium">+30 Profissionais</span>
+                </div>
+                <div class="flex items-center gap-3 rounded-lg px-5 py-3 bg-brand-card border border-brand-border">
+                    <i class="fa-solid fa-globe text-brand-accent"></i>
+                    <span class="text-white text-sm font-medium">Operação Nacional</span>
+                </div>
+            </div>
+
+            <button onclick="openModal()" class="btn-primary text-base font-bold uppercase tracking-wide py-5 px-10 rounded-xl shadow-xl w-full sm:w-auto animate-pulse flex items-center justify-center gap-3">
+                QUERO UMA CONSULTORIA GRATUITA <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <p class="text-brand-text text-sm mt-4"><i class="fa-solid fa-lock text-xs mr-1"></i> Sessão 100% gratuita e estratégica.</p>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. PARA QUEM É A METODOLOGIA               -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-[#050505] border-b border-brand-border">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+            <div class="text-center mb-16">
+                <h2 class="text-[30px] md:text-[40px] font-bold text-white mb-4">A metodologia Ames foi desenvolvida para 3 grupos específicos:</h2>
+                <p class="text-brand-text text-[18px]">Donos de e-commerce que querem atingir o próximo nível de escala e lucro.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-brand-accent/50 transition-colors">
+                    <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-laptop-code text-brand-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-white text-xl font-bold mb-4">Vendem no site próprio</h3>
+                    <p class="text-brand-text text-[15px] leading-relaxed">
+                        Donos de e-commerce que já faturam +R$30k/mês no site, mas sentem que poderiam lucrar mais. Investem em tráfego, mas a conversão não acompanha e a margem segue apertada.
+                    </p>
+                </div>
+                <div class="bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-brand-accent/50 transition-colors">
+                    <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-store text-brand-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-white text-xl font-bold mb-4">Vendem nos marketplaces</h3>
+                    <p class="text-brand-text text-[15px] leading-relaxed">
+                        Empreendedores que passam de R$50k/mês em marketplaces, mas vivem reféns de taxas e guerra de preços. Querem previsibilidade e mais margem com uma operação independente.
+                    </p>
+                </div>
+                <div class="bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-brand-accent/50 transition-colors">
+                    <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-shop text-brand-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-white text-xl font-bold mb-4">Donos de loja física</h3>
+                    <p class="text-brand-text text-[15px] leading-relaxed">
+                        Marcas que faturam +R$100k/mês no varejo físico, mas ainda não estruturaram uma operação online. Buscam levar o resultado da loja para o digital e escalar no e-commerce.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. QUEM SOMOS / FUNDADORES                 -->
+    <!-- ========================================== -->
+    <section id="quem-somos" class="bg-black py-20 border-b border-brand-border overflow-hidden">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <p class="text-brand-accent text-sm font-bold uppercase tracking-widest mb-4">NÃO SOMOS MAIS UM "GURU"</p>
+                    <h2 class="text-[36px] md:text-[48px] font-bold text-white leading-tight mb-6">
+                        De dono para dono: <span class="text-brand-accent">Operação real.</span>
+                    </h2>
+                    <p class="text-brand-text text-lg leading-relaxed mb-6">
+                        O Ecossistema W3 é um grupo empresarial especializado em aceleração e estruturação de e-commerces. Fundado em 2024, em Blumenau – SC, nosso objetivo é ser o maior ecossistema de e-commerce do Brasil.
+                    </p>
+                    <p class="text-brand-text text-lg leading-relaxed mb-8">
+                        Por trás do Grupo W3, existem três pilares fundamentais: <strong class="text-white">Leonardo Ames, Lucas Monteiro e Gustavo Holfman.</strong> Juntos, aplicamos uma metodologia que gera mais de 100 milhões de reais de faturamento por ano.
+                    </p>
+
+                    <div class="bg-[#111] border border-[#222] rounded-xl p-6 mb-8">
+                        <h4 class="text-white font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-accent"></i> Nossa base de validação (Ame Kids):</h4>
+                        <ul class="grid grid-cols-2 gap-4">
+                            <li class="text-brand-text text-sm"><strong class="text-white text-xl block mb-1">R$ 1.5M</strong> Faturamento mensal</li>
+                            <li class="text-brand-text text-sm"><strong class="text-white text-xl block mb-1">+10.000</strong> Vendas por mês</li>
+                            <li class="text-brand-text text-sm"><strong class="text-white text-xl block mb-1">8</strong> Canais de vendas</li>
+                            <li class="text-brand-text text-sm"><strong class="text-white text-xl block mb-1">4 Anos</strong> De mercado validado</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openModal()" class="btn-primary font-bold uppercase py-4 px-8 rounded-lg w-full sm:w-auto">
+                        QUERO APLICAR PARA UMA VAGA
+                    </button>
+                </div>
+                
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute inset-0 bg-brand-accent/20 blur-[100px] rounded-full"></div>
+                    <!-- Imagem representativa dos fundadores/operação -->
+                    <img src="https://placehold.co/600x700/111/F55900?text=Fundadores+Grupo+W3" alt="Fundadores Grupo W3" class="relative z-10 w-full rounded-2xl border border-[#333] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute bottom-10 -left-10 bg-brand-card border border-brand-border p-6 rounded-xl shadow-2xl z-20 hidden md:block">
+                        <p class="text-white text-sm font-medium italic">"O faturamento que tivemos no primeiro<br> ano inteiro, é a metade do nosso<br> faturamento diário hoje."</p>
+                        <p class="text-brand-accent text-xs font-bold mt-2 uppercase">- Fundadores W3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. SOLUÇÕES DO ECOSSISTEMA                 -->
+    <!-- ========================================== -->
+    <section id="solucoes" class="bg-[#050505] py-20 border-b border-brand-border">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+            <div class="text-center mb-16">
+                <p class="text-brand-accent text-[12px] font-bold uppercase tracking-widest mb-4">Nossas Soluções</p>
+                <h2 class="text-[32px] md:text-[42px] font-bold text-white mb-4">Soluções do Ecossistema W3</h2>
+                <p class="text-brand-text text-[18px] max-w-[700px] mx-auto leading-relaxed">
+                    Somos um modelo integrado por unidades estratégicas que garantem 100% do resultado do seu ecommerce.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Solução 1 -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="text-white text-2xl font-bold mb-4">Mentoria AMES</h3>
+                    <p class="text-brand-text text-sm leading-relaxed mb-6">
+                        Estruturação estratégica para donos de E-commerce que já faturam e querem escalar com margem, com o Método utilizado pra sair do zero ao 3º maior ecommerce de moda infantil do Brasil.
+                    </p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> <span><strong class="text-white">Resultado:</strong> mais vendas</span></li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> <span><strong class="text-white">Eficiência:</strong> mais lucro</span></li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> <span><strong class="text-white">Continuidade:</strong> recompra</span></li>
+                    </ul>
+                    <button onclick="openModal()" class="text-brand-accent font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-white transition-colors mt-auto">
+                        Conhecer a Mentoria <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Solução 2 -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-white text-2xl font-bold mb-4">W3 Tráfego Pago</h3>
+                    <p class="text-brand-text text-sm leading-relaxed mb-6">
+                        Gestão estratégica de mídia, que vai além de "apertar botões" e analisa sua venda ponta a ponta.
+                    </p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Custo de mídia controlado</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Escala sustentável e Estrutura de funil</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> ROAS consistente</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Otimizações de conversão</li>
+                    </ul>
+                    <button onclick="openModal()" class="text-brand-accent font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-white transition-colors mt-auto">
+                        Conhecer W3 Tráfego <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Solução 3 -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-store"></i></div>
+                    <h3 class="text-white text-2xl font-bold mb-4">W3 Marketplace</h3>
+                    <p class="text-brand-text text-sm leading-relaxed mb-6">
+                        Nosso time de especialistas estrutura anúncios e campanhas nos principais marketplaces do Brasil, operando onde falta braço na sua operação.
+                    </p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Mercado Livre</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Shopee</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Shein</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> TEMU</li>
+                    </ul>
+                    <button onclick="openModal()" class="text-brand-accent font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-white transition-colors mt-auto">
+                        Conhecer W3 Marketplace <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Solução 4 -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-credit-card"></i></div>
+                    <h3 class="text-white text-2xl font-bold mb-4">W3 Pagamentos</h3>
+                    <p class="text-brand-text text-sm leading-relaxed mb-6">
+                        Nascida de uma parceria estratégica com Appmax, é a solução com maior performance de aprovação de pedidos para ecommerce do brasil.
+                    </p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> A mais alta taxa de aprovação</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Checkout transparente otimizado</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Recuperação de carrinho com IA</li>
+                    </ul>
+                    <button onclick="openModal()" class="text-brand-accent font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-white transition-colors mt-auto">
+                        Conhecer W3 Pagamentos <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Solução 5 -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-brand-accent text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Em 2026</div>
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="text-white text-2xl font-bold mb-4">W3 Labs</h3>
+                    <p class="text-brand-text text-sm leading-relaxed mb-6">
+                        Tecnologia própria com lançamento previsto para o primeiro trimestre de 2026. Toda a inteligência do ecossistema a um clique de distância.
+                    </p>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Dashboard de gestão</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> CRM de influenciadoras</li>
+                        <li class="text-brand-text text-sm flex items-start gap-3"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Calculadora de margem e IA Integrada</li>
+                    </ul>
+                    <button onclick="openModal()" class="text-brand-accent font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:text-white transition-colors mt-auto">
+                        Conhecer W3 Labs <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. NOSSA ESTRUTURA E PROPÓSITO             -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-black border-b border-brand-border">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+            <!-- Estrutura -->
+            <div class="text-center mb-20">
+                <h2 class="text-[32px] md:text-[40px] font-bold text-white mb-6">Nossa sede em Blumenau - SC</h2>
+                <p class="text-brand-text text-lg max-w-[800px] mx-auto mb-10 leading-relaxed">
+                    Com mais de 30 colaboradores, nossa operação está baseada em Blumenau, um dos polos empresariais mais fortes do Sul do Brasil. 
+                    <strong class="text-white">Acreditamos em estrutura física, time presente e cultura.</strong> A sede da W3 concentra: Comercial, Entrega, Marketing, Operação Estratégica e Liderança.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="h-[250px] bg-[#111] rounded-xl overflow-hidden"><img src="https://placehold.co/400x400/222/111?text=Sede+W3" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"></div>
+                    <div class="h-[250px] bg-[#111] rounded-xl overflow-hidden"><img src="https://placehold.co/400x400/222/111?text=Sede+W3" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"></div>
+                    <div class="h-[250px] bg-[#111] rounded-xl overflow-hidden"><img src="https://placehold.co/400x400/222/111?text=Sede+W3" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"></div>
+                    <div class="h-[250px] bg-[#111] rounded-xl overflow-hidden"><img src="https://placehold.co/400x400/222/111?text=Sede+W3" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Propósito -->
+            <div class="bg-brand-card border border-brand-border rounded-3xl p-10 md:p-16">
+                <div class="text-center mb-12">
+                    <p class="text-brand-accent text-sm font-bold uppercase tracking-widest mb-4">Nosso Propósito</p>
+                    <h2 class="text-[32px] md:text-[40px] font-bold text-white">Transformar vidas através do e-commerce.</h2>
+                    <p class="text-brand-text text-lg mt-4">Não apenas aumentar faturamento. Transformar significa:</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-white text-xl font-bold mb-2"><i class="fa-solid fa-bullseye text-brand-accent mr-2"></i> Gerar Previsibilidade</h4>
+                        <p class="text-brand-text">Dados e métricas que eliminam achismos e trazem clareza para o crescimento.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-xl font-bold mb-2"><i class="fa-solid fa-money-bill-trend-up text-brand-accent mr-2"></i> Gerar Margem</h4>
+                        <p class="text-brand-text">Otimização financeira para que cada venda contribua com lucro real.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-xl font-bold mb-2"><i class="fa-solid fa-compass text-brand-accent mr-2"></i> Liberdade Estratégica</h4>
+                        <p class="text-brand-text">Autonomia para tomar decisões com base em estrutura sólida.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-xl font-bold mb-2"><i class="fa-solid fa-building text-brand-accent mr-2"></i> Negócios Reais</h4>
+                        <p class="text-brand-text">Processos, times e sistemas que sustentam a operação a longo prazo.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-xl font-bold mb-2"><i class="fa-solid fa-user-tie text-brand-accent mr-2"></i> Profissionalizar Operações</h4>
+                        <p class="text-brand-text">Elevar o nível de gestão e execução do seu e-commerce.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. CASES E DIFERENCIAIS                    -->
+    <!-- ========================================== -->
+    <section id="cases" class="py-20 bg-[#050505] border-b border-brand-border">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10">
+            <div class="text-center mb-16">
+                <p class="text-brand-accent text-[12px] font-bold uppercase tracking-widest mb-4">Cases & Diferenciais</p>
+                <h2 class="text-[32px] md:text-[42px] font-bold text-white">Resultados Reais. Operação Interna.</h2>
+            </div>
+
+            <!-- Case Principal -->
+            <div class="bg-black border border-brand-border rounded-3xl overflow-hidden flex flex-col md:flex-row mb-20">
+                <div class="md:w-1/2 bg-[#111] p-10 flex items-center justify-center">
+                    <img src="https://placehold.co/500x500/222/F55900?text=Ame+Kids+Case" alt="Case Ame Kids" class="rounded-2xl shadow-2xl">
+                </div>
+                <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold text-white mb-4">Ame Kids</h3>
+                    <p class="text-brand-text text-lg mb-6">Cofundada por Leonardo Ames, é um dos maiores e-commerces de moda infantil do Brasil.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-white font-medium"><i class="fa-solid fa-check text-brand-accent"></i> Múltiplos 7 dígitos anuais</li>
+                        <li class="flex items-center gap-3 text-white font-medium"><i class="fa-solid fa-check text-brand-accent"></i> Estrutura multi-canal</li>
+                        <li class="flex items-center gap-3 text-white font-medium"><i class="fa-solid fa-check text-brand-accent"></i> Operação validada na prática</li>
+                        <li class="flex items-center gap-3 text-white font-medium"><i class="fa-solid fa-check text-brand-accent"></i> Base real para o método AMES</li>
+                    </ul>
+                    <div class="bg-brand-accent/10 border border-brand-accent/30 rounded-lg p-4 text-brand-accent font-medium">
+                        "O que ensinamos é aplicado diariamente na operação. Não é teoria. É validação real."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diferenciais Grid -->
+            <div id="diferenciais" class="text-center mb-12">
+                <h2 class="text-[30px] font-bold text-white mb-4">Não somos dependentes de uma única solução. Somos um sistema integrado.</h2>
+                <p class="text-brand-text text-lg">O que nos posiciona de forma distinta:</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+                <div class="bg-brand-card border border-brand-border rounded-xl p-8 text-center">
+                    <i class="fa-solid fa-user-astronaut text-3xl text-brand-accent mb-4"></i>
+                    <h4 class="text-white font-bold text-lg mb-2">Fundadores operadores</h4>
+                    <p class="text-brand-text text-sm">Liderança que vive a operação diariamente.</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-xl p-8 text-center">
+                    <i class="fa-solid fa-cubes text-3xl text-brand-accent mb-4"></i>
+                    <h4 class="text-white font-bold text-lg mb-2">Ecossistema completo</h4>
+                    <p class="text-brand-text text-sm">Todas as soluções integradas num só lugar.</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-xl p-8 text-center">
+                    <i class="fa-solid fa-people-group text-3xl text-brand-accent mb-4"></i>
+                    <h4 class="text-white font-bold text-lg mb-2">Time interno estruturado</h4>
+                    <p class="text-brand-text text-sm">Mais de 30 profissionais dedicados.</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-xl p-8 text-center">
+                    <i class="fa-solid fa-code text-3xl text-brand-accent mb-4"></i>
+                    <h4 class="text-white font-bold text-lg mb-2">Tecnologia própria</h4>
+                    <p class="text-brand-text text-sm">SaaS em desenvolvimento com IA integrada.</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-xl p-8 text-center">
+                    <i class="fa-solid fa-chart-pie text-3xl text-brand-accent mb-4"></i>
+                    <h4 class="text-white font-bold text-lg mb-2">Cultura de métricas</h4>
+                    <p class="text-brand-text text-sm">Decisões baseadas em dados reais.</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-xl p-8 text-center">
+                    <i class="fa-solid fa-building text-3xl text-brand-accent mb-4"></i>
+                    <h4 class="text-white font-bold text-lg mb-2">Estrutura física</h4>
+                    <p class="text-brand-text text-sm">Sede consolidada em Blumenau – SC.</p>
+                </div>
+            </div>
+            
+            <!-- Benefícios Mentoria Section Embed -->
+            <div class="bg-gradient-to-br from-[#0A0A0A] to-[#111] border border-brand-border rounded-3xl p-10 md:p-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">O que você recebe ao entrar para o Ecossistema</h2>
+                    <p class="text-brand-text">Diagnóstico 360º e um plano de ação para ter o melhor 2026 da história do seu negócio.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-map text-brand-accent"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg mb-2">Plano de Ação Personalizado</h4>
+                            <p class="text-brand-text text-sm">Identificamos os gargalos do seu negócio e traçamos um plano que elimina as barreiras e permite você escalar.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-video text-brand-accent"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg mb-2">Acompanhamento e Encontros</h4>
+                            <p class="text-brand-text text-sm">Reuniões periódicas com nossa equipe de especialistas focadas em destravar o crescimento do seu e-commerce.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-folder-open text-brand-accent"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg mb-2">Área de Membros e Ferramentas</h4>
+                            <p class="text-brand-text text-sm">Acesso a gravações, aulas em vídeo, checklists e planilhas práticas para acompanhar a execução do plano.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-accent/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-comments text-brand-accent"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg mb-2">Suporte de Alto Nível</h4>
+                            <p class="text-brand-text text-sm">Central de dúvidas com suporte dedicado via WhatsApp com o time responsável por gerar mais de R$100M/ano.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button onclick="openModal()" class="btn-primary font-bold uppercase py-5 px-10 rounded-xl text-lg shadow-[0_10px_30px_rgba(245,89,0,0.3)] hover:shadow-[0_10px_40px_rgba(245,89,0,0.5)] w-full sm:w-auto">
+                        QUERO APLICAR PARA UMA VAGA
+                    </button>
+                    <p class="text-brand-text text-xs mt-4">Não é pra qualquer dono de e-commerce. É para quem tem urgência em escalar.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 8. CTA FINAL                               -->
+    <!-- ========================================== -->
+    <section class="bg-black py-20 border-b border-brand-border">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10 text-center">
+            <h2 class="text-[40px] md:text-[60px] font-black text-white leading-tight mb-8">
+                O Ecossistema W3 representa:<br><span class="text-brand-accent">Estrutura.</span>
+            </h2>
+            <button onclick="openModal()" class="inline-flex items-center justify-center gap-3 text-[#F2F2F2] font-bold uppercase tracking-wide py-5 px-12 rounded-xl btn-primary text-lg mx-auto shadow-2xl">
+                Quero conhecer o Grupo W3 <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 9. FOOTER                                  -->
+    <!-- ========================================== -->
+    <footer class="bg-[#050505] border-t border-brand-border py-10">
+        <div class="max-w-[1280px] mx-auto px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <div class="text-2xl font-black tracking-tighter text-white mb-2">Grupo W3<span class="text-brand-accent">.</span></div>
+                <p class="text-brand-text text-sm font-medium">© 2026 Grupo W3. Todos os direitos reservados.</p>
+            </div>
+            <div>
+                <p class="text-brand-text text-sm max-w-[400px]">Transformamos vidas através do e-commerce, combinando estratégia, execução e tecnologia dentro de um sistema integrado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- MODAL DO FORMULÁRIO (ULTRA PREMIUM)        -->
+    <!-- ========================================== -->
+    <div id="form-modal" class="fixed inset-0 z-[999] hidden flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <!-- Overlay Desfocado -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-xl" onclick="closeModal()"></div>
+        
+        <!-- Conteúdo do Modal -->
+        <div class="relative bg-[#0a0a0a] border border-[#222] shadow-[0_0_60px_rgba(0,0,0,0.8)] rounded-2xl w-full max-w-[600px] overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content">
+            
+            <!-- Barra de Destaque Superior -->
+            <div class="h-1.5 w-full bg-brand-accent"></div>
+
+            <!-- Cabeçalho -->
+            <div class="p-8 pb-4 flex justify-between items-start">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2 leading-tight">Preencha os dados abaixo<br><span class="text-brand-accent">e cadastre-se</span></h2>
+                    <p class="text-[#888] text-sm font-medium">Você está a um passo da consultoria gratuita.</p>
+                </div>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-white transition-colors bg-[#111] hover:bg-[#222] rounded-full w-10 h-10 flex items-center justify-center focus:outline-none">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <!-- Formulário -->
+            <form action="sucesso.html" method="GET" class="p-8 pt-4 flex flex-col gap-5">
+                <div>
+                    <label class="block text-white text-xs font-bold uppercase tracking-wider mb-2 ml-1">Seu Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required
+                           class="w-full bg-[#141414] text-white border border-[#333] rounded-lg px-5 py-4 text-[15px] focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all placeholder:text-[#555]">
+                </div>
+                <div>
+                    <label class="block text-white text-xs font-bold uppercase tracking-wider mb-2 ml-1">Melhor E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="joao@suaagencia.com.br" required
+                           class="w-full bg-[#141414] text-white border border-[#333] rounded-lg px-5 py-4 text-[15px] focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all placeholder:text-[#555]">
+                </div>
+                <div>
+                    <label class="block text-white text-xs font-bold uppercase tracking-wider mb-2 ml-1">WhatsApp</label>
+                    <div class="relative">
+                        <div class="absolute left-5 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/20px-Flag_of_Brazil.svg.png" alt="BR" class="w-5 rounded-[2px]">
+                            <span class="text-[#666] text-xs">|</span>
+                        </div>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required
+                               class="w-full bg-[#141414] text-white border border-[#333] rounded-lg pl-[65px] pr-5 py-4 text-[15px] focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all placeholder:text-[#555]">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-white text-xs font-bold uppercase tracking-wider mb-2 ml-1">Nome do E-commerce/Agência</label>
+                    <input type="text" id="agencia" name="agencia" placeholder="Sua marca" required
+                           class="w-full bg-[#141414] text-white border border-[#333] rounded-lg px-5 py-4 text-[15px] focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all placeholder:text-[#555]">
+                </div>
+                <div>
+                    <label class="block text-white text-xs font-bold uppercase tracking-wider mb-2 ml-1">Faturamento Mensal</label>
+                    <div class="relative">
+                        <select id="faturamento" name="faturamento" required
+                                class="w-full bg-[#141414] text-white border border-[#333] rounded-lg px-5 py-4 text-[15px] focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all appearance-none cursor-pointer">
+                            <option value="" disabled selected class="text-[#555]">Selecione uma opção...</option>
+                            <option value="Abaixo de 10k">Abaixo de R$ 10.000</option>
+                            <option value="10k a 50k">De R$ 10.000 a R$ 50.000</option>
+                            <option value="50k a 100k">De R$ 50.000 a R$ 100.000</option>
+                            <option value="Acima de 100k">Acima de R$ 100.000</option>
+                        </select>
+                        <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <i class="fa-solid fa-chevron-down text-brand-accent text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-accent hover:bg-[#D44D00] text-white font-black uppercase tracking-widest py-5 px-6 rounded-lg transition-all mt-4 text-[16px] shadow-[0_0_20px_rgba(245,89,0,0.2)] hover:shadow-[0_0_30px_rgba(245,89,0,0.4)] hover:-translate-y-1">
+                    GARANTIR MINHA VAGA
+                </button>
+                
+                <p class="text-[#555] text-[11px] text-center mt-3 leading-[1.6] px-2 font-medium">
+                    Seus dados estão 100% seguros e não fazemos spam. <br>Ao se inscrever você aceita os termos e condições do Grupo W3.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts do Modal Avançado -->
+    <script>
+        const modal = document.getElementById('form-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            // Pequeno delay para a animação do CSS aplicar após remover o hidden
+            setTimeout(() => {
+                modal.classList.add('modal-active');
+                modalContent.classList.add('modal-content-active');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('modal-active');
+            modalContent.classList.remove('modal-content-active');
+            
+            // Espera a animação de fade out acabar para colocar 'hidden'
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+    </script>
+</body>
+</html>

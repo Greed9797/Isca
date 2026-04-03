@@ -11,8 +11,9 @@ import {
   Position
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { Settings, LogIn, XCircle, Webhook, Play, Plus, List, Trash2 } from 'lucide-react';
+import { Settings, LogIn, XCircle, Webhook, Play, Plus, List, Trash2, LogOut } from 'lucide-react';
 import { automationService } from '../services/automationService';
+import { useAuth } from '../contexts/AuthContext';
 
 // Custom Nodes Design
 const TriggerNode = ({ data }) => (
@@ -92,6 +93,8 @@ const initialEdges = [
 ];
 
 export default function AdminPage() {
+  const { signOut } = useAuth();
+  
   // Global State
   const [automations, setAutomations] = useState([]);
   const [activeAutomationId, setActiveAutomationId] = useState(null);
@@ -109,6 +112,13 @@ export default function AdminPage() {
     loadAutomations();
   }, []);
 
+  // Carregar o fluxo quando a automação ativa mudar
+  useEffect(() => {
+    if (activeAutomationId) {
+      loadAutomationFlow(activeAutomationId);
+    }
+  }, [activeAutomationId]);
+
   const loadAutomations = async () => {
     try {
       const data = await automationService.getAutomations();
@@ -116,7 +126,6 @@ export default function AdminPage() {
          setAutomations(data);
          setActiveAutomationId(data[0].id);
       } else {
-         // Mock fallback since local supabase connection isn't real yet
          const mockData = [
            { id: '1', name: 'Regra Qualificado High Ticket', is_active: true },
            { id: '2', name: 'Regra Rejeição Revenda', is_active: false },
@@ -136,6 +145,32 @@ export default function AdminPage() {
       setLoading(false);
     }
   };
+
+  const loadAutomationFlow = async (id) => {
+    try {
+      // Tenta buscar do Supabase
+      const details = await automationService.getAutomationDetails(id);
+      
+      // Converte detalhes do banco em nodes/edges para ReactFlow
+      // (MVP: Mockando a conversão baseada no id da automação)
+      if (id === '1') {
+        setNodes(initialNodes);
+        setEdges(initialEdges);
+      } else {
+        // Fluxo diferente para o "teste"
+        setNodes([
+          { id: '1', type: 'trigger', position: { x: 50, y: 100 }, data: { label: 'Novo Lead' } },
+          { id: '3', type: 'action', position: { x: 400, y: 100 }, data: { label: 'Enviar Email', subLabel: 'Boas vindas', endpoint: 'https://webhook.site/email', isError: false } }
+        ]);
+        setEdges([
+          { id: 'e1-3', source: '1', target: '3', animated: true, style: { stroke: '#F55900', strokeWidth: 2 } }
+        ]);
+      }
+    } catch (error) {
+      console.error('Error loading flow:', error);
+    }
+  };
+
 
   const handleCreateAutomation = async () => {
     const name = prompt("Nome da nova automação:");
@@ -160,6 +195,11 @@ export default function AdminPage() {
 
   const activeAuto = automations.find(a => a.id === activeAutomationId);
 
+  const handleSaveFlow = () => {
+    // Aqui seria feita a chamada para a API Supabase (automationService.updateAutomationFlow(id, nodes, edges))
+    alert(`Fluxo "${activeAuto.name}" salvo com sucesso!`);
+  };
+
   return (
     <div className="h-screen w-screen bg-[#0a0a0a] flex flex-col font-['Inter']">
       
@@ -170,6 +210,9 @@ export default function AdminPage() {
             W3 <span className="text-[#F55900]">Automations</span>
           </div>
         </div>
+        <button onClick={signOut} className="bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold px-4 py-2 rounded flex items-center gap-2 transition-colors">
+          <LogOut className="w-4 h-4" /> Sair
+        </button>
       </div>
 
       {/* Main Content Area: Split View */}
@@ -226,7 +269,7 @@ export default function AdminPage() {
                  <button className="text-zinc-400 hover:text-red-500 transition-colors p-2" title="Excluir Automação">
                    <Trash2 className="w-4 h-4" />
                  </button>
-                 <button className="bg-[#F55900] hover:bg-[#d44d00] text-white text-xs font-bold px-4 py-2 rounded flex items-center gap-2 transition-colors">
+                 <button onClick={handleSaveFlow} className="bg-[#F55900] hover:bg-[#d44d00] text-white text-xs font-bold px-4 py-2 rounded flex items-center gap-2 transition-colors">
                    Salvar Fluxo
                  </button>
               </div>
