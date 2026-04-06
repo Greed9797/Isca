@@ -57,5 +57,27 @@ export const automationService = {
       .eq('id', id);
     if (error) throw error;
     return true;
+  },
+  
+  // Save flow state (nodes + edges)
+  updateAutomationFlow: async (id, flowState) => {
+    const { data, error } = await supabase
+      .from('automations')
+      .update({ flow_state: flowState })
+      .eq('id', id)
+      .select()
+      .single();
+    if (error) throw error;
+    return data;
+  },
+  
+  // Test webhook via Proxy Edge Function
+  testWebhook: async (url, payload) => {
+      // Chamada real para Edge Function
+      const { data, error } = await supabase.functions.invoke('webhook-proxy', { 
+          body: { url, payload } 
+      });
+      if (error) throw error;
+      return data;
   }
 };
