@@ -1,17 +1,2272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grupo W3 - O Ecossistema</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-black text-white selection:bg-[#F55900] selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Comercial Gratuito - Metodologia Ames</title>
+    <!-- Use Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Using Lucide for icon svgs -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* Backgrounds */
+            --bg-base:      #0a0a0a;
+            --bg-deep:      #050505;
+            --bg-mid:       #080808;
+            --bg-section:   #0d0d0d;
+            --bg-card:      #1a1a1a;
+            --bg-card-alt:  #161616;
+            --bg-elevated:  #111111;
+            /* Aliases legados */
+            --bg-dark:      #0a0a0a;
+            --bg-darker:    #111111;
+
+            /* Orange Brand */
+            --primary:        #F76B00;
+            --primary-hover:  #D95E00;
+            --primary-glow:   rgba(247, 107, 0, 0.2);
+            --primary-subtle: rgba(247, 107, 0, 0.1);
+
+            /* Accent */
+            --accent-gold: #DE9906;
+
+            /* Texto */
+            --text-light:     #ffffff;
+            --text-primary:   #c8c8c8;
+            --text-secondary: #a0a0a0;
+            --text-muted:     #666666;
+            --text-gray:      #a0a0a0;
+
+            /* Borders */
+            --border-color:       rgba(247, 107, 0, 0.2);
+            --border-subtle:      rgba(255, 255, 255, 0.05);
+            --border-card:        rgba(255, 255, 255, 0.08);
+            --border-card-strong: rgba(255, 255, 255, 0.1);
+
+            /* Typography */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body:    'Inter', sans-serif;
+            --h1-size:        2.2rem;
+            --h2-size:        1.5rem;
+            --h3-size:        1.5rem;
+            --body-size:      1.2rem;
+            --card-text-size: 0.8rem;
+
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 800;
+            line-height: 1.2;
+            font-family: var(--font-heading);
+            color: var(--text-light);
+        }
+
+        h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        p {
+            font-size: var(--body-size);
+            font-family: var(--font-body);
+            color: var(--text-primary);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 100px 0;
+        }
+
+        /* Hero */
+        .hero {
+            background-color: #050505;
+            background-image: radial-gradient(circle at 70% 30%, #1a1005 0%, #050505 60%);
+            padding-top: 100px;
+            padding-bottom: 0px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            font-size: 14rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.015);
+            z-index: 0;
+            letter-spacing: 5px;
+            user-select: none;
+            line-height: 0.8;
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTEwIDB2NDBNMjAgMHY0ME0zMCAwdjQwTTAgMjBoNDBNMCAzMGg0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwgMDwgMCwgMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==') repeat;
+            opacity: 0.3;
+            z-index: 0;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: 90vh;
+            padding-top: 40px;
+        }
+
+        .hero-logo {
+            height: 35px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .hero-content {
+            flex: 0 0 55%;
+            max-width: 600px;
+            padding-bottom: 60px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: var(--h1-size);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .hero-title .highlight {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-right: -40px;
+        }
+
+        .hero-subtitle strong {
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-bullets li {
+            font-size: var(--body-size);
+            color: var(--text-primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .hero-bullets i {
+            color: var(--primary);
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            stroke-width: 3;
+            margin-top: 2px;
+        }
+
+        .hero .btn {
+            background-color: #24d366;
+            color: #0f2e1b;
+            font-size: 1.1rem;
+            padding: 20px 40px;
+            width: 100%;
+            max-width: 480px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 20px rgba(36, 211, 102, 0.3);
+        }
+
+        .hero .btn:hover {
+            background-color: #2ce771;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(36, 211, 102, 0.5);
+        }
+
+        .hero-urgency {
+            font-size: 0.85rem;
+            color: #ff3333;
+            max-width: 480px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .hero-image-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: -5%;
+            width: 50%;
+            height: 95%;
+            pointer-events: none;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: bottom;
+            filter: drop-shadow(-10px 0px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Logo Marquee */
+        .logo-bar {
+            background-color: #080808;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 50px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-bar p {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+            font-family: var(--font-heading);
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            gap: 30px;
+            width: max-content;
+        }
+
+        .marquee-wrapper:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+            animation: marqueeScroll 25s linear infinite;
+        }
+
+        .marquee-item {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .marquee-item:hover {
+            transform: scale(1.1);
+            z-index: 2;
+        }
+
+        .marquee-item i {
+            width: 40px;
+            height: 40px;
+            /* Inherit color from inline styles below */
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-100% - 30px));
+            }
+        }
+
+        /* Pain Section */
+        .pain-section {
+            background-color: #0d0d0d;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .pain-section h2 {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .pain-section h2 .highlight {
+            color: var(--primary);
+        }
+
+        .pain-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .pain-row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pain-card {
+            background: linear-gradient(180deg, rgba(30, 25, 15, 0.6) 0%, rgba(15, 15, 15, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .pain-row-2 .pain-card {
+            flex: 1;
+            max-width: calc(50% - 10px);
+        }
+
+        .pain-row-3 .pain-card {
+            flex: 1;
+            max-width: calc(33.333% - 13.33px);
+        }
+
+        .pain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.3), transparent);
+        }
+
+        .pain-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            object-position: center;
+            margin-bottom: 25px;
+            opacity: 0.7;
+            mix-blend-mode: screen;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.1));
+        }
+
+        .pain-card p {
+            color: var(--text-primary);
+            font-size: var(--card-text-size);
+            line-height: 1.6;
+        }
+
+        .pain-card p strong {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .pain-footer-text {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 60px;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .pain-footer-action {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: transparent;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            font-family: var(--font-heading);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 107, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            background-color: #050505;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .benefits-section h2 {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.4;
+        }
+
+        .benefits-section h2 .highlight {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .benefit-card {
+            background-color: #161616;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 15px 15px;
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            border-color: rgba(255, 107, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .benefit-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .benefit-icon i {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+        }
+
+        .benefit-card h3 {
+            font-size: var(--h3-size);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 800;
+        }
+
+        .benefit-card p {
+            color: #a0a0a0;
+            font-size: var(--card-text-size);
+            line-height: 1.6;
+            font-family: var(--font-body);
+        }
+
+        .benefits-action {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* How it works */
+        .how-it-works {
+            background-color: var(--bg-dark);
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .flow-diagram::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 0;
+        }
+
+        .flow-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            background-color: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .flow-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .flow-step p {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        /* What you get */
+        .deliverables-section {
+            background-color: var(--bg-dark);
+            padding: 100px 0;
+        }
+
+        .deliverables-section h2 {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.4;
+        }
+
+        .deliverables-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .deliverable-item {
+            display: flex;
+            align-items: center;
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .deliverable-item:hover {
+            border-color: rgba(255, 107, 0, 0.3);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .deliverable-image {
+            width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .deliverable-content {
+            padding-left: 30px;
+        }
+
+        .deliverable-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .deliverable-content p {
+            color: #a0a0a0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            font-family: var(--font-body);
+        }
+
+        /* Social Proof (Cases) */
+        .social-proof {
+            background-color: #ffffff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #000000;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            line-height: 1.3;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .case-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            aspect-ratio: 4 / 5;
+            background-color: #111;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .case-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cases-footer {
+            margin-top: 40px;
+        }
+
+        .cases-footer p {
+            color: #333333;
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .btn-outline-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: transparent;
+            color: #000;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            font-family: var(--font-heading);
+        }
+
+        .btn-outline-dark:hover {
+            background-color: rgba(255, 107, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Alpha Section */
+        .alpha-section {
+            background-color: #060606;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            padding: 120px 0;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .alpha-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .alpha-top h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .alpha-top h2 .highlight {
+            color: var(--primary);
+        }
+
+        .alpha-top p {
+            font-family: var(--font-body);
+            color: #a0a0a0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .alpha-image {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .alpha-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-family: var(--font-body);
+            color: #ffffff;
+            font-size: 0.8rem;
+        }
+
+        .alpha-founders {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .founder-card {
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .founder-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(20%);
+        }
+
+        .founder-info {
+            padding: 25px 20px;
+        }
+
+        .founder-info h4 {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .founder-info span {
+            color: var(--primary);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .founder-info p {
+            font-family: var(--font-body);
+            color: #a0a0a0;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .alpha-action {
+            text-align: center;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #050505;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            padding: 100px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .faq-section .subtitle {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.15rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background-color: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: #ffb000;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            transition: var(--transition);
+            background-color: #0a0a0a;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: #ffb000;
+            color: #000000;
+        }
+
+        .faq-question i {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #111111;
+        }
+
+        .faq-answer p {
+            padding: 25px;
+            color: #a0a0a0;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .faq-action {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #080808;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 2rem;
+            color: #ffb000;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .footer-links {
+            color: #666666;
+            font-size: 1.2rem;
+            font-family: var(--font-heading);
+        }
+
+        .footer-links a {
+            color: #666666;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 992px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pain-row-2 .pain-card,
+            .pain-row-3 .pain-card {
+                flex: none;
+                max-width: calc(50% - 10px);
+                width: calc(50% - 10px);
+            }
+
+            .pain-row {
+                flex-wrap: wrap;
+            }
+
+            .deliverable-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .deliverable-image {
+                width: 100%;
+                height: 250px;
+                margin-bottom: 20px;
+            }
+
+            .deliverable-content {
+                padding-left: 0;
+            }
+
+            .deliverable-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .alpha-top {
+                grid-template-columns: 1fr;
+            }
+
+            .alpha-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .alpha-founders {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .alpha-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .alpha-founders {
+                grid-template-columns: 1fr;
+            }
+
+            .deliverable-image {
+                width: 100%;
+                height: 250px;
+                margin-bottom: 20px;
+            }
+
+            .deliverable-content {
+                padding-left: 0;
+            }
+
+            .deliverable-item:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+
+            .pain-row-2 .pain-card,
+            .pain-row-3 .pain-card {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        .guarantee-text {
+            margin-top: 20px;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 30px 0;
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 80px;
+                min-height: auto;
+            }
+
+            .hero-bg-text {
+                font-size: 6rem;
+                top: 5%;
+                right: -10%;
+                text-align: center;
+            }
+
+            .hero .container {
+                flex-direction: column;
+                padding-top: 20px;
+                text-align: left;
+                min-height: auto;
+            }
+
+            .hero-content {
+                flex: none;
+                max-width: 100%;
+                z-index: 3;
+                padding-bottom: 40px;
+            }
+
+            .hero-logo {
+                margin: 0 auto 30px 0;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                margin-right: 0;
+            }
+
+            .hero-image-wrapper {
+                position: relative;
+                width: 100%;
+                height: 400px;
+                right: auto;
+                bottom: auto;
+                justify-content: center;
+                opacity: 0.9;
+                z-index: 1;
+                margin-top: -60px;
+            }
+
+            .hero .btn {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-urgency {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .social-proof-badges {
+                justify-content: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .flow-diagram::before {
+                display: none;
+            }
+
+            .flow-step {
+                width: 100%;
+            }
+
+            .deliverable-item,
+            .deliverable-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .deliverable-image {
+                width: 100%;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-bg-text {
+                font-size: 4rem;
+            }
+        }
+
+        /* ── Mobile structural fixes ── */
+        @media (max-width: 768px) {
+            /* Reduce seção padding */
+            section {
+                padding: 60px 0;
+            }
+
+            .pain-section,
+            .benefits-section,
+            .alpha-section,
+            .deliverables-section,
+            .faq-section,
+            .social-proof {
+                padding: 60px 0;
+            }
+
+            .how-it-works {
+                padding-top: 60px !important;
+                padding-bottom: 60px !important;
+            }
+
+            /* Hero subtitle menor no mobile */
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            /* Hero image: altura menor pra não criar espaço morto */
+            .hero-image-wrapper {
+                height: 220px;
+                margin-top: -10px;
+            }
+
+            /* Pain cards: imagem menor */
+            .pain-card img {
+                height: 130px;
+            }
+
+            .pain-card {
+                padding: 24px 20px;
+            }
+
+            /* Stats: 2 colunas no mobile (não 1) */
+            .alpha-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            /* Founder images: altura reduzida */
+            .founder-card img {
+                height: 220px;
+            }
+
+            /* FAQ question: fonte menor pra não cortar */
+            .faq-question {
+                font-size: 0.9rem;
+                padding: 16px 18px;
+            }
+
+            /* Footer: centralizar no mobile */
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* Cases grid: padding lateral */
+            .cases-grid {
+                max-width: 100%;
+                padding: 0 8px;
+            }
+
+            /* Container padding lateral mínimo */
+            .container {
+                padding: 0 18px;
+            }
+        }
+    </style>
+    <style>
+    /* Unificando Design de Todos os Botões para o padrão Dark com #F76B00 */
+    .btn, .btn-outline, .btn-outline-dark, .submit-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        background-color: transparent !important;
+        font-family: var(--font-heading) !important;
+        font-weight: 800 !important;
+        font-size: 1.1rem !important;
+        text-decoration: none !important;
+        padding: 18px 40px !important;
+        border-radius: 6px !important;
+        text-transform: uppercase !important;
+        transition: all 0.3s ease !important;
+        border: 2px solid #F76B00 !important;
+        cursor: pointer !important;
+        text-align: center !important;
+        box-shadow: none !important;
+        width: auto;
+    }
+
+    .btn, .btn-outline, .submit-btn {
+        color: #ffffff !important;
+    }
+
+    .btn-outline-dark {
+        color: #000000 !important;
+    }
+
+    .submit-btn {
+        width: 100% !important;
+        padding: 18px 24px !important;
+    }
+
+    .btn:hover, .btn-outline:hover, .submit-btn:hover {
+        background-color: rgba(247, 107, 0, 0.1) !important;
+        box-shadow: 0 0 20px rgba(247, 107, 0, 0.2) !important;
+        transform: translateY(-2px) !important;
+        color: #ffffff !important;
+    }
+
+    .btn-outline-dark:hover {
+        background-color: rgba(247, 107, 0, 0.1) !important;
+        box-shadow: 0 0 20px rgba(247, 107, 0, 0.2) !important;
+        transform: translateY(-2px) !important;
+        color: #000000 !important;
+    }
+
+    .submit-btn:disabled {
+        border-color: #444444 !important;
+        color: #666666 !important;
+        background-color: transparent !important;
+        cursor: not-allowed !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .submit-btn i, .btn i, .btn-outline i, .btn-outline-dark i {
+        width: 22px;
+        height: 22px;
+    }
+
+    @media (max-width: 768px) {
+        .btn { max-width: 100% !important; width: 100% !important; }
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-text">SCALE<br>FAST</div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <img src="https://via.placeholder.com/200x50/050505/FFFFFF?text=LOGO+AQUI" alt="Logo" class="hero-logo">
+                <h1 class="hero-title">Seu e-commerce fatura mais que <span class="highlight">20k/mês?</span></h1>
+
+                <p class="hero-subtitle">Em 1 hora, um especialista da <strong>Metodologia Ames</strong> vai identificar os pontos principais da sua operação e montar um plano estratégico para aumentar seu faturamento com lucro e previsibilidade.</p>
+
+                <a href="#agendar" class="btn">QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i></a>
+            </div>
+            <div class="hero-image-wrapper fade-in">
+                <!-- IMPORTANTE: Substitua por uma imagem PNG do especialista com fundo transparente para obter o efeito exato -->
+                <img src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-businessman-in-suit-transparent-background-png-image_10214876.png"
+                    alt="Especialista Comercial" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Bar (Marquee) -->
+    <div class="logo-bar">
+        <p class="fade-in">QUEM JA FEZ PARTE DA CONSULTORIA</p>
+        <div class="marquee-wrapper fade-in">
+            <div class="marquee-content">
+                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
+                        data-lucide="award"></i></div>
+                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
+                </div>
+                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
+                </div>
+                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
+                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
+                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
+                        data-lucide="maximize"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
+                        data-lucide="star"></i></div>
+            </div>
+            <!-- Duplicated 2 more times for true infinite loop on wide screens -->
+            <div class="marquee-content">
+                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
+                        data-lucide="award"></i></div>
+                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
+                </div>
+                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
+                </div>
+                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
+                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
+                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
+                        data-lucide="maximize"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
+                        data-lucide="star"></i></div>
+            </div>
+            <div class="marquee-content">
+                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
+                        data-lucide="award"></i></div>
+                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
+                </div>
+                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
+                </div>
+                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
+                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
+                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
+                        data-lucide="maximize"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
+                        data-lucide="star"></i></div>
+            </div>
+            <div class="marquee-content">
+                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
+                        data-lucide="award"></i></div>
+                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
+                </div>
+                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
+                </div>
+                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
+                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
+                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
+                        data-lucide="maximize"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
+                        data-lucide="star"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pain / Agitation -->
+    <section class="pain-section">
+        <div class="container">
+            <div style="text-align: center; color: var(--primary); font-weight: 800; font-size: 1.15rem; text-transform: uppercase; margin-bottom: 20px;"
+                class="fade-in">PARA QUEM É?</div>
+            <h2 class="fade-in">Para que perfis de negócios foi desenhada esta <span class="highlight">Consultoria de
+                    1h30?</span></h2>
+            <p class="pain-footer-text fade-in" style="margin-top: 0; margin-bottom: 50px;">Esta sessão profunda
+                destina-se a donos de negócios que querem atingir o próximo nível de faturação:</p>
+
+            <div class="pain-grid">
+                <div class="pain-row pain-row-3">
+                    <div class="pain-card fade-in">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-illustration-download-in-svg-png-gif-file-formats--store-cart-service-e-commerce-pack-e-commerce-shopping-illustrations-4251268.png"
+                            alt="Site Próprio">
+                        <p><strong>Vendem em Site Próprio:</strong> Donos de e-commerce que já faturam, mas sentem que
+                            as campanhas estagnaram e precisam de melhorar a conversão para escalar sem perder a margem
+                            de lucro.</p>
+                    </div>
+                    <div class="pain-card fade-in">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-marketplace-illustration-download-in-svg-png-gif-file-formats--shopping-store-retail-e-commerce-pack-e-commerce-shopping-illustrations-4251270.png"
+                            alt="Marketplaces">
+                        <p><strong>Vendem em Marketplaces:</strong> Empreendedores que dependem destas plataformas e
+                            querem estruturar a sua própria operação, criando um canal de vendas direto e mais
+                            lucrativo.</p>
+                    </div>
+                    <div class="pain-card fade-in">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/store-illustration-download-in-svg-png-gif-file-formats--shop-front-retail-building-marketplace-marketplace-pack-e-commerce-shopping-illustrations-4251277.png"
+                            alt="Lojas Físicas">
+                        <p><strong>Donos de Lojas Físicas:</strong> Têm uma operação física a funcionar e querem
+                            replicar esse sucesso no digital, criando uma estrutura sólida e escalável de vendas online.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pain-footer-action fade-in">
+                <a href="#agendar" class="btn-outline">
+                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits (Removed to match 6-section layout) -->
+
+    <!-- How it works -->
+    <section class="how-it-works" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="container">
+            <h2 class="fade-in">O que vai acontecer nestes <span class="highlight">90 minutos de imersão no seu
+                    negócio?</span></h2>
+            <div style="text-align: center; color: var(--text-gray); font-size: 1.15rem; margin-bottom: 50px;"
+                class="fade-in">Não é uma reunião rápida de apresentação. É uma sessão de trabalho focada nos seus
+                resultados.</div>
+
+            <div class="flow-diagram fade-in">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <h3>Análise e Raio-X Atual</h3>
+                    <p>Vamos olhar para a sua operação atual, identificar onde estão os gargalos comerciais e descobrir
+                        por que razão não está a faturar mais.</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <h3>Estruturação de Escala</h3>
+                    <p>Com base no nosso ecossistema e metodologias que já geraram milhões, vamos mostrar-lhe o que
+                        precisa de mudar na sua captação, tráfego e estrutura.</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <h3>O Seu Plano de Ação</h3>
+                    <p>Após a consultoria grátis, sairá da reunião com um caminho claro. Terá em mãos os próximos passos
+                        exatos para ter o melhor ano da história do seu negócio, com resultados reais e crescimento
+                        contínuo.</p>
+                </div>
+            </div>
+
+            <div class="benefits-action fade-in" style="margin-top: 60px; text-align: center;">
+                <a href="#agendar" class="btn-outline">
+                    QUERO O MEU PLANO DE AÇÃO VALIDADO <i data-lucide="arrow-right-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What you get (Removed to match 6-section layout) -->
+
+    <!-- Social Proof (Cases) -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="fade-in">Terá acesso aos princípios do método que fez operações saírem do zero para múltiplas
+                dezenas de milhares em faturação.</h2>
+
+            <div class="cases-grid">
+                <div class="case-card fade-in">
+                    <!-- Placeholder representing the first case image -->
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=400&h=500&q=80"
+                        alt="Case 1">
+                </div>
+                <div class="case-card fade-in">
+                    <!-- Placeholder representing the second case image -->
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&h=500&q=80"
+                        alt="Case 2">
+                </div>
+                <div class="case-card fade-in">
+                    <!-- Placeholder representing the third case image -->
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=400&h=500&q=80"
+                        alt="Case 3">
+                </div>
+            </div>
+
+            <div class="cases-footer fade-in">
+                <p>Aperte no botão abaixo para garantir sua vaga agora mesmo:</p>
+                <a href="#agendar" class="btn-outline-dark">
+                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alpha Section -->
+    <section class="alpha-section">
+        <div class="container">
+            <div class="alpha-top fade-in">
+                <div>
+                    <h2>A NOSSA OPERAÇÃO É A PROVA VIVA DE QUE A <span class="highlight">METODOLOGIA AMES
+                            FUNCIONA</span></h2>
+                    <p>Com um ecossistema altamente estruturado, a nossa operação interna saiu do zero para ultrapassar
+                        a marca de R$ 1,5 milhão em faturamento por mês, consolidando-se como um case de sucesso no
+                        e-commerce brasileiro.</p>
+                    <p>Todo o modelo de tráfego, conversão e retenção aplicado nos nossos negócios hoje é o pilar da
+                        Metodologia Ames, permitindo que donos de e-commerce utilizem estratégias que foram
+                        exaustivamente testadas e validadas no campo de batalha.</p>
+                    <p>Liderado por Leonardo Ames, o Grupo W3 construiu um ecossistema que não depende de "hacks", mas
+                        sim de um modelo de crescimento integrado, garantindo uma escala previsível, lucrativa e
+                        sustentável.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+                        alt="Equipe Alpha" class="alpha-image">
+                </div>
+            </div>
+
+            <div class="alpha-stats fade-in">
+                <div class="stat-card">
+                    <h3>+230</h3>
+                    <p>Agências Aceleradas</p>
+                </div>
+                <div class="stat-card">
+                    <h3>+720</h3>
+                    <p>Gestores e vendedores treinados</p>
+                </div>
+                <div class="stat-card">
+                    <h3>+30M</h3>
+                    <p>Em vendas em nossas operações</p>
+                </div>
+                <div class="stat-card">
+                    <h3>+13M</h3>
+                    <p>De faturamento para Agências aceleradas</p>
+                </div>
+            </div>
+
+            <div class="alpha-founders fade-in">
+                <div class="founder-card">
+                    <img src="https://images.unsplash.com/photo-1541577141970-eebc83ebe30e?auto=format&fit=crop&w=400&q=80"
+                        alt="Gustavo de Oliveira">
+                    <div class="founder-info">
+                        <h4>GUSTAVO DE OLIVEIRA</h4>
+                        <span>Founder & CSO da Alpha | Founder da FGA</span>
+                        <p>Criador da estrutura comercial da Alpha. Já vendeu mais de R$30 MILHÕES em serviços com
+                            processos replicáveis para qualquer agência.</p>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+                        alt="Athos Vilarins">
+                    <div class="founder-info">
+                        <h4>ATHOS VILARINS</h4>
+                        <span>Founder & CEO da Alpha | Sócio da FGA</span>
+                        <p>A mente por trás da Alpha. À frente da maior agência nichada do país, lidera um ecossistema
+                            que já movimentou mais de 120 milhões de reais.</p>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+                        alt="Pedro Dias">
+                    <div class="founder-info">
+                        <h4>PEDRO DIAS</h4>
+                        <span>Diretor de Operações da Alpha & Sócio da FGA</span>
+                        <p>Montou o operacional da Alpha com processos que escalam e sustentam milhares de clientes sem
+                            travar crescimento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alpha-action fade-in">
+                <a href="#agendar" class="btn-outline">
+                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="fade-in">FAQ</h2>
+            <div class="subtitle fade-in">PERGUNTAS FREQUENTES</div>
+
+            <div class="faq-list fade-in">
+                <!-- FAQ Item 1 (Active by default as per screenshot) -->
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <i data-lucide="chevron-down"></i>
+                        QUANTO TEMPO DURA O DIAGNÓSTICO?
+                    </div>
+                    <div class="faq-answer" style="max-height: 200px;">
+                        <p>O diagnóstico tem duração média de 30 minutos, tempo ideal para analisarmos com profundidade
+                            os principais pontos da sua operação e identificarmos o que está limitando o crescimento da
+                            sua agência.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="chevron-right"></i>
+                        QUEM REALIZA O DIAGNÓSTICO?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nosso diagnóstico é realizado por especialistas de negócio altamente treinados na metodologia
+                            FGA, garantindo uma visão técnica apurada para identificar gargalos e montar o melhor plano
+                            de ação para a sua operação.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="chevron-right"></i>
+                        COMO DEVO ME PREPARAR PARA O DIAGNÓSTICO?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você não precisará preencher planilhas extensas de antemão. Basta vir com abertura para
+                            entender suas margens, volume de vendas atual e estar com sua mente livre das distrações do
+                            operacional por alguns minutos.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="chevron-right"></i>
+                        POSSO CONVIDAR ALGUÉM PARA PARTICIPAR COMIGO?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Com certeza. Recomendamos fortemente que, caso você tenha sócios ou líderes essenciais da
+                            área comercial já atuantes, que eles estejam presentes para que todos fiquem alinhados com o
+                            escopo do plano.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="chevron-right"></i>
+                        O DIAGNÓSTICO É PERSONALIZADO PARA O MEU NEGÓCIO?
+                    </div>
+                    <div class="faq-answer">
+                        <p>100% personalizado. Analisaremos especificamente o seu nicho, seu ticket médio, os desafios
+                            da sua esteira atual de prospecção e os dados pontuais que limitam seu faturamento de
+                            agência base.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-action fade-in">
+                <a href="#agendar" class="btn-outline">
+                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal do Formulário de Aplicação -->
+    <div id="agendar-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="form-title">Preencha os dados abaixo e cadastre-se</h2>
+                <button class="modal-close" id="closeModalBtn">
+                    <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                </button>
+            </div>
+
+            <form id="leadForm" class="lead-form">
+                <!-- 1. Nome Completo -->
+                <div class="form-group">
+                    <input type="text" id="fullName" name="fullName" placeholder="Digite seu nome" required>
+                </div>
+
+                <!-- 2. E-mail Profissional -->
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Digite seu melhor e-mail" required>
+                </div>
+
+                <!-- 3. WhatsApp com DDD -->
+                <div class="form-group">
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="🇧🇷 Whatsapp com DDD" maxlength="15" required>
+                </div>
+
+                <!-- 4. Nome da agência -->
+                <div class="form-group">
+                    <input type="text" id="brandLink" name="brandLink" placeholder="Nome da sua agência" required>
+                </div>
+
+                <!-- 5. Faturamento -->
+                <div class="form-group">
+                    <select id="revenue" name="revenue" required>
+                        <option value="" disabled selected hidden>Qual é o seu faturamento MENSAL aproximada?</option>
+                        <option value="Ainda não vendo">Ainda não vendo</option>
+                        <option value="Até R$ 10.000">Até R$ 10.000</option>
+                        <option value="De R$ 10.000 a R$ 50.000">De R$ 10.000 a R$ 50.000</option>
+                        <option value="De R$ 50.000 a R$ 100.000">De R$ 50.000 a R$ 100.000</option>
+                        <option value="Mais de R$ 100.000">Mais de R$ 100.000</option>
+                    </select>
+                </div>
+
+                <!-- Botão de Submit (CTA) -->
+                <button type="submit" id="submitBtn" class="submit-btn">QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i></button>
+                <p class="form-disclaimer">Ao se inscrever você concorda com o tratamento de seus dados pessoais para receber comunicações via whatsapp, sms, ligações e e-mails da FGA. Seus dados apenas serão utilizados para fins de comunicação e marketing. Você pode cancelar o recebimentos desses e-mails quando quiser.</p>
+            </form>
+        </div>
+    </div>
+
+    <style>
+    /* CSS do Modal e Formulário */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 600px;
+        background-color: #0b0b0b;
+        padding: 40px;
+        border-radius: 8px;
+        position: relative;
+        transform: translateY(20px) scale(0.95);
+        transition: all 0.3s ease;
+        max-height: 90vh;
+        overflow-y: auto;
+        color: #FFFFFF;
+        font-family: var(--font-heading);
+    }
+
+    .modal-overlay.active .modal-content {
+        transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #FFFFFF;
+        margin: 0;
+    }
+
+    .modal-close {
+        background: transparent;
+        border: none;
+        color: #DE9906; /* Laranja/Amarelo */
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        outline: none;
+    }
+
+    .modal-close svg {
+        transition: opacity 0.3s ease;
+    }
+
+    .modal-close:hover svg {
+        opacity: 0.8;
+    }
+
+    .lead-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group input,
+    .form-group select {
+        background-color: #333333; 
+        border: 1px solid #444444;
+        color: #FFFFFF;
+        font-family: var(--font-body);
+        font-size: 15px;
+        padding: 16px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        outline: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-group input::placeholder,
+    .form-group select {
+        color: #a0a0a0;
+    }
+    .form-group select option {
+        color: #FFFFFF;
+    }
+
+    .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px top 50%;
+        background-size: 12px auto;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: #DE9906; 
+    }
+
+    .submit-btn {
+        background-color: #DE9906; 
+        color: #FFFFFF; 
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 18px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+        background-color: #c78805;
+    }
+
+    .submit-btn:disabled {
+        background-color: #666666;
+        cursor: not-allowed;
+    }
+
+    .form-disclaimer {
+        color: #777777;
+        font-size: 0.75rem;
+        text-align: center;
+        line-height: 1.5;
+        margin-top: 15px;
+        font-family: var(--font-body);
+    }
+
+    /* Scrollbar Style para o Modal */
+    .modal-content::-webkit-scrollbar {
+        width: 6px;
+    }
+    .modal-content::-webkit-scrollbar-track {
+        background: #111111; 
+        border-radius: 8px;
+    }
+    .modal-content::-webkit-scrollbar-thumb {
+        background: #444444; 
+        border-radius: 8px;
+    }
+    .modal-content::-webkit-scrollbar-thumb:hover {
+        background: #DE9906; 
+    }
+
+    /* Responsividade Mobile */
+    @media (max-width: 640px) {
+        .modal-content {
+            padding: 30px 20px;
+        }
+
+        .modal-header {
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .form-title {
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group input,
+        .form-group select {
+            font-size: 16px; /* Evita auto-zoom no iOS */
+        }
+    }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("leadForm");
+        
+        if(form) {
+            const whatsappInput = document.getElementById("whatsapp");
+            const submitBtn = document.getElementById("submitBtn");
+
+            // Máscara de Whatsapp
+            whatsappInput.addEventListener("input", function(e) {
+                let value = e.target.value.replace(/\D/g, ""); 
+                
+                if (value.length > 0) {
+                    value = "(" + value;
+                }
+                if (value.length > 3) {
+                    value = value.slice(0, 3) + ") " + value.slice(3);
+                }
+                if (value.length > 10) {
+                    value = value.slice(0, 10) + "-" + value.slice(10, 14); 
+                }
+                
+                e.target.value = value;
+            });
+
+            // Submit de Form
+            form.addEventListener("submit", async function(e) {
+                e.preventDefault(); 
+                
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = "CARREGANDO...";
+                submitBtn.disabled = true;
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/consultoria-gratuita"; 
+                const SUCCESS_REDIRECT_URL = "URL_DO_CALENDLY_OU_OBRIGADO";
+
+                try {
+                    const response = await fetch(WEBHOOK_URL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        window.location.href = SUCCESS_REDIRECT_URL;
+                    } else {
+                        throw new Error("Erro na comunicação com o servidor.");
+                    }
+                    
+                } catch (error) {
+                    console.error("Form Submission Error:", error);
+                    alert("Ocorreu um erro ao enviar sua aplicação. Por favor, verifique seus dados ou tente novamente mais tarde.");
+                    
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+
+            // Lógica do Modal
+            const modal = document.getElementById("agendar-modal");
+            const closeBtn = document.getElementById("closeModalBtn");
+            const openBtns = document.querySelectorAll('a[href="#agendar"]');
+
+            const openModal = (e) => {
+                e.preventDefault();
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden"; // Previne scroll de fundo
+            };
+
+            const closeModalFunc = () => {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            };
+
+            // Intercepta todos os links com âncora #agendar
+            openBtns.forEach(btn => btn.addEventListener("click", openModal));
+            
+            // Fecha pelo botão
+            closeBtn.addEventListener("click", closeModalFunc);
+
+            // Fecha ao clicar fora (no overlay)
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    closeModalFunc();
+                }
+            });
+            
+            // Garante inicialização do icone X
+            if(window.lucide) {
+                window.lucide.createIcons();
+            }
+        }
+    });
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">FGA</div>
+                <div class="footer-links">
+                    <a href="#">Política de privacidade</a> | <a href="#">Termos de uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = faqItem.querySelector('i');
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                    const itemIcon = item.querySelector('i');
+                    // Reset icon class
+                    itemIcon.innerHTML = '';
+                    itemIcon.setAttribute('data-lucide', 'chevron-right');
+                    lucide.createIcons({ name: 'chevron-right', attrs: { class: itemIcon.className } });
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    // Set active icon
+                    icon.innerHTML = '';
+                    icon.setAttribute('data-lucide', 'chevron-down');
+                    lucide.createIcons({ name: 'chevron-down', attrs: { class: icon.className } });
+                }
+            });
+        });
+
+        // Initialize Lucide Icons for everything first
+        lucide.createIcons();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once element has faded in
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
 </html>
