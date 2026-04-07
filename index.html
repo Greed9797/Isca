@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico Comercial Gratuito - Metodologia Ames</title>
-    <!-- Use Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <!-- Using Lucide for icon svgs -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.hugeicons.com">
+    <link rel="dns-prefetch" href="https://institutofga.com">
+    <!-- Fonts: subset de pesos realmente usados -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Hugeicons -->
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
     <style>
         :root {
             /* Backgrounds */
@@ -38,8 +40,8 @@
             --text-light:     #ffffff;
             --text-primary:   #c8c8c8;
             --text-secondary: #a0a0a0;
-            --text-muted:     #666666;
-            --text-gray:      #a0a0a0;
+            --text-muted:     #888888;
+            --text-gray:      #a8a8a8;
 
             /* Borders */
             --border-color:       rgba(247, 107, 0, 0.2);
@@ -52,9 +54,9 @@
             --font-body:    'Inter', sans-serif;
             --h1-size:        2.2rem;
             --h2-size:        1.5rem;
-            --h3-size:        1.5rem;
+            --h3-size:        1.2rem;
             --body-size:      1.2rem;
-            --card-text-size: 0.8rem;
+            --card-text-size: 1rem;
 
             --transition: all 0.3s ease;
         }
@@ -219,7 +221,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 0.9rem;
             color: var(--text-primary);
             margin-bottom: 2rem;
             font-weight: 400;
@@ -320,7 +322,7 @@
             margin-bottom: 40px;
             font-weight: 800;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: var(--body-size);
             letter-spacing: 1.5px;
             font-family: var(--font-heading);
         }
@@ -341,30 +343,25 @@
             gap: 30px;
             flex-shrink: 0;
             animation: marqueeScroll 25s linear infinite;
+            will-change: transform;
         }
 
         .marquee-item {
-            width: 80px;
-            height: 80px;
+            width: 160px;
+            height: 160px;
             background-color: var(--bg-card);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .marquee-item:hover {
-            transform: scale(1.1);
-            z-index: 2;
-        }
-
         .marquee-item i {
-            width: 40px;
-            height: 40px;
+            width: 80px;
+            height: 80px;
             /* Inherit color from inline styles below */
         }
 
@@ -391,7 +388,7 @@
             max-width: 1000px;
             margin: 0 auto 4rem;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: var(--h2-size);
             text-transform: uppercase;
             font-family: var(--font-heading);
             font-weight: 800;
@@ -473,7 +470,7 @@
 
         .pain-footer-text {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: var(--body-size);
             font-weight: 500;
             margin-top: 60px;
             color: #b0b0b0;
@@ -523,7 +520,7 @@
 
         .benefits-section h2 {
             text-transform: uppercase;
-            font-size: 1.5rem;
+            font-size: var(--h2-size);
             max-width: 900px;
             margin: 0 auto 3rem;
             line-height: 1.4;
@@ -607,7 +604,7 @@
         .flow-diagram {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-top: 60px;
             position: relative;
         }
@@ -647,13 +644,13 @@
         }
 
         .flow-step h3 {
-            font-size: 1.5rem;
+            font-size: var(--h3-size);
             margin-bottom: 10px;
         }
 
         .flow-step p {
             color: var(--text-gray);
-            font-size: 0.8rem;
+            font-size: var(--card-text-size);
             max-width: 250px;
             margin: 0 auto;
         }
@@ -666,7 +663,7 @@
 
         .deliverables-section h2 {
             text-transform: uppercase;
-            font-size: 1.5rem;
+            font-size: var(--h2-size);
             max-width: 800px;
             margin: 0 auto 4rem;
             line-height: 1.4;
@@ -709,7 +706,7 @@
         }
 
         .deliverable-content h3 {
-            font-size: 1.5rem;
+            font-size: var(--h3-size);
             margin-bottom: 15px;
             color: #ffffff;
             text-transform: uppercase;
@@ -718,7 +715,7 @@
 
         .deliverable-content p {
             color: #a0a0a0;
-            font-size: 0.8rem;
+            font-size: var(--card-text-size);
             line-height: 1.6;
             font-family: var(--font-body);
         }
@@ -733,7 +730,7 @@
         .social-proof h2 {
             font-family: var(--font-heading);
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: var(--h2-size);
             color: #000000;
             text-transform: uppercase;
             margin-bottom: 50px;
@@ -775,7 +772,7 @@
         .cases-footer p {
             color: #333333;
             font-family: var(--font-body);
-            font-size: 1.2rem;
+            font-size: var(--body-size);
             font-weight: 600;
             margin-bottom: 30px;
         }
@@ -822,7 +819,7 @@
 
         .alpha-top h2 {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: var(--h2-size);
             font-weight: 900;
             text-transform: uppercase;
             margin-bottom: 30px;
@@ -836,7 +833,7 @@
         .alpha-top p {
             font-family: var(--font-body);
             color: #a0a0a0;
-            font-size: 1.2rem;
+            font-size: var(--body-size);
             line-height: 1.6;
             margin-bottom: 20px;
         }
@@ -867,7 +864,7 @@
 
         .stat-card h3 {
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: var(--h3-size);
             font-family: var(--font-heading);
             font-weight: 900;
             margin-bottom: 10px;
@@ -876,7 +873,7 @@
         .stat-card p {
             font-family: var(--font-body);
             color: #ffffff;
-            font-size: 0.8rem;
+            font-size: var(--card-text-size);
         }
 
         .alpha-founders {
@@ -911,7 +908,7 @@
         .founder-info h4 {
             font-family: var(--font-heading);
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: var(--h3-size);
             text-transform: uppercase;
             margin-bottom: 5px;
             color: #ffffff;
@@ -920,7 +917,7 @@
         .founder-info span {
             color: var(--primary);
             font-family: var(--font-heading);
-            font-size: 0.8rem;
+            font-size: var(--card-text-size);
             font-weight: 800;
             text-transform: uppercase;
             display: block;
@@ -930,7 +927,7 @@
         .founder-info p {
             font-family: var(--font-body);
             color: #a0a0a0;
-            font-size: 0.8rem;
+            font-size: var(--card-text-size);
             line-height: 1.5;
         }
 
@@ -951,7 +948,7 @@
             text-align: center;
             font-family: var(--font-heading);
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: var(--h2-size);
             color: #ffffff;
             text-transform: uppercase;
             margin-bottom: 10px;
@@ -1026,20 +1023,14 @@
 
         .faq-answer p {
             padding: 25px;
-            color: #a0a0a0;
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            line-height: 1.6;
+            color: #b8b8b8;
+            font-family: var(--font-body);
+            font-size: var(--body-size);
+            line-height: 1.7;
         }
 
         .faq-action {
             text-align: center;
-        }
-
-        footer {
-            background-color: #080808;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer-content {
@@ -1060,13 +1051,13 @@
         }
 
         .footer-links {
-            color: #666666;
-            font-size: 1.2rem;
+            color: #8a8a8a;
+            font-size: 1rem;
             font-family: var(--font-heading);
         }
 
         .footer-links a {
-            color: #666666;
+            color: #8a8a8a;
             text-decoration: none;
             transition: var(--transition);
         }
@@ -1128,62 +1119,11 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cases-grid {
-                grid-template-columns: 1fr;
-                max-width: 350px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .alpha-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .alpha-founders {
-                grid-template-columns: 1fr;
-            }
-
-            .deliverable-image {
-                width: 100%;
-                height: 250px;
-                margin-bottom: 20px;
-            }
-
-            .deliverable-content {
-                padding-left: 0;
-            }
-
-            .deliverable-item:hover {
-                transform: translateY(-5px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cases-grid {
-                grid-template-columns: 1fr;
-                max-width: 350px;
-            }
-
-            .pain-row-2 .pain-card,
-            .pain-row-3 .pain-card {
-                max-width: 100%;
-                width: 100%;
-            }
-        }
 
         .guarantee-text {
             margin-top: 20px;
             color: var(--text-gray);
-            font-size: 1.2rem;
+            font-size: var(--body-size);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1304,30 +1244,19 @@
             }
         }
 
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .hero-title {
-                font-size: 1.9rem;
-            }
-
-            .hero-bg-text {
-                font-size: 4rem;
-            }
-        }
-
         /* ── Mobile structural fixes ── */
         @media (max-width: 768px) {
+            .hero-title { font-size: 1.9rem; }
+            .hero-bg-text { font-size: 4rem; }
+            .pain-row-2 .pain-card,
+            .pain-row-3 .pain-card { max-width: 100%; width: 100%; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .alpha-stats { grid-template-columns: repeat(2, 1fr) !important; }
+            .alpha-founders { grid-template-columns: 1fr; }
+            .deliverable-image { width: 100%; height: 250px; margin-bottom: 20px; }
+            .deliverable-content { padding-left: 0; }
+            .deliverable-item:hover { transform: translateY(-5px); }
+            .cases-grid { grid-template-columns: 1fr; max-width: 100%; padding: 0 8px; }
             /* Reduce seção padding */
             section {
                 padding: 60px 0;
@@ -1367,11 +1296,6 @@
                 padding: 24px 20px;
             }
 
-            /* Stats: 2 colunas no mobile (não 1) */
-            .alpha-stats {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-
             /* Founder images: altura reduzida */
             .founder-card img {
                 height: 220px;
@@ -1389,20 +1313,13 @@
                 text-align: center;
             }
 
-            /* Cases grid: padding lateral */
-            .cases-grid {
-                max-width: 100%;
-                padding: 0 8px;
-            }
-
             /* Container padding lateral mínimo */
             .container {
                 padding: 0 18px;
             }
         }
-    </style>
-    <style>
-    /* Unificando Design de Todos os Botões para o padrão Dark com #F76B00 */
+
+        /* ── Botões unificados ── */
     .btn, .btn-outline, .btn-outline-dark, .submit-btn {
         display: inline-flex !important;
         align-items: center !important;
@@ -1468,6 +1385,35 @@
     @media (max-width: 768px) {
         .btn { max-width: 100% !important; width: 100% !important; }
     }
+
+    /* Hugeicons — reset itálico e dimensionamento */
+    i[class*="hgi-"] {
+        font-style: normal !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .btn i, .btn-outline i, .btn-outline-dark i, .submit-btn i {
+        font-size: 20px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+
+    .faq-question i {
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .marquee-item i {
+        font-size: 64px;
+    }
+
+    .benefit-icon i {
+        font-size: 20px;
+    }
     </style>
 </head>
 
@@ -1483,12 +1429,12 @@
 
                 <p class="hero-subtitle">Em 1 hora, um especialista da <strong>Metodologia Ames</strong> vai identificar os pontos principais da sua operação e montar um plano estratégico para aumentar seu faturamento com lucro e previsibilidade.</p>
 
-                <a href="#agendar" class="btn">QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i></a>
+                <a href="#agendar" class="btn">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
             </div>
             <div class="hero-image-wrapper fade-in">
                 <!-- IMPORTANTE: Substitua por uma imagem PNG do especialista com fundo transparente para obter o efeito exato -->
                 <img src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-businessman-in-suit-transparent-background-png-image_10214876.png"
-                    alt="Especialista Comercial" class="hero-image">
+                    alt="Especialista Comercial" class="hero-image" loading="eager" fetchpriority="high">
             </div>
         </div>
     </section>
@@ -1498,73 +1444,29 @@
         <p class="fade-in">QUEM JA FEZ PARTE DA CONSULTORIA</p>
         <div class="marquee-wrapper fade-in">
             <div class="marquee-content">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
-                        data-lucide="award"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
-                </div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
-                </div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
-                        data-lucide="maximize"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
-                        data-lucide="star"></i></div>
+                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i class="hgi-stroke hgi-activity-01"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i class="hgi-stroke hgi-award-01"></i></div>
+                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i class="hgi-stroke hgi-briefcase-01"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#0e1726"><i class="hgi-stroke hgi-cloud-angled-zap"></i></div>
+                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i class="hgi-stroke hgi-cpu"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#2563eb"><i class="hgi-stroke hgi-hexagon"></i></div>
+                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i class="hgi-stroke hgi-layers-01"></i></div>
+                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i class="hgi-stroke hgi-arrow-expand-01"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#000"><i class="hgi-stroke hgi-rocket"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i class="hgi-stroke hgi-favourite"></i></div>
             </div>
-            <!-- Duplicated 2 more times for true infinite loop on wide screens -->
-            <div class="marquee-content">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
-                        data-lucide="award"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
-                </div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
-                </div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
-                        data-lucide="maximize"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
-                        data-lucide="star"></i></div>
-            </div>
-            <div class="marquee-content">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
-                        data-lucide="award"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
-                </div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
-                </div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
-                        data-lucide="maximize"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
-                        data-lucide="star"></i></div>
-            </div>
-            <div class="marquee-content">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i data-lucide="activity"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i
-                        data-lucide="award"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i data-lucide="briefcase"></i>
-                </div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i data-lucide="cloud-lightning"></i>
-                </div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i data-lucide="cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i data-lucide="hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i data-lucide="layers"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i
-                        data-lucide="maximize"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i data-lucide="rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i
-                        data-lucide="star"></i></div>
+            <!-- Cópia para loop infinito -->
+            <div class="marquee-content" aria-hidden="true">
+                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i class="hgi-stroke hgi-activity-01"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i class="hgi-stroke hgi-award-01"></i></div>
+                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i class="hgi-stroke hgi-briefcase-01"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#0e1726"><i class="hgi-stroke hgi-cloud-angled-zap"></i></div>
+                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i class="hgi-stroke hgi-cpu"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#2563eb"><i class="hgi-stroke hgi-hexagon"></i></div>
+                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i class="hgi-stroke hgi-layers-01"></i></div>
+                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i class="hgi-stroke hgi-arrow-expand-01"></i></div>
+                <div class="marquee-item" style="background:#fff; color:#000"><i class="hgi-stroke hgi-rocket"></i></div>
+                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i class="hgi-stroke hgi-favourite"></i></div>
             </div>
         </div>
     </div>
@@ -1583,21 +1485,21 @@
                 <div class="pain-row pain-row-3">
                     <div class="pain-card fade-in">
                         <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-illustration-download-in-svg-png-gif-file-formats--store-cart-service-e-commerce-pack-e-commerce-shopping-illustrations-4251268.png"
-                            alt="Site Próprio">
+                            alt="Site Próprio" loading="lazy" decoding="async">
                         <p><strong>Vendem em Site Próprio:</strong> Donos de e-commerce que já faturam, mas sentem que
                             as campanhas estagnaram e precisam de melhorar a conversão para escalar sem perder a margem
                             de lucro.</p>
                     </div>
                     <div class="pain-card fade-in">
                         <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-marketplace-illustration-download-in-svg-png-gif-file-formats--shopping-store-retail-e-commerce-pack-e-commerce-shopping-illustrations-4251270.png"
-                            alt="Marketplaces">
+                            alt="Marketplaces" loading="lazy" decoding="async">
                         <p><strong>Vendem em Marketplaces:</strong> Empreendedores que dependem destas plataformas e
                             querem estruturar a sua própria operação, criando um canal de vendas direto e mais
                             lucrativo.</p>
                     </div>
                     <div class="pain-card fade-in">
                         <img src="https://cdni.iconscout.com/illustration/premium/thumb/store-illustration-download-in-svg-png-gif-file-formats--shop-front-retail-building-marketplace-marketplace-pack-e-commerce-shopping-illustrations-4251277.png"
-                            alt="Lojas Físicas">
+                            alt="Lojas Físicas" loading="lazy" decoding="async">
                         <p><strong>Donos de Lojas Físicas:</strong> Têm uma operação física a funcionar e querem
                             replicar esse sucesso no digital, criando uma estrutura sólida e escalável de vendas online.
                         </p>
@@ -1607,13 +1509,96 @@
 
             <div class="pain-footer-action fade-in">
                 <a href="#agendar" class="btn-outline">
-                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                    QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Benefits (Removed to match 6-section layout) -->
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="fade-in">Conheça os benefícios que você terá após construir <span class="highlight">sua máquina de vendas</span></h2>
+            <div class="benefits-grid">
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L7 13" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M12 17L12 7" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M17 17L17 11" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="#F76B00" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Previsibilidade nos Resultados</h3>
+                    <p>Com processos e time comercial bem alinhados, sua operação alcança resultados altos e previsíveis, eliminando surpresas.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M20.9427 16.8354C20.2864 12.8866 18.2432 9.94613 16.467 8.219C15.9501 7.71642 15.6917 7.46513 15.1208 7.23257C14.5499 7 14.0592 7 13.0778 7H10.9222C9.94081 7 9.4501 7 8.87922 7.23257C8.30834 7.46513 8.04991 7.71642 7.53304 8.219C5.75682 9.94613 3.71361 12.8866 3.05727 16.8354C2.56893 19.7734 5.27927 22 8.30832 22H15.6917C18.7207 22 21.4311 19.7734 20.9427 16.8354Z" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M7.25662 4.44287C7.05031 4.14258 6.75128 3.73499 7.36899 3.64205C8.00392 3.54651 8.66321 3.98114 9.30855 3.97221C9.89237 3.96413 10.1898 3.70519 10.5089 3.33548C10.8449 2.94617 11.3652 2 12 2C12.6348 2 13.1551 2.94617 13.4911 3.33548C13.8102 3.70519 14.1076 3.96413 14.6914 3.97221C15.3368 3.98114 15.9961 3.54651 16.631 3.64205C17.2487 3.73499 16.9497 4.14258 16.7434 4.44287L15.8105 5.80064C15.4115 6.38146 15.212 6.67187 14.7944 6.83594C14.3769 7 13.8373 7 12.7582 7H11.2418C10.1627 7 9.6231 7 9.20556 6.83594C8.78802 6.67187 8.5885 6.38146 8.18945 5.80064L7.25662 4.44287Z" stroke="#F76B00" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3>Maximização de Lucros</h3>
+                    <p>Adote uma abordagem de alta margem de lucro, permitindo que sua operação cresça com eficiência e segurança financeira.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21H10C6.70017 21 5.05025 21 4.02513 19.9749C3 18.9497 3 17.2998 3 14V3" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M7.99707 16.999C11.5286 16.999 18.9122 15.5348 18.6979 6.43269M16.4886 8.04302L18.3721 6.14612C18.5656 5.95127 18.8798 5.94981 19.0751 6.14286L20.9971 8.04302" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Crescimento Sem Limites</h3>
+                    <p>Implante um modelo de escalabilidade claro e eficiente, multiplicando operações e faturamento baseado em dados.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 21H19" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12.125 12.75H12M12.25 12.75C12.25 12.8881 12.1381 13 12 13C11.8619 13 11.75 12.8881 11.75 12.75C11.75 12.6119 11.8619 12.5 12 12.5C12.1381 12.5 12.25 12.6119 12.25 12.75Z" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.9152 7.61089L13.8078 5.38179C13.019 3.79393 12.6246 3 12 3C11.3754 3 10.981 3.79393 10.1922 5.38179L9.08483 7.61089C8.58107 8.62494 8.32919 9.13197 7.87976 9.24608C7.8485 9.25401 7.81689 9.26043 7.78503 9.26533C7.32682 9.3357 6.89919 8.96678 6.04393 8.22895C4.0124 6.47635 2.99663 5.60004 2.38034 5.94899C2.34045 5.97157 2.30213 5.99686 2.26565 6.02467C1.70197 6.45439 2.09541 7.74136 2.88229 10.3153L4.04783 14.1279C4.47098 15.5121 4.68255 16.2042 5.21787 16.6021C5.75318 17 6.47261 17 7.91147 17L16.0886 16.9999C17.5274 16.9999 18.2468 16.9999 18.7821 16.602C19.3175 16.2041 19.529 15.512 19.9522 14.1279L21.1177 10.3153C21.9046 7.74137 22.298 6.4544 21.7344 6.02468C21.6979 5.99687 21.6595 5.97158 21.6197 5.94899C21.0034 5.60006 19.9876 6.47636 17.9561 8.22896C17.1008 8.96679 16.6732 9.3357 16.215 9.26533C16.1831 9.26043 16.1515 9.25401 16.1202 9.24607C15.6708 9.13197 15.4189 8.62494 14.9152 7.61089Z" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Liberdade para o Dono</h3>
+                    <p>Transforme seu e-commerce em uma operação independente, onde as vendas acontecem sem a necessidade constante do dono.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 13V8H15" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 8L15 13C14.1174 13.8826 13.6762 14.3238 13.1346 14.3726C13.045 14.3807 12.955 14.3807 12.8654 14.3726C12.3238 14.3238 11.8826 13.8826 11 13C10.1174 12.1174 9.67615 11.6762 9.13457 11.6274C9.04504 11.6193 8.95496 11.6193 8.86543 11.6274C8.32385 11.6762 7.88256 12.1174 7 13L4 16" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Aumento de Valor de Mercado</h3>
+                    <p>Construa uma operação que agregue valor real ao seu negócio, tornando seu e-commerce um ativo altamente valorizado.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M9.0923 16C8.78292 16.6819 8.0701 16.986 7.43887 17.3162L3.79262 19.2233C2.32845 19.9891 3.05949 22 4.62985 22C8.12204 22 10.8836 20.3064 14.0404 19C14.835 18.6711 15.2201 18.7415 16 19.0912" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 19.0912C9.77995 18.7415 10.165 18.6711 10.9596 19C14.1164 20.3064 16.878 22 20.3702 22C21.9405 22 22.6715 19.9891 21.2074 19.2233L17.5611 17.3162C16.9299 16.986 16.2171 16.6819 15.9077 16" stroke="#F76B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 4C10 5.10457 10.8954 6 12 6C13.1046 6 14 5.10457 14 4C14 2.89543 13.1046 2 12 2C10.8954 2 10 2.89543 10 4Z" stroke="#F76B00" stroke-width="1.5"/>
+                            <path d="M12 8C8.68629 8 6 10.6863 6 14C9.31371 14 12 11.3137 12 8Z" stroke="#F76B00" stroke-width="1.5" stroke-linejoin="round"/>
+                            <path d="M12 8C15.3137 8 18 10.6863 18 14C14.6863 14 12 11.3137 12 8Z" stroke="#F76B00" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Equilíbrio Profissional e Pessoal</h3>
+                    <p>Gere mais qualidade de vida com a tranquilidade de saber que sua operação funciona de forma estruturada e livre de estresse.</p>
+                </div>
+
+            </div>
+            <div class="benefits-action fade-in">
+                <a href="#agendar" class="btn-outline">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
+            </div>
+        </div>
+    </section>
 
     <!-- How it works -->
     <section class="how-it-works" style="padding-top: 100px; padding-bottom: 100px;">
@@ -1648,7 +1633,7 @@
 
             <div class="benefits-action fade-in" style="margin-top: 60px; text-align: center;">
                 <a href="#agendar" class="btn-outline">
-                    QUERO O MEU PLANO DE AÇÃO VALIDADO <i data-lucide="arrow-right-circle"></i>
+                    QUERO O MEU PLANO DE AÇÃO VALIDADO <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
@@ -1659,31 +1644,24 @@
     <!-- Social Proof (Cases) -->
     <section class="social-proof">
         <div class="container">
-            <h2 class="fade-in">Terá acesso aos princípios do método que fez operações saírem do zero para múltiplas
-                dezenas de milhares em faturação.</h2>
+            <h2 class="fade-in">CASES de quem já passou por essa análise</h2>
 
             <div class="cases-grid">
                 <div class="case-card fade-in">
-                    <!-- Placeholder representing the first case image -->
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=400&h=500&q=80"
-                        alt="Case 1">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/01/img-case-02.webp" alt="Case 1" loading="lazy" decoding="async">
                 </div>
                 <div class="case-card fade-in">
-                    <!-- Placeholder representing the second case image -->
-                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&h=500&q=80"
-                        alt="Case 2">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/01/img-case-03.webp" alt="Case 2" loading="lazy" decoding="async">
                 </div>
                 <div class="case-card fade-in">
-                    <!-- Placeholder representing the third case image -->
-                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=400&h=500&q=80"
-                        alt="Case 3">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/01/img-case-04.webp" alt="Case 3" loading="lazy" decoding="async">
                 </div>
             </div>
 
             <div class="cases-footer fade-in">
                 <p>Aperte no botão abaixo para garantir sua vaga agora mesmo:</p>
                 <a href="#agendar" class="btn-outline-dark">
-                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                    QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
@@ -1694,79 +1672,69 @@
         <div class="container">
             <div class="alpha-top fade-in">
                 <div>
-                    <h2>A NOSSA OPERAÇÃO É A PROVA VIVA DE QUE A <span class="highlight">METODOLOGIA AMES
-                            FUNCIONA</span></h2>
-                    <p>Com um ecossistema altamente estruturado, a nossa operação interna saiu do zero para ultrapassar
-                        a marca de R$ 1,5 milhão em faturamento por mês, consolidando-se como um case de sucesso no
-                        e-commerce brasileiro.</p>
-                    <p>Todo o modelo de tráfego, conversão e retenção aplicado nos nossos negócios hoje é o pilar da
-                        Metodologia Ames, permitindo que donos de e-commerce utilizem estratégias que foram
-                        exaustivamente testadas e validadas no campo de batalha.</p>
-                    <p>Liderado por Leonardo Ames, o Grupo W3 construiu um ecossistema que não depende de "hacks", mas
-                        sim de um modelo de crescimento integrado, garantindo uma escala previsível, lucrativa e
-                        sustentável.</p>
+                    <h2>A Mentoria Ames é a prova viva de que a <span class="highlight">metodologia da W3 funciona</span></h2>
+                    <p>Com uma operação altamente estruturada, a Mentoria Ames ultrapassou R$ [XX] em faturamento mensal, consolidando-se como referência no e-commerce brasileiro.</p>
+                    <p>Todo o modelo de tráfego, conversão e retenção aplicado hoje é ensinado na W3, permitindo que donos de e-commerce utilizem estratégias testadas e comprovadas no mercado real.</p>
+                    <p>Liderada por Leonardo Ames, a Mentoria Ames alcançou R$ [XX] em faturamento em menos de [XX] anos, validando um modelo de crescimento replicável, previsível e escalável.</p>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-                        alt="Equipe Alpha" class="alpha-image">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_5375.jpg"
+                        alt="Equipe W3" class="alpha-image" loading="lazy" decoding="async">
                 </div>
             </div>
 
             <div class="alpha-stats fade-in">
                 <div class="stat-card">
-                    <h3>+230</h3>
-                    <p>Agências Aceleradas</p>
+                    <h3>+[XX]</h3>
+                    <p>E-commerces Acelerados</p>
                 </div>
                 <div class="stat-card">
-                    <h3>+720</h3>
+                    <h3>+[XX]</h3>
                     <p>Gestores e vendedores treinados</p>
                 </div>
                 <div class="stat-card">
-                    <h3>+30M</h3>
-                    <p>Em vendas em nossas operações</p>
+                    <h3>+[XX]M</h3>
+                    <p>Em vendas nas nossas operações</p>
                 </div>
                 <div class="stat-card">
-                    <h3>+13M</h3>
-                    <p>De faturamento para Agências aceleradas</p>
+                    <h3>+[XX]M</h3>
+                    <p>De faturamento gerado para mentorados</p>
                 </div>
             </div>
 
             <div class="alpha-founders fade-in">
                 <div class="founder-card">
-                    <img src="https://images.unsplash.com/photo-1541577141970-eebc83ebe30e?auto=format&fit=crop&w=400&q=80"
-                        alt="Gustavo de Oliveira">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_9194-1-scaled-e1772825012847.jpg"
+                        alt="Leonardo Ames" loading="lazy" decoding="async">
                     <div class="founder-info">
-                        <h4>GUSTAVO DE OLIVEIRA</h4>
-                        <span>Founder & CSO da Alpha | Founder da FGA</span>
-                        <p>Criador da estrutura comercial da Alpha. Já vendeu mais de R$30 MILHÕES em serviços com
-                            processos replicáveis para qualquer agência.</p>
+                        <h4>LEONARDO AMES</h4>
+                        <span>Founder & CEO da Mentoria Ames | W3</span>
+                        <p>Criador da Metodologia Ames. Já gerou mais de R$ [XX] em faturamento com processos replicáveis para qualquer e-commerce.</p>
                     </div>
                 </div>
                 <div class="founder-card">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
-                        alt="Athos Vilarins">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_9314-scaled-e1772825032833.jpg"
+                        alt="Gustavo Hofmann" loading="lazy" decoding="async">
                     <div class="founder-info">
-                        <h4>ATHOS VILARINS</h4>
-                        <span>Founder & CEO da Alpha | Sócio da FGA</span>
-                        <p>A mente por trás da Alpha. À frente da maior agência nichada do país, lidera um ecossistema
-                            que já movimentou mais de 120 milhões de reais.</p>
+                        <h4>GUSTAVO HOFMANN</h4>
+                        <span>Co-Founder da Mentoria Ames | W3</span>
+                        <p>Especialista em tráfego e escala. Lidera um ecossistema que já movimentou mais de R$ [XX] em vendas para e-commerces.</p>
                     </div>
                 </div>
                 <div class="founder-card">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
-                        alt="Pedro Dias">
+                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_9441-1-scaled-e1772825071864.jpg"
+                        alt="Lucas Monteiro" loading="lazy" decoding="async">
                     <div class="founder-info">
-                        <h4>PEDRO DIAS</h4>
-                        <span>Diretor de Operações da Alpha & Sócio da FGA</span>
-                        <p>Montou o operacional da Alpha com processos que escalam e sustentam milhares de clientes sem
-                            travar crescimento.</p>
+                        <h4>LUCAS MONTEIRO</h4>
+                        <span>Diretor de Operações da Mentoria Ames | W3</span>
+                        <p>Responsável pelo operacional da W3. Construiu os processos que sustentam [XX]+ mentorados escalando sem travar o crescimento.</p>
                     </div>
                 </div>
             </div>
 
             <div class="alpha-action fade-in">
                 <a href="#agendar" class="btn-outline">
-                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                    QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
@@ -1782,7 +1750,7 @@
                 <!-- FAQ Item 1 (Active by default as per screenshot) -->
                 <div class="faq-item active">
                     <div class="faq-question">
-                        <i data-lucide="chevron-down"></i>
+                        <i class="hgi-stroke hgi-arrow-down-01"></i>
                         QUANTO TEMPO DURA O DIAGNÓSTICO?
                     </div>
                     <div class="faq-answer" style="max-height: 200px;">
@@ -1794,56 +1762,48 @@
                 <!-- FAQ Item 2 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <i data-lucide="chevron-right"></i>
+                        <i class="hgi-stroke hgi-arrow-right-02"></i>
                         QUEM REALIZA O DIAGNÓSTICO?
                     </div>
                     <div class="faq-answer">
-                        <p>Nosso diagnóstico é realizado por especialistas de negócio altamente treinados na metodologia
-                            FGA, garantindo uma visão técnica apurada para identificar gargalos e montar o melhor plano
-                            de ação para a sua operação.</p>
+                        <p>A conversa acontece 100% online, via Google Meet, conduzida por um dos nossos especialistas da W3. É um bate-papo direto, sem compromisso, focado em gerar clareza real sobre o cenário da sua operação.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 3 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <i data-lucide="chevron-right"></i>
+                        <i class="hgi-stroke hgi-arrow-right-02"></i>
                         COMO DEVO ME PREPARAR PARA O DIAGNÓSTICO?
                     </div>
                     <div class="faq-answer">
-                        <p>Você não precisará preencher planilhas extensas de antemão. Basta vir com abertura para
-                            entender suas margens, volume de vendas atual e estar com sua mente livre das distrações do
-                            operacional por alguns minutos.</p>
+                        <p>Traga as principais dores e desafios que seu e-commerce enfrenta, seja em vendas, tráfego, time ou processos. Assim, conseguimos direcionar o diagnóstico para o que realmente importa e te mostrar o caminho mais rápido pra escalar.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 4 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <i data-lucide="chevron-right"></i>
+                        <i class="hgi-stroke hgi-arrow-right-02"></i>
                         POSSO CONVIDAR ALGUÉM PARA PARTICIPAR COMIGO?
                     </div>
                     <div class="faq-answer">
-                        <p>Com certeza. Recomendamos fortemente que, caso você tenha sócios ou líderes essenciais da
-                            área comercial já atuantes, que eles estejam presentes para que todos fiquem alinhados com o
-                            escopo do plano.</p>
+                        <p>Claro! Você pode convidar seu sócio ou alguém do time de liderança para participar da reunião. Isso ajuda a alinhar a visão e facilitar a aplicação das estratégias discutidas.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 5 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <i data-lucide="chevron-right"></i>
+                        <i class="hgi-stroke hgi-arrow-right-02"></i>
                         O DIAGNÓSTICO É PERSONALIZADO PARA O MEU NEGÓCIO?
                     </div>
                     <div class="faq-answer">
-                        <p>100% personalizado. Analisaremos especificamente o seu nicho, seu ticket médio, os desafios
-                            da sua esteira atual de prospecção e os dados pontuais que limitam seu faturamento de
-                            agência base.</p>
+                        <p>Sim. Cada diagnóstico é 100% individual e personalizado, com base nos dados e no momento atual do seu e-commerce. Nosso objetivo é te mostrar exatamente onde estão os gargalos e como resolvê-los para alcançar o próximo nível de faturamento e previsibilidade.</p>
                     </div>
                 </div>
             </div>
 
             <div class="faq-action fade-in">
                 <a href="#agendar" class="btn-outline">
-                    QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i>
+                    QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
@@ -1893,8 +1853,8 @@
                 </div>
 
                 <!-- Botão de Submit (CTA) -->
-                <button type="submit" id="submitBtn" class="submit-btn">QUERO APLICAR AGORA <i data-lucide="arrow-right-circle"></i></button>
-                <p class="form-disclaimer">Ao se inscrever você concorda com o tratamento de seus dados pessoais para receber comunicações via whatsapp, sms, ligações e e-mails da FGA. Seus dados apenas serão utilizados para fins de comunicação e marketing. Você pode cancelar o recebimentos desses e-mails quando quiser.</p>
+                <button type="submit" id="submitBtn" class="submit-btn">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></button>
+                <p class="form-disclaimer">Ao se inscrever você concorda com o tratamento de seus dados pessoais para receber comunicações via whatsapp, sms, ligações e e-mails da W3. Seus dados apenas serão utilizados para fins de comunicação e marketing. Você pode cancelar o recebimentos desses e-mails quando quiser.</p>
             </form>
         </div>
     </div>
@@ -2052,7 +2012,7 @@
     }
 
     .form-disclaimer {
-        color: #777777;
+        color: #8a8a8a;
         font-size: 0.75rem;
         text-align: center;
         line-height: 1.5;
@@ -2192,10 +2152,6 @@
                 }
             });
             
-            // Garante inicialização do icone X
-            if(window.lucide) {
-                window.lucide.createIcons();
-            }
         }
     });
     </script>
@@ -2203,13 +2159,55 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">FGA</div>
+                <div class="footer-logo">W3</div>
                 <div class="footer-links">
                     <a href="#">Política de privacidade</a> | <a href="#">Termos de uso</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Counter Animation -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".number");
+        const duration = 1200;
+        const rafMap = new WeakMap();
+
+        function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+        function animateCount(el) {
+            const target = +el.dataset.target || 0;
+            if (!target || el.dataset.counting === "true") return;
+            el.dataset.counting = "true";
+            const startTime = performance.now();
+
+            function tick(now) {
+                const t = Math.min(1, (now - startTime) / duration);
+                el.textContent = Math.floor(easeOutCubic(t) * target);
+                if (t < 1) { rafMap.set(el, requestAnimationFrame(tick)); }
+                else { el.textContent = target; el.removeAttribute("data-counting"); }
+            }
+            rafMap.set(el, requestAnimationFrame(tick));
+        }
+
+        function resetCounter(el) {
+            const id = rafMap.get(el);
+            if (id) { cancelAnimationFrame(id); rafMap.delete(el); }
+            el.textContent = "0";
+            el.removeAttribute("data-counting");
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) animateCount(entry.target);
+                else resetCounter(entry.target);
+            });
+        }, { threshold: 0.6 });
+
+        counters.forEach((el) => { el.textContent = "0"; observer.observe(el); });
+    });
+    </script>
 
     <!-- Scripts -->
     <script>
@@ -2225,26 +2223,19 @@
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                     item.querySelector('.faq-answer').style.maxHeight = null;
-                    const itemIcon = item.querySelector('i');
-                    // Reset icon class
-                    itemIcon.innerHTML = '';
-                    itemIcon.setAttribute('data-lucide', 'chevron-right');
-                    lucide.createIcons({ name: 'chevron-right', attrs: { class: itemIcon.className } });
+                    const i = item.querySelector('i');
+                    i.classList.remove('hgi-arrow-down-01');
+                    i.classList.add('hgi-arrow-right-02');
                 });
 
                 if (!isActive) {
                     faqItem.classList.add('active');
                     answer.style.maxHeight = answer.scrollHeight + "px";
-                    // Set active icon
-                    icon.innerHTML = '';
-                    icon.setAttribute('data-lucide', 'chevron-down');
-                    lucide.createIcons({ name: 'chevron-down', attrs: { class: icon.className } });
+                    icon.classList.remove('hgi-arrow-right-02');
+                    icon.classList.add('hgi-arrow-down-01');
                 }
             });
         });
-
-        // Initialize Lucide Icons for everything first
-        lucide.createIcons();
 
         // Intersection Observer for scroll animations
         const observerOptions = {
