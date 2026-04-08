@@ -720,6 +720,97 @@
             font-family: var(--font-body);
         }
 
+        /* About Section */
+        .about-section {
+            position: relative;
+            padding: 120px 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .about-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(60%) brightness(0.3);
+            z-index: 0;
+        }
+
+        .about-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.72) 100%);
+            z-index: 1;
+        }
+
+        .about-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-eyebrow {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .about-title {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 2rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        .about-title .highlight {
+            color: var(--primary);
+            display: block;
+        }
+
+        .about-card {
+            max-width: 780px;
+            margin: 0 auto 50px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 50px 60px;
+        }
+
+        .about-card p {
+            color: #d0d0d0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-family: var(--font-body);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-card p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 768px) {
+            .about-section { padding: 80px 0; }
+            .about-title { font-size: 1.5rem; margin-bottom: 32px; }
+            .about-card { padding: 32px 24px; }
+            .about-card p { font-size: 0.95rem; }
+        }
+
+        @media (max-width: 480px) {
+            .about-section { padding: 56px 0; }
+            .about-title { font-size: 1.25rem; }
+            .about-card { padding: 24px 18px; }
+        }
+
         /* Social Proof (Cases) */
         .social-proof {
             background-color: #ffffff;
@@ -1686,6 +1777,32 @@
     </section>
 
     <!-- What you get (Removed to match 6-section layout) -->
+
+    <!-- About Consultoria Section -->
+    <section class="about-section">
+        <!-- Background: substitua por uma foto da equipe/escritório com fundo escuro -->
+        <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=60"
+            alt=""
+            class="about-bg"
+            aria-hidden="true"
+            loading="lazy"
+        >
+        <div class="about-bg-overlay"></div>
+        <div class="container fade-in">
+            <p class="about-eyebrow">Sobre a</p>
+            <h2 class="about-title">
+                Consultoria Personalizada<span class="highlight">de E-commerce</span>
+            </h2>
+
+            <div class="about-card">
+                <p>Semanalmente, disponibilizamos horários exclusivos para realizar consultorias de pré-avaliação focadas em empresários que buscam otimizar seus e-commerces e aumentar seus resultados.</p>
+                <p>Essas consultorias têm como objetivo ajudar a identificar gargalos, oferecer direcionamento estratégico e criar um plano de ação personalizado, para que você consiga escalar seu e-commerce, treinar sua equipe e alcançar mais lucratividade, previsibilidade e crescimento constante.</p>
+            </div>
+
+            <a href="#agendar" class="btn-outline">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
+        </div>
+    </section>
 
     <!-- Social Proof (Cases) -->
     <section class="social-proof">
