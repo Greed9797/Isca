@@ -1244,78 +1244,136 @@
             }
         }
 
-        /* ── Mobile structural fixes ── */
+        /* ── Mobile structural fixes (768px) ── */
         @media (max-width: 768px) {
-            .hero-title { font-size: 1.9rem; }
-            .hero-bg-text { font-size: 4rem; }
-            .pain-row-2 .pain-card,
-            .pain-row-3 .pain-card { max-width: 100%; width: 100%; }
-            .benefits-grid { grid-template-columns: 1fr; }
-            .alpha-stats { grid-template-columns: repeat(2, 1fr) !important; }
-            .alpha-founders { grid-template-columns: 1fr; }
-            .deliverable-image { width: 100%; height: 250px; margin-bottom: 20px; }
-            .deliverable-content { padding-left: 0; }
-            .deliverable-item:hover { transform: translateY(-5px); }
-            .cases-grid { grid-template-columns: 1fr; max-width: 100%; padding: 0 8px; }
-            /* Reduce seção padding */
-            section {
-                padding: 60px 0;
+            /* CSS variables mobile */
+            :root {
+                --h1-size:        1.8rem;
+                --h2-size:        1.3rem;
+                --h3-size:        1.05rem;
+                --body-size:      1rem;
+                --card-text-size: 0.92rem;
             }
 
+            /* Container */
+            .container { padding: 0 16px; }
+
+            /* Section padding */
+            section,
             .pain-section,
             .benefits-section,
             .alpha-section,
             .deliverables-section,
             .faq-section,
-            .social-proof {
-                padding: 60px 0;
+            .social-proof,
+            .logo-bar {
+                padding: 56px 0;
             }
+            .how-it-works { padding: 56px 0 !important; }
 
-            .how-it-works {
-                padding-top: 60px !important;
-                padding-bottom: 60px !important;
-            }
-
-            /* Hero subtitle menor no mobile */
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            /* Hero image: altura menor pra não criar espaço morto */
+            /* Hero */
+            .hero { padding-top: 60px; }
+            .hero-bg-text { display: none; }
+            .hero .container { padding-top: 16px; }
+            .hero-content { padding-bottom: 20px; }
+            .hero-logo { height: 28px; margin-bottom: 24px; }
+            .hero-title { font-size: 1.75rem; line-height: 1.2; }
+            .hero-subtitle { font-size: 0.95rem; margin-right: 0; }
             .hero-image-wrapper {
-                height: 220px;
-                margin-top: -10px;
+                height: 200px;
+                margin-top: 0;
+            }
+            .hero .btn { max-width: 100%; width: 100%; font-size: 1rem; padding: 16px 20px; }
+            .hero-urgency { font-size: 0.8rem; }
+
+            /* Logo bar / marquee */
+            .marquee-item { width: 110px; height: 110px; border-radius: 12px; }
+            .marquee-item i { font-size: 44px !important; }
+
+            /* Pain section */
+            .pain-section h2 { margin-bottom: 2rem; }
+            .pain-row { flex-direction: column; gap: 14px; }
+            .pain-row-2 .pain-card,
+            .pain-row-3 .pain-card { max-width: 100%; width: 100%; }
+            .pain-card { padding: 22px 18px; }
+            .pain-card img { height: 120px; }
+
+            /* Benefits */
+            .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+            .benefit-card { padding: 28px 22px; }
+
+            /* Flow */
+            .flow-diagram { margin-top: 40px; gap: 32px; }
+            .step-number { width: 72px; height: 72px; font-size: 1.5rem; }
+
+            /* Deliverables */
+            .deliverable-image { width: 100%; height: 200px; margin-bottom: 16px; }
+            .deliverable-content { padding-left: 0; }
+            .deliverable-item { padding: 18px; }
+            .deliverable-item:hover { transform: translateY(-4px); }
+
+            /* Cases */
+            .cases-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 4px; }
+
+            /* Alpha */
+            .alpha-stats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .stat-card { padding: 22px 16px; }
+            .alpha-founders { grid-template-columns: 1fr; gap: 16px; }
+            .founder-card img { height: 200px; }
+
+            /* FAQ */
+            .faq-question { font-size: 0.85rem; padding: 14px 16px; gap: 10px; }
+            .faq-answer p { padding: 18px; font-size: 0.92rem; }
+            .faq-list { gap: 10px; }
+
+            /* Footer */
+            .footer-content { flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+            .footer-logo img { height: 28px; }
+        }
+
+        /* ── Very small phones (480px) ── */
+        @media (max-width: 480px) {
+            :root {
+                --h1-size:        1.55rem;
+                --h2-size:        1.15rem;
+                --h3-size:        0.95rem;
+                --body-size:      0.9rem;
+                --card-text-size: 0.85rem;
             }
 
-            /* Pain cards: imagem menor */
-            .pain-card img {
-                height: 130px;
+            .container { padding: 0 14px; }
+
+            section,
+            .pain-section,
+            .benefits-section,
+            .alpha-section,
+            .deliverables-section,
+            .faq-section,
+            .social-proof,
+            .logo-bar {
+                padding: 44px 0;
             }
 
-            .pain-card {
-                padding: 24px 20px;
-            }
+            .hero { padding-top: 48px; }
+            .hero-title { font-size: 1.45rem; }
+            .hero-image-wrapper { height: 160px; }
+            .hero .btn { font-size: 0.9rem; padding: 14px 16px; }
 
-            /* Founder images: altura reduzida */
-            .founder-card img {
-                height: 220px;
-            }
+            .marquee-item { width: 88px; height: 88px; border-radius: 10px; }
+            .marquee-item i { font-size: 36px !important; }
 
-            /* FAQ question: fonte menor pra não cortar */
-            .faq-question {
-                font-size: 0.9rem;
-                padding: 16px 18px;
-            }
+            .pain-card img { height: 100px; }
+            .step-number { width: 60px; height: 60px; font-size: 1.3rem; }
+            .founder-card img { height: 170px; }
 
-            /* Footer: centralizar no mobile */
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
+            .faq-question { font-size: 0.78rem; padding: 12px 14px; }
 
-            /* Container padding lateral mínimo */
-            .container {
-                padding: 0 18px;
+            .alpha-stats { grid-template-columns: 1fr 1fr; }
+            .stat-card h3 { font-size: 1.1rem; }
+
+            .btn, .btn-outline, .btn-outline-dark, .submit-btn {
+                font-size: 0.9rem !important;
+                padding: 14px 16px !important;
             }
         }
 
