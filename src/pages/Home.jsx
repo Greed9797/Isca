@@ -72,7 +72,7 @@ export default function App() {
             <a href="#bastidores" className="text-zinc-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-wide">Bastidores</a>
         </div>
         <button onClick={handleApplyClick} className="hidden md:flex items-center bg-zinc-900 border border-zinc-800 text-white text-xs font-bold px-6 py-3 rounded-full uppercase tracking-wide hover:border-[#F55900] hover:bg-[#F55900]/10 transition-all">
-            Solicitar Diagnóstico
+            Agendar Consultoria
         </button>
       </nav>
 
@@ -85,28 +85,28 @@ export default function App() {
         <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center mt-8">
           
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#F55900]/30 bg-[#F55900]/10 text-[#F55900] text-xs font-bold uppercase tracking-widest mb-8 animate-pulse">
-             <Target className="w-4 h-4" /> Diagnóstico exclusivo para E-commerces que já faturam
+             <Target className="w-4 h-4" /> Exclusivo para donos de e-commerce que faturam mais que 20K/mês
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-[64px] font-black text-white leading-[1.1] tracking-tighter mb-6 uppercase font-['Montserrat']">
-            Escale o Faturamento do seu E-commerce com <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F55900] to-[#ff8c42] drop-shadow-[0_0_30px_rgba(245,89,0,0.5)]">Margem e Estrutura Sólida</span>
+            Receba um plano de ação personalizado para destravar seu e-commerce e <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F55900] to-[#ff8c42] drop-shadow-[0_0_30px_rgba(245,89,0,0.5)]">aumentar seu faturamento com lucro e previsibilidade</span>
           </h1>
 
           <p className="text-zinc-300 text-base md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-            Entenda o método exato validado por um ecossistema que já operou mais de <strong className="text-white">R$ 100 Milhões</strong> em resultados reais.
+            Em 1 hora, um especialista da Metodologia Ames (responsável por mais de <strong className="text-white">100 milhões de faturamento/ano</strong> no e-commerce) vai pessoalmente identificar os gargalos da sua operação e montar um plano estratégico para destravar o seu negócio.
           </p>
 
           <ButtonPrimary className="w-full sm:w-auto text-base py-5 px-10" onClick={handleApplyClick}>
-            QUERO MEU DIAGNÓSTICO GRATUITO <ArrowRight className="w-5 h-5 ml-2" />
+            AGENDAR MINHA CONSULTORIA <ArrowRight className="w-5 h-5 ml-2" />
           </ButtonPrimary>
-          <p className="text-zinc-500 text-sm mt-4"><ShieldCheck className="w-4 h-4 inline mr-1 text-[#F55900]" /> 100% Confidencial. Avaliamos a viabilidade de parceria.</p>
+          <p className="text-zinc-500 text-sm mt-4"><ShieldCheck className="w-4 h-4 inline mr-1 text-[#F55900]" /> Cadastre-se acima para concorrer a uma vaga</p>
         </div>
       </section>
 
       {/* 02. EXCLUSÃO QUALIFICADA (FGA + W3) */}
       <section className="py-16 px-4 bg-[#050505] border-b border-zinc-900">
          <div className="max-w-6xl mx-auto">
-            <h3 className="text-center text-zinc-400 text-sm md:text-base font-bold uppercase tracking-widest mb-10">O Ecossistema W3 é a peça que falta para donos de:</h3>
+            <h3 className="text-center text-zinc-400 text-sm md:text-base font-bold uppercase tracking-widest mb-10">Quem confia na W3</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-[#0a0a0a] border border-zinc-800 p-6 rounded-lg text-center hover:border-[#F55900]/30 transition-colors">
                     <Globe className="w-8 h-8 text-[#F55900] mx-auto mb-4" />
@@ -130,17 +130,17 @@ export default function App() {
       {/* 03. PAIN & AGITATION (FGA Framework aplicado ao W3) */}
       <section id="problema" className="py-24 px-4 bg-black relative">
         <div className="max-w-6xl mx-auto relative z-10">
-          <SectionTitle 
-            subtitle="O Cenário Atual"
-            title="Sua operação parece rodar, mas o lucro não sobra no fim do mês?" 
-            description="Se você é DONO DE E-COMMERCE, veja se sua rotina reflete algum destes gargalos que impedem a verdadeira escala:"
+          <SectionTitle
+            subtitle="Atenção"
+            title="Se você é dono de e-commerce e está enfrentando desafios para ter previsibilidade nos resultados do seu negócio, veja se isso se reflete na sua operação"
+            description="Se você se identificou com alguns desses pontos, é sinal de que seu sistema precisa de ajustes estratégicos — veja como estruturar um modelo realmente escalável."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {[
-              { icon: DollarSign, title: "Margem Comprimida", text: "Você fatura alto, mas os custos operacionais e taxas engolem seu lucro. Muito esforço para pouco dinheiro no bolso." },
-              { icon: TrendingUp, title: "Dependência de Tráfego", text: "Sem anúncios rodando, você não vende. O CPA está cada vez mais caro e o marketing virou um buraco negro de verba." },
-              { icon: BarChart3, title: "Falta de Previsibilidade", text: "Vendas oscilando. Um mês é ótimo, o outro é desesperador. Você não tem dados ou clareza de onde investir para crescer seguro." }
+              { icon: DollarSign, title: "Escala Travada", text: "Sente que seu e-commerce não consegue desempenhar como deveria e você não consegue escalar de verdade." },
+              { icon: TrendingUp, title: "Platô de Crescimento", text: "Está em um platô de crescimento há algum tempo, tendo seu resultado muitas vezes caindo se comparado ao passado." },
+              { icon: BarChart3, title: "Tráfego Pago Sem Resultado", text: "O tráfego pago não está performando e não sabe como fazer o jogo virar. Cada vez mais difícil realizar uma venda comparado a antigamente." }
             ].map((item, i) => (
               <div key={i} className="bg-[#0a0a0a] border border-zinc-900 p-8 rounded-xl hover:border-[#F55900]/50 transition-colors group">
                 <div className="w-14 h-14 bg-zinc-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#F55900]/10 transition-colors">
@@ -159,36 +159,36 @@ export default function App() {
       {/* 04. BEFORE & AFTER (W3 Concept com FGA Aggressiveness) */}
       <section className="py-24 px-4 bg-[#050505] border-y border-zinc-900">
         <div className="max-w-5xl mx-auto">
-          <SectionTitle 
-            subtitle="A Virada de Chave"
-            title="O Diferencial não é crescer rápido. É crescer com estrutura." 
+          <SectionTitle
+            subtitle="Como Funciona"
+            title="Seu plano de ação em 3 etapas"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
               {/* O Problema */}
               <div className="bg-black border border-zinc-800 p-10 rounded-2xl flex flex-col justify-center">
-                  <h4 className="text-xl md:text-2xl font-black text-white mb-8 uppercase text-center md:text-left">E-commerce Tradicional</h4>
+                  <h4 className="text-xl md:text-2xl font-black text-white mb-8 uppercase text-center md:text-left">Sem a Consultoria</h4>
                   <ul className="space-y-6">
-                      <li className="flex items-start gap-4"><X className="text-red-500 w-6 h-6 shrink-0 bg-red-500/10 rounded p-1" /> <span className="text-zinc-400 text-lg">Margem de lucro espremida</span></li>
-                      <li className="flex items-start gap-4"><X className="text-red-500 w-6 h-6 shrink-0 bg-red-500/10 rounded p-1" /> <span className="text-zinc-400 text-lg">Refém 100% de Facebook Ads</span></li>
-                      <li className="flex items-start gap-4"><X className="text-red-500 w-6 h-6 shrink-0 bg-red-500/10 rounded p-1" /> <span className="text-zinc-400 text-lg">Gestão baseada em achismos</span></li>
+                      <li className="flex items-start gap-4"><X className="text-red-500 w-6 h-6 shrink-0 bg-red-500/10 rounded p-1" /> <span className="text-zinc-400 text-lg">Gargalos invisíveis consumindo seu lucro</span></li>
+                      <li className="flex items-start gap-4"><X className="text-red-500 w-6 h-6 shrink-0 bg-red-500/10 rounded p-1" /> <span className="text-zinc-400 text-lg">Sem saber onde investir para crescer</span></li>
+                      <li className="flex items-start gap-4"><X className="text-red-500 w-6 h-6 shrink-0 bg-red-500/10 rounded p-1" /> <span className="text-zinc-400 text-lg">Resultados imprevisíveis e instáveis</span></li>
                   </ul>
               </div>
               
               {/* A Solução W3 */}
               <div className="bg-[#111111] border border-[#F55900] shadow-[0_0_40px_rgba(245,89,0,0.15)] p-10 rounded-2xl relative overflow-hidden flex flex-col justify-center transform md:scale-105 z-10">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F55900] to-[#ffaa00]"></div>
-                  <h4 className="text-xl md:text-2xl font-black text-white mb-8 uppercase text-center md:text-left text-[#F55900]">E-commerce Grupo W3</h4>
+                  <h4 className="text-xl md:text-2xl font-black text-white mb-8 uppercase text-center md:text-left text-[#F55900]">Com a Consultoria W3</h4>
                   <ul className="space-y-6 relative z-10">
-                      <li className="flex items-start gap-4"><Check className="text-[#F55900] w-6 h-6 shrink-0 bg-[#F55900]/10 rounded p-1" /> <span className="text-white font-bold text-lg">Reorganização financeira e lucro real</span></li>
-                      <li className="flex items-start gap-4"><Check className="text-[#F55900] w-6 h-6 shrink-0 bg-[#F55900]/10 rounded p-1" /> <span className="text-white font-bold text-lg">Estrutura de vendas multi-canal</span></li>
-                      <li className="flex items-start gap-4"><Check className="text-[#F55900] w-6 h-6 shrink-0 bg-[#F55900]/10 rounded p-1" /> <span className="text-white font-bold text-lg">Decisões baseadas em métricas exatas</span></li>
+                      <li className="flex items-start gap-4"><Check className="text-[#F55900] w-6 h-6 shrink-0 bg-[#F55900]/10 rounded p-1" /> <span className="text-white font-bold text-lg">Análise e Raio-X da sua operação atual</span></li>
+                      <li className="flex items-start gap-4"><Check className="text-[#F55900] w-6 h-6 shrink-0 bg-[#F55900]/10 rounded p-1" /> <span className="text-white font-bold text-lg">Estruturação para escala com lucro real</span></li>
+                      <li className="flex items-start gap-4"><Check className="text-[#F55900] w-6 h-6 shrink-0 bg-[#F55900]/10 rounded p-1" /> <span className="text-white font-bold text-lg">Plano de ação personalizado para seu negócio</span></li>
                   </ul>
               </div>
           </div>
           
           <div className="mt-16 flex justify-center">
-            <ButtonPrimary onClick={handleApplyClick}>QUERO ESSA ESTRUTURA NO MEU NEGÓCIO</ButtonPrimary>
+            <ButtonPrimary onClick={handleApplyClick}>QUERO APLICAR PARA UMA VAGA</ButtonPrimary>
           </div>
         </div>
       </section>
@@ -196,19 +196,19 @@ export default function App() {
       {/* 05. O ECOSSISTEMA / SOLUÇÕES (W3 Content + FGA Modules Layout) */}
       <section id="solucoes" className="py-24 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
-          <SectionTitle 
-            subtitle="Nossas Unidades de Negócio"
-            title="Um sistema integrado onde cada engrenagem vende e otimiza" 
-            description="Não somos dependentes de uma única solução. Conheça as áreas que vão operar o crescimento do seu e-commerce:"
+          <SectionTitle
+            subtitle="Os Benefícios"
+            title="Conheça os benefícios que você terá após destravar o seu e-commerce"
+            description="Com canais de vendas bem alinhados, sua operação alcança resultados altos e previsíveis, eliminando surpresas."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
             {[
-              { icon: GraduationCap, title: "MENTORIA AMES", desc: "Fundamentos estratégicos para donos de E-commerce. O método que construiu o 3º maior e-commerce de moda infantil do Brasil." },
-              { icon: TrendingUp, title: "W3 TRÁFEGO PAGO", desc: "Gestão de mídia que não foca em curtidas, mas em ROAS e margem. Otimização de conversão e escala sustentável." },
-              { icon: Store, title: "W3 MARKETPLACES", desc: "Domine Mercado Livre, Shopee e Amazon com nosso time gerindo sua operação AMZ aplicando nossa inteligência de vendas." },
-              { icon: CreditCard, title: "W3 PAGAMENTOS", desc: "A mais alta taxa de aprovação do mercado com checkout transparente e recuperação de carrinhos impulsionada por IA." },
-              { icon: Cpu, title: "W3 LABS (SaaS)", desc: "Nossa tecnologia própria. Toda a inteligência de gestão, calculadoras de margem e CRM de influenciadores a um clique." }
+              { icon: DollarSign, title: "MAXIMIZAÇÃO DE LUCROS", desc: "Adote uma abordagem de alta margem de lucro, permitindo que seu e-commerce cresça com eficiência e segurança financeira." },
+              { icon: TrendingUp, title: "CRESCIMENTO SEM LIMITES", desc: "Implemente um modelo de escalabilidade claro e eficiente, multiplicando lucro e faturamento baseado em dados reais." },
+              { icon: Rocket, title: "LIBERDADE PARA O DONO", desc: "Transforme seu e-commerce em uma operação independente, onde as vendas acontecem sem a necessidade constante do dono." },
+              { icon: Building, title: "AUMENTO DE VALOR DE MERCADO", desc: "Construa uma operação que agregue valor real ao seu negócio, tornando seu e-commerce um ativo altamente valorizado." },
+              { icon: ShieldCheck, title: "EQUILÍBRIO PROFISSIONAL E PESSOAL", desc: "Gere mais qualidade de vida com a tranquilidade de saber que sua operação funciona de forma estruturada e livre de estresse." }
             ].map((sol, i) => (
               <div key={i} className={`bg-[#0a0a0a] border border-zinc-900 p-8 rounded-xl hover:-translate-y-2 hover:border-[#F55900]/50 transition-all duration-300 flex flex-col ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
                 <sol.icon className="w-10 h-10 text-[#F55900] mb-6" />
@@ -223,7 +223,7 @@ export default function App() {
       {/* 06. CASES / PROVA SOCIAL (FGA 3-Col + W3 Main Case) */}
       <section id="cases" className="py-24 px-4 bg-[#050505] border-t border-zinc-900">
         <div className="max-w-6xl mx-auto text-center">
-          <SectionTitle subtitle="Resultados Reais" title="Validação de quem vive o campo de batalha" />
+          <SectionTitle subtitle="Resultados Reais" title="Depoimentos de quem já passou pela consultoria" />
           
           {/* Main Case (W3) */}
           <div className="bg-black border border-[#F55900]/20 rounded-2xl overflow-hidden flex flex-col lg:flex-row mb-16 text-left shadow-2xl">
@@ -265,10 +265,10 @@ export default function App() {
       <section id="bastidores" className="py-24 px-4 bg-black border-y border-zinc-900">
          <div className="max-w-6xl mx-auto">
             
-            <SectionTitle 
-              subtitle="Por trás da operação"
-              title="A liderança que opera o crescimento diário" 
-              description="Não somos aventureiros digitais. Nossa operação real está em Blumenau/SC, onde lideramos um time focado exclusivamente em faturamento e escala."
+            <SectionTitle
+              subtitle="Sobre a Consultoria"
+              title="Consultoria personalizada de e-commerce"
+              description="Semanalmente, disponibilizamos horários exclusivos para realizar consultorias de pré-avaliação focadas em empresários que buscam otimizar seus e-commerces e aumentar seus resultados. Essas consultorias têm como objetivo ajudar a identificar gargalos, oferecer direcionamento estratégico e criar um plano de ação personalizado, para que você consiga escalar seu e-commerce, treinar sua equipe e alcançar mais lucratividade, previsibilidade e crescimento constante."
             />
 
             {/* FGA Experts Grid */}
@@ -353,18 +353,18 @@ export default function App() {
            <ImagePlaceholder aspect="aspect-square" icon={ShieldCheck} className="w-32 h-32 md:w-48 md:h-48 rounded-full mb-10 border-4 border-[#F55900]/20 shadow-[0_0_50px_rgba(245,89,0,0.1)]" />
 
            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-8 tracking-tighter uppercase font-['Montserrat']">
-              Sua operação precisa de <br/>
-              <span className="text-[#F55900] drop-shadow-[0_0_20px_rgba(245,89,0,0.5)]">Estrutura real.</span>
+              Pronto para destravar <br/>
+              <span className="text-[#F55900] drop-shadow-[0_0_20px_rgba(245,89,0,0.5)]">o seu e-commerce?</span>
            </h2>
            <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto font-medium">
-             Pare de perder margem de lucro e viva o verdadeiro crescimento escalável. Solicite agora seu diagnóstico estratégico e veja se sua marca qualifica para o ecossistema W3.
+             Concorra a uma vaga e receba um plano de ação personalizado para aumentar seu faturamento com lucro e previsibilidade.
            </p>
-           
+
            <ButtonPrimary onClick={handleApplyClick} className="w-full sm:w-auto text-lg py-6 px-12 shadow-[0_0_40px_rgba(245,89,0,0.4)]">
-              SOLICITAR DIAGNÓSTICO ESTRATÉGICO <ArrowRight className="w-6 h-6 ml-2" />
+              QUERO APLICAR AGORA <ArrowRight className="w-6 h-6 ml-2" />
            </ButtonPrimary>
 
-           <p className="text-zinc-500 text-xs mt-6 font-bold tracking-widest uppercase"><ShieldCheck className="w-4 h-4 inline mr-1 text-[#F55900]" /> Garantimos uma análise baseada em dados reais da sua operação</p>
+           <p className="text-zinc-500 text-xs mt-6 font-bold tracking-widest uppercase"><ShieldCheck className="w-4 h-4 inline mr-1 text-[#F55900]" /> Cadastre-se acima para concorrer a uma vaga</p>
         </div>
       </section>
 
