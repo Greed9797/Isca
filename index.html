@@ -365,6 +365,13 @@
             /* Inherit color from inline styles below */
         }
 
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
         @keyframes marqueeScroll {
             0% {
                 transform: translateX(0);
@@ -1449,29 +1456,21 @@
         <p class="fade-in">QUEM JA FEZ PARTE DA CONSULTORIA</p>
         <div class="marquee-wrapper fade-in">
             <div class="marquee-content">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i class="hgi-stroke hgi-activity-01"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i class="hgi-stroke hgi-award-01"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i class="hgi-stroke hgi-briefcase-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i class="hgi-stroke hgi-cloud-angled-zap"></i></div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i class="hgi-stroke hgi-cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i class="hgi-stroke hgi-hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i class="hgi-stroke hgi-layers-01"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i class="hgi-stroke hgi-arrow-expand-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i class="hgi-stroke hgi-rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i class="hgi-stroke hgi-favourite"></i></div>
+                <div class="marquee-item"><img src="/marcas/Captura_de_tela_2026-01-12_212358.webp" alt="Marca 1" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/GM_Rosa_Do_Deserto.avif" alt="GM Rosa do Deserto" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_10_Design-sem-nome-97-e1766176018301.png" alt="Marca 3" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_11_cropped-tktx-pomadas-anestesicas-logo-1-1-300x77-1.webp" alt="TKTX" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp" alt="Marca 5" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Marca 6" loading="lazy"></div>
             </div>
             <!-- Cópia para loop infinito -->
             <div class="marquee-content" aria-hidden="true">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i class="hgi-stroke hgi-activity-01"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i class="hgi-stroke hgi-award-01"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i class="hgi-stroke hgi-briefcase-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i class="hgi-stroke hgi-cloud-angled-zap"></i></div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i class="hgi-stroke hgi-cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i class="hgi-stroke hgi-hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i class="hgi-stroke hgi-layers-01"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i class="hgi-stroke hgi-arrow-expand-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i class="hgi-stroke hgi-rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i class="hgi-stroke hgi-favourite"></i></div>
+                <div class="marquee-item"><img src="/marcas/Captura_de_tela_2026-01-12_212358.webp" alt="Marca 1" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/GM_Rosa_Do_Deserto.avif" alt="GM Rosa do Deserto" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_10_Design-sem-nome-97-e1766176018301.png" alt="Marca 3" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_11_cropped-tktx-pomadas-anestesicas-logo-1-1-300x77-1.webp" alt="TKTX" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp" alt="Marca 5" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Marca 6" loading="lazy"></div>
             </div>
         </div>
     </div>
@@ -2158,7 +2157,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">W3</div>
+                <div class="footer-logo"><img src="/logo/logo-grupow3 (1).png" alt="Grupo W3" style="height: 48px; width: auto;"></div>
                 <div class="footer-links">
                     <span>© 2026 AMH Soluções Digitais LTDA. Todos direitos reservados</span>
                 </div>
