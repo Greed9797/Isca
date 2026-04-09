@@ -1168,24 +1168,29 @@
             }
 
             .hero-bg-text {
-                font-size: 6rem;
-                top: 5%;
-                right: -10%;
+                font-size: 5rem;
+                top: auto;
+                bottom: 15%;
+                right: 0;
+                left: 0;
                 text-align: center;
+                color: rgba(255, 255, 255, 0.04);
+                z-index: 2;
             }
 
             .hero .container {
                 flex-direction: column;
                 padding-top: 20px;
                 text-align: left;
-                min-height: auto;
+                min-height: 100vh;
+                position: relative;
             }
 
             .hero-content {
                 flex: none;
                 max-width: 100%;
                 z-index: 3;
-                padding-bottom: 40px;
+                padding-bottom: 300px;
             }
 
             .hero-logo {
@@ -1201,15 +1206,15 @@
             }
 
             .hero-image-wrapper {
-                position: relative;
-                width: 100%;
-                height: 400px;
-                right: auto;
-                bottom: auto;
-                justify-content: center;
-                opacity: 0.9;
+                position: absolute;
+                bottom: 0;
+                right: 50%;
+                transform: translateX(50%);
+                width: 85%;
+                height: 55%;
                 z-index: 1;
-                margin-top: -60px;
+                justify-content: center;
+                pointer-events: none;
             }
 
             .hero .btn {
@@ -1291,11 +1296,6 @@
                 font-size: 1.1rem;
             }
 
-            /* Hero image: altura menor pra não criar espaço morto */
-            .hero-image-wrapper {
-                height: 220px;
-                margin-top: -10px;
-            }
 
             .pain-row-4 .pain-card {
                 flex: none;
@@ -1435,12 +1435,6 @@
             max-height: 100%;
         }
 
-        /* FIX 2: Wrapper da imagem do hero */
-        .hero-image-wrapper {
-            height: 300px;
-            margin-top: 0;
-        }
-
         /* FIX 3: Padding do hero */
         .hero {
             padding-top: 55px;
@@ -1476,9 +1470,9 @@
             --h1-size: 1.8rem;
         }
 
-        /* FIX 8: Ocultar texto decorativo */
+        /* FIX 8: Texto decorativo menor em telas muito pequenas */
         .hero-bg-text {
-            display: none;
+            font-size: 3.5rem;
         }
     }
     </style>
