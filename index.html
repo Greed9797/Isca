@@ -422,59 +422,54 @@
         }
 
         .pain-card {
-            background: linear-gradient(180deg, rgba(30, 25, 15, 0.6) 0%, rgba(15, 15, 15, 0.8) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 12px;
-            transition: var(--transition);
-            position: relative;
+            border-radius: 16px;
             overflow: hidden;
+            position: relative;
+            flex: 1;
+            min-width: 220px;
+            max-width: calc(25% - 15px);
+            min-height: 480px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .pain-row-2 .pain-card {
-            flex: 1;
-            max-width: calc(50% - 10px);
-        }
-
-        .pain-row-3 .pain-card {
-            flex: 1;
-            max-width: calc(33.333% - 13.33px);
+            justify-content: flex-end;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
         .pain-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.3), transparent);
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(100, 20, 20, 0.7) 70%, rgba(60,10,10,0.95) 100%);
+            z-index: 1;
         }
 
         .pain-card img {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: 250px;
-            object-fit: contain;
-            object-position: center;
-            margin-bottom: 25px;
-            opacity: 0.7;
-            mix-blend-mode: screen;
-            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.1));
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            z-index: 0;
         }
 
         .pain-card p {
-            color: var(--text-primary);
-            font-size: var(--card-text-size);
+            position: relative;
+            z-index: 2;
+            color: #e0e0e0;
+            font-size: 0.95rem;
             line-height: 1.6;
+            padding: 24px;
         }
 
         .pain-card p strong {
             color: #ffffff;
             font-weight: 800;
         }
+
+        .pain-row-2 .pain-card { max-width: calc(50% - 10px); }
+        .pain-row-4 .pain-card { max-width: calc(25% - 15px); }
 
         .pain-footer-text {
             text-align: center;
@@ -1089,10 +1084,12 @@
             }
 
             .pain-row-2 .pain-card,
-            .pain-row-3 .pain-card {
+            .pain-row-3 .pain-card,
+            .pain-row-4 .pain-card {
                 flex: none;
                 max-width: calc(50% - 10px);
                 width: calc(50% - 10px);
+                min-height: 380px;
             }
 
             .pain-row {
@@ -1300,13 +1297,11 @@
                 margin-top: -10px;
             }
 
-            /* Pain cards: imagem menor */
-            .pain-card img {
-                height: 130px;
-            }
-
-            .pain-card {
-                padding: 24px 20px;
+            .pain-row-4 .pain-card {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+                min-height: 320px;
             }
 
             /* Founder images: altura reduzida */
@@ -1479,42 +1474,36 @@
     <!-- Pain / Agitation -->
     <section class="pain-section">
         <div class="container">
-            <div style="text-align: center; color: var(--primary); font-weight: 800; font-size: 1.15rem; text-transform: uppercase; margin-bottom: 20px;"
-                class="fade-in">PARA QUEM É?</div>
-            <h2 class="fade-in">Para que perfis de negócios foi desenhada esta <span class="highlight">Consultoria de
-                    1h30?</span></h2>
-            <p class="pain-footer-text fade-in" style="margin-top: 0; margin-bottom: 50px;">Esta sessão profunda
-                destina-se a donos de negócios que querem atingir o próximo nível de faturação:</p>
+            <h2 class="fade-in" style="max-width: 900px; margin: 0 auto 2rem; text-align: center; font-size: 1.3rem; line-height: 1.5; text-transform: uppercase;">
+                ATENÇÃO, SE VOCÊ É DONO DE E-COMMERCE E ESTÁ ENFRENTANDO DESAFIOS PARA TER <span class="highlight">PREVISIBILIDADE NOS RESULTADOS DO SEU NEGÓCIO,</span> VEJA SE ISSO SE REFLETE NA SUA OPERAÇÃO
+            </h2>
 
-            <div class="pain-grid">
-                <div class="pain-row pain-row-3">
+            <div class="pain-grid" style="margin-top: 60px;">
+                <div class="pain-row pain-row-4">
                     <div class="pain-card fade-in">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-illustration-download-in-svg-png-gif-file-formats--store-cart-service-e-commerce-pack-e-commerce-shopping-illustrations-4251268.png"
-                            alt="Site Próprio" loading="lazy" decoding="async">
-                        <p><strong>Vendem em Site Próprio:</strong> Donos de e-commerce que já faturam, mas sentem que
-                            as campanhas estagnaram e precisam de melhorar a conversão para escalar sem perder a margem
-                            de lucro.</p>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Dono de e-commerce" loading="lazy" decoding="async">
+                        <p>Sente que seu e-commerce não consegue desempenhar como deveria e você <strong>não consegue escalar de verdade</strong></p>
                     </div>
                     <div class="pain-card fade-in">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-marketplace-illustration-download-in-svg-png-gif-file-formats--shopping-store-retail-e-commerce-pack-e-commerce-shopping-illustrations-4251270.png"
-                            alt="Marketplaces" loading="lazy" decoding="async">
-                        <p><strong>Vendem em Marketplaces:</strong> Empreendedores que dependem destas plataformas e
-                            querem estruturar a sua própria operação, criando um canal de vendas direto e mais
-                            lucrativo.</p>
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80" alt="Platô de crescimento" loading="lazy" decoding="async">
+                        <p>Está em um <strong>platô de crescimento</strong> a um tempo, tendo seu resultado muitas vezes caindo se comparado ao passado</p>
                     </div>
                     <div class="pain-card fade-in">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/store-illustration-download-in-svg-png-gif-file-formats--shop-front-retail-building-marketplace-marketplace-pack-e-commerce-shopping-illustrations-4251277.png"
-                            alt="Lojas Físicas" loading="lazy" decoding="async">
-                        <p><strong>Donos de Lojas Físicas:</strong> Têm uma operação física a funcionar e querem
-                            replicar esse sucesso no digital, criando uma estrutura sólida e escalável de vendas online.
-                        </p>
+                        <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&q=80" alt="Tráfego pago" loading="lazy" decoding="async">
+                        <p>O <strong>tráfego pago não está performando</strong> e não sabe como fazer o jogo virar</p>
+                    </div>
+                    <div class="pain-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80" alt="Dificuldade em vendas" loading="lazy" decoding="async">
+                        <p>Vê que está cada vez mais difícil realizar uma venda comparado a antigamente, e que as vendas tem acontecido com <strong>muito mais dificuldade</strong></p>
                     </div>
                 </div>
             </div>
 
+            <p class="pain-footer-text fade-in" style="margin-top: 50px;">Se você se identificou com alguns desses pontos, é sinal de que seu sistema precisa de ajustes estratégicos — veja como estruturar um modelo realmente escalável.</p>
+
             <div class="pain-footer-action fade-in">
                 <a href="#agendar" class="btn-outline">
-                    QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
+                    QUERO APLICAR PARA UMA VAGA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
