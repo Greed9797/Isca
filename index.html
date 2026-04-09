@@ -1422,6 +1422,65 @@
     .benefit-icon i {
         font-size: 20px;
     }
+
+    /* ============================================
+       FIXES DE RESPONSIVIDADE MOBILE
+       ============================================ */
+
+    @media (max-width: 768px) {
+        /* FIX 1: Imagem do hero */
+        .hero-image {
+            margin-right: 0;
+            width: auto;
+            max-height: 100%;
+        }
+
+        /* FIX 2: Wrapper da imagem do hero */
+        .hero-image-wrapper {
+            height: 300px;
+            margin-top: 0;
+        }
+
+        /* FIX 3: Padding do hero */
+        .hero {
+            padding-top: 55px;
+        }
+
+        /* FIX 4: Botões outline com largura 100% */
+        .btn-outline,
+        .btn-outline-dark {
+            width: 100% !important;
+            max-width: 100% !important;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* FIX 5: Cards de "dores" menos altos */
+        .pain-card {
+            min-height: 220px !important;
+        }
+
+        /* FIX 6: Logos do carrossel menores */
+        .marquee-item {
+            width: 110px;
+            height: 110px;
+        }
+        .marquee-item img {
+            padding: 14px;
+        }
+
+        /* FIX 7: Tipografia menor */
+        :root {
+            --h2-size: 1.3rem;
+            --h1-size: 1.8rem;
+        }
+
+        /* FIX 8: Ocultar texto decorativo */
+        .hero-bg-text {
+            display: none;
+        }
+    }
     </style>
 </head>
 
