@@ -149,15 +149,62 @@
             border-bottom: 2px solid var(--border-color);
         }
 
-        .hero-cta-overlay {
+        .hero-cta-wrapper {
             position: absolute;
-            /* Posicionado sobre o botão "QUERO APLICAR AGORA" na imagem */
-            bottom: 33%;
-            left: 5%;
-            width: 22%;
-            height: 7%;
+            bottom: 31.5%;
+            left: 7%;
             z-index: 10;
+        }
+
+        .hero-cta-wrapper .btn-outline {
+            font-size: 1rem !important;
+            padding: 16px 36px !important;
+            white-space: nowrap;
+            background: transparent !important;
+            border-color: transparent !important;
+            color: transparent !important;
             cursor: pointer;
+        }
+
+        .hero-cta-wrapper .btn-outline:hover {
+            background: rgba(247, 107, 0, 0.15) !important;
+            border-color: #F76B00 !important;
+            color: #fff !important;
+        }
+
+        @media (max-width: 992px) {
+            .hero-cta-wrapper {
+                bottom: 18%;
+                left: 5%;
+            }
+            .hero-cta-wrapper .btn-outline {
+                font-size: 0.85rem !important;
+                padding: 12px 24px !important;
+                background: transparent !important;
+                border-color: #F76B00 !important;
+                color: #fff !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-cta-wrapper {
+                bottom: 22%;
+                left: 5%;
+                transform: none;
+            }
+            .hero-cta-wrapper .btn-outline {
+                font-size: 0.75rem !important;
+                padding: 10px 20px !important;
+                background: transparent !important;
+                border-color: transparent !important;
+                color: transparent !important;
+            }
+            .hero-cta-wrapper .btn-outline:hover,
+            .hero-cta-wrapper .btn-outline:active {
+                background: rgba(247, 107, 0, 0.15) !important;
+                border-color: #F76B00 !important;
+                color: #fff !important;
+            }
         }
 
         .hero-image-wrapper {
@@ -1307,8 +1354,9 @@
             <img src="/Hero-Desktop.png"
                 alt="Leonardo Ames - Fundador da Ame Kids e Grupo W3 | Seu e-commerce fatura mais que 20 mil por mês?" class="hero-image" loading="eager" fetchpriority="high">
         </div>
-        <!-- CTA invisível posicionado sobre o botão da imagem -->
-        <a href="#agendar" class="hero-cta-overlay" aria-label="Quero aplicar agora"></a>
+        <div class="hero-cta-wrapper">
+            <a href="#agendar" class="btn-outline">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
+        </div>
     </section>
 
     <!-- Logo Bar (Marquee) -->
