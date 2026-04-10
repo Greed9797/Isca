@@ -4,15 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico Comercial Gratuito - Metodologia Ames</title>
+    <title>Diagnóstico Comercial Gratuito - Metodologia Ames | Grupo W3</title>
+    <meta name="description" content="Agende um diagnóstico gratuito com um especialista da Metodologia Ames. Em 1 hora, identificamos os gargalos do seu e-commerce e montamos um plano estratégico para escalar com lucro e previsibilidade. +150 e-commerces acelerados.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cg.leonardoames.com.br/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Diagnóstico Comercial Gratuito - Metodologia Ames | Grupo W3">
+    <meta property="og:description" content="Em 1 hora, um especialista identifica os gargalos do seu e-commerce e monta um plano estratégico para escalar com lucro e previsibilidade.">
+    <meta property="og:url" content="https://cg.leonardoames.com.br/">
+    <meta property="og:image" content="https://cg.leonardoames.com.br/Hero-Desktop.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Grupo W3 - Metodologia Ames">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diagnóstico Comercial Gratuito - Metodologia Ames">
+    <meta name="twitter:description" content="Agende seu diagnóstico gratuito e escale seu e-commerce com a Metodologia Ames.">
+    <meta name="twitter:image" content="https://cg.leonardoames.com.br/Hero-Desktop.png">
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.hugeicons.com">
-    <link rel="dns-prefetch" href="https://institutofga.com">
-    <!-- Fonts: subset de pesos realmente usados -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Hugeicons -->
-    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+    <link rel="preconnect" href="https://cdn.hugeicons.com" crossorigin>
+    <!-- Google Fonts — non-render-blocking -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    <!-- Hugeicons — non-render-blocking (savings ~736ms) -->
+    <link rel="preload" as="style" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"></noscript>
     <style>
         :root {
             /* Backgrounds */
@@ -144,164 +164,92 @@
         /* Hero */
         .hero {
             background-color: #050505;
-            background-image: radial-gradient(circle at 70% 30%, #1a1005 0%, #050505 60%);
-            padding-top: 100px;
-            padding-bottom: 0px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
             position: relative;
             overflow: hidden;
             border-bottom: 2px solid var(--border-color);
+            padding: 0 !important;
         }
 
-        .hero-bg-text {
+        .hero-cta-wrapper {
             position: absolute;
-            top: 15%;
-            right: 5%;
-            font-size: 14rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.015);
-            z-index: 0;
-            letter-spacing: 5px;
-            user-select: none;
-            line-height: 0.8;
-            text-align: right;
-            text-transform: uppercase;
+            bottom: 14.5%;
+            left: 8%;
+            z-index: 10;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTEwIDB2NDBNMjAgMHY0ME0zMCAwdjQwTTAgMjBoNDBNMCAzMGg0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwgMDwgMCwgMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==') repeat;
-            opacity: 0.3;
-            z-index: 0;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        }
-
-        .hero .container {
-            display: flex;
+        /* Desktop: 461x86, font 20px, radius 20, gap 10 */
+        .hero-cta {
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            min-height: 90vh;
-            padding-top: 40px;
-        }
-
-        .hero-logo {
-            height: 35px;
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        .hero-content {
-            flex: 0 0 55%;
-            max-width: 600px;
-            padding-bottom: 60px;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: var(--h1-size);
-            margin-bottom: 1.5rem;
+            justify-content: center;
+            gap: 0.52vw;
+            padding: 1.56vw 2.6vw;
+            width: 24vw;
+            height: 4.48vw;
+            background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
+            border-radius: 1.04vw;
+            border: none;
+            color: #F3F3F3;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.04vw;
             text-transform: uppercase;
-            line-height: 1.1;
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
+            box-sizing: border-box;
+            margin: 1px 1px 40px 10px;
         }
 
-        .hero-title .highlight {
-            color: var(--primary);
-            display: block;
-        }
-
-        .hero-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-            font-weight: 400;
-            line-height: 1.6;
-            margin-right: -40px;
-        }
-
-        .hero-subtitle strong {
-            color: #fff;
-            font-weight: 800;
-        }
-
-        .hero-bullets {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-bullets li {
-            font-size: var(--body-size);
-            color: var(--text-primary);
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .hero-bullets i {
-            color: var(--primary);
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-            stroke-width: 3;
-            margin-top: 2px;
-        }
-
-        .hero .btn {
-            background-color: #24d366;
-            color: #0f2e1b;
-            font-size: 1.1rem;
-            padding: 20px 40px;
-            width: 100%;
-            max-width: 480px;
-            margin-bottom: 10px;
-            box-shadow: 0 0 20px rgba(36, 211, 102, 0.3);
-        }
-
-        .hero .btn:hover {
-            background-color: #2ce771;
+        .hero-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(36, 211, 102, 0.5);
+            box-shadow: 0 6px 30px rgba(245, 89, 0, 0.5);
+            background: linear-gradient(90deg, #FF6A1A 0%, #F98B2E 100%);
         }
 
-        .hero-urgency {
-            font-size: 0.85rem;
-            color: #ff3333;
-            max-width: 480px;
-            text-align: center;
-            line-height: 1.5;
+        .hero-cta i {
+            font-size: 1.3vw;
+        }
+
+        /* Tablet/iPad: margin ajustado */
+        @media (max-width: 992px) {
+            .hero-cta {
+                margin: 1px 1px 20px 6px;
+            }
+        }
+
+        /* Mobile: 260x49, font 11.3px, padding 17 28, radius 11, gap 5.6 */
+        @media (max-width: 768px) {
+            .hero-cta-wrapper {
+                bottom: 47%;
+                left: 8.2%;
+            }
+            .hero-cta {
+                width: 62.8vw;
+                height: 11.8vw;
+                padding: 4.1vw 6.8vw;
+                font-size: 2.72vw;
+                border-radius: 2.72vw;
+                gap: 1.36vw;
+                margin: 0;
+            }
+            .hero-cta i {
+                font-size: 3.4vw;
+            }
         }
 
         .hero-image-wrapper {
-            position: absolute;
-            bottom: 0;
-            right: -5%;
-            width: 50%;
-            height: 95%;
-            pointer-events: none;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            z-index: 1;
+            position: relative;
+            width: 100%;
+            z-index: 0;
         }
 
         .hero-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            object-position: bottom;
-            filter: drop-shadow(-10px 0px 20px rgba(0, 0, 0, 0.5));
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Logo Marquee */
@@ -365,6 +313,13 @@
             /* Inherit color from inline styles below */
         }
 
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
         @keyframes marqueeScroll {
             0% {
                 transform: translateX(0);
@@ -414,59 +369,54 @@
         }
 
         .pain-card {
-            background: linear-gradient(180deg, rgba(30, 25, 15, 0.6) 0%, rgba(15, 15, 15, 0.8) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 12px;
-            transition: var(--transition);
-            position: relative;
+            border-radius: 16px;
             overflow: hidden;
+            position: relative;
+            flex: 1;
+            min-width: 220px;
+            max-width: calc(25% - 15px);
+            min-height: 480px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .pain-row-2 .pain-card {
-            flex: 1;
-            max-width: calc(50% - 10px);
-        }
-
-        .pain-row-3 .pain-card {
-            flex: 1;
-            max-width: calc(33.333% - 13.33px);
+            justify-content: flex-end;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
         .pain-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.3), transparent);
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(120, 55, 0, 0.75) 70%, rgba(80, 35, 0, 0.97) 100%);
+            z-index: 1;
         }
 
         .pain-card img {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: 250px;
-            object-fit: contain;
-            object-position: center;
-            margin-bottom: 25px;
-            opacity: 0.7;
-            mix-blend-mode: screen;
-            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.1));
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            z-index: 0;
         }
 
         .pain-card p {
-            color: var(--text-primary);
-            font-size: var(--card-text-size);
+            position: relative;
+            z-index: 2;
+            color: #e0e0e0;
+            font-size: 0.95rem;
             line-height: 1.6;
+            padding: 24px;
         }
 
         .pain-card p strong {
             color: #ffffff;
             font-weight: 800;
         }
+
+        .pain-row-2 .pain-card { max-width: calc(50% - 10px); }
+        .pain-row-4 .pain-card { max-width: calc(25% - 15px); }
 
         .pain-footer-text {
             text-align: center;
@@ -720,97 +670,6 @@
             font-family: var(--font-body);
         }
 
-        /* About Section */
-        .about-section {
-            position: relative;
-            padding: 120px 0;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .about-bg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            filter: grayscale(60%) brightness(0.3);
-            z-index: 0;
-        }
-
-        .about-bg-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.72) 100%);
-            z-index: 1;
-        }
-
-        .about-section .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-eyebrow {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .about-title {
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 2rem;
-            text-transform: uppercase;
-            line-height: 1.2;
-            color: #ffffff;
-            margin-bottom: 50px;
-        }
-
-        .about-title .highlight {
-            color: var(--primary);
-            display: block;
-        }
-
-        .about-card {
-            max-width: 780px;
-            margin: 0 auto 50px;
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            padding: 50px 60px;
-        }
-
-        .about-card p {
-            color: #d0d0d0;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            font-family: var(--font-body);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .about-card p:last-child { margin-bottom: 0; }
-
-        @media (max-width: 768px) {
-            .about-section { padding: 80px 0; }
-            .about-title { font-size: 1.5rem; margin-bottom: 32px; }
-            .about-card { padding: 32px 24px; }
-            .about-card p { font-size: 0.95rem; }
-        }
-
-        @media (max-width: 480px) {
-            .about-section { padding: 56px 0; }
-            .about-title { font-size: 1.25rem; }
-            .about-card { padding: 24px 18px; }
-        }
-
         /* Social Proof (Cases) */
         .social-proof {
             background-color: #ffffff;
@@ -939,10 +798,15 @@
         }
 
         .alpha-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            display: flex;
+            justify-content: center;
             gap: 20px;
             margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .alpha-stats .stat-card {
+            flex: 0 1 280px;
         }
 
         .stat-card {
@@ -988,7 +852,7 @@
             width: 100%;
             height: 350px;
             object-fit: cover;
-            object-position: top;
+            object-position: center 20%;
             filter: grayscale(20%);
         }
 
@@ -1072,7 +936,7 @@
         }
 
         .faq-item.active {
-            border-color: #F76B00;
+            border-color: #ffb000;
         }
 
         .faq-question {
@@ -1091,7 +955,7 @@
         }
 
         .faq-item.active .faq-question {
-            background-color: #F76B00;
+            background-color: #ffb000;
             color: #000000;
         }
 
@@ -1167,10 +1031,12 @@
             }
 
             .pain-row-2 .pain-card,
-            .pain-row-3 .pain-card {
+            .pain-row-3 .pain-card,
+            .pain-row-4 .pain-card {
                 flex: none;
                 max-width: calc(50% - 10px);
                 width: calc(50% - 10px);
+                min-height: 380px;
             }
 
             .pain-row {
@@ -1243,66 +1109,6 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            .hero {
-                padding-top: 80px;
-                min-height: auto;
-            }
-
-            .hero-bg-text {
-                font-size: 6rem;
-                top: 5%;
-                right: -10%;
-                text-align: center;
-            }
-
-            .hero .container {
-                flex-direction: column;
-                padding-top: 20px;
-                text-align: left;
-                min-height: auto;
-            }
-
-            .hero-content {
-                flex: none;
-                max-width: 100%;
-                z-index: 3;
-                padding-bottom: 40px;
-            }
-
-            .hero-logo {
-                margin: 0 auto 30px 0;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                margin-right: 0;
-            }
-
-            .hero-image-wrapper {
-                position: relative;
-                width: 100%;
-                height: 400px;
-                right: auto;
-                bottom: auto;
-                justify-content: center;
-                opacity: 0.9;
-                z-index: 1;
-                margin-top: -60px;
-            }
-
-            .hero .btn {
-                max-width: 100%;
-                text-align: center;
-            }
-
-            .hero-urgency {
-                max-width: 100%;
-                text-align: center;
-            }
-
             .social-proof-badges {
                 justify-content: center;
             }
@@ -1335,136 +1141,82 @@
             }
         }
 
-        /* ── Mobile structural fixes (768px) ── */
+        /* ── Mobile structural fixes ── */
         @media (max-width: 768px) {
-            /* CSS variables mobile */
-            :root {
-                --h1-size:        1.8rem;
-                --h2-size:        1.3rem;
-                --h3-size:        1.05rem;
-                --body-size:      1rem;
-                --card-text-size: 0.92rem;
-            }
 
-            /* Container */
-            .container { padding: 0 16px; }
-
-            /* Section padding */
-            section,
-            .pain-section,
-            .benefits-section,
-            .alpha-section,
-            .deliverables-section,
-            .faq-section,
-            .social-proof,
-            .logo-bar {
-                padding: 56px 0;
-            }
-            .how-it-works { padding: 56px 0 !important; }
-
-            /* Hero */
-            .hero { padding-top: 60px; }
-            .hero-bg-text { display: none; }
-            .hero .container { padding-top: 16px; }
-            .hero-content { padding-bottom: 20px; }
-            .hero-logo { height: 28px; margin-bottom: 24px; }
-            .hero-title { font-size: 1.75rem; line-height: 1.2; }
-            .hero-subtitle { font-size: 0.95rem; margin-right: 0; }
-            .hero-image-wrapper {
-                height: 200px;
-                margin-top: 0;
-            }
-            .hero .btn { max-width: 100%; width: 100%; font-size: 1rem; padding: 16px 20px; }
-            .hero-urgency { font-size: 0.8rem; }
-
-            /* Logo bar / marquee */
-            .marquee-item { width: 110px; height: 110px; border-radius: 12px; }
-            .marquee-item i { font-size: 44px !important; }
-
-            /* Pain section */
-            .pain-section h2 { margin-bottom: 2rem; }
-            .pain-row { flex-direction: column; gap: 14px; }
             .pain-row-2 .pain-card,
-            .pain-row-3 .pain-card { max-width: 100%; width: 100%; }
-            .pain-card { padding: 22px 18px; }
-            .pain-card img { height: 120px; }
+            .pain-row-3 .pain-card { max-width: 100%; width: 100%; min-height: 440px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .alpha-stats { grid-template-columns: repeat(2, 1fr) !important; }
+            .alpha-founders { grid-template-columns: 1fr; }
+            .deliverable-image { width: 100%; height: 250px; margin-bottom: 20px; }
 
-            /* Benefits */
-            .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
-            .benefit-card { padding: 28px 22px; }
-
-            /* Flow */
-            .flow-diagram { margin-top: 40px; gap: 32px; }
-            .step-number { width: 72px; height: 72px; font-size: 1.5rem; }
-
-            /* Deliverables */
-            .deliverable-image { width: 100%; height: 200px; margin-bottom: 16px; }
-            .deliverable-content { padding-left: 0; }
-            .deliverable-item { padding: 18px; }
-            .deliverable-item:hover { transform: translateY(-4px); }
-
-            /* Cases */
-            .cases-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 4px; }
-
-            /* Alpha */
-            .alpha-stats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-            .stat-card { padding: 22px 16px; }
-            .alpha-founders { grid-template-columns: 1fr; gap: 16px; }
-            .founder-card img { height: 200px; }
-
-            /* FAQ */
-            .faq-question { font-size: 0.85rem; padding: 14px 16px; gap: 10px; }
-            .faq-answer p { padding: 18px; font-size: 0.92rem; }
-            .faq-list { gap: 10px; }
-
-            /* Footer */
-            .footer-content { flex-direction: column; align-items: center; text-align: center; gap: 14px; }
-            .footer-logo img { height: 28px; }
-        }
-
-        /* ── Very small phones (480px) ── */
-        @media (max-width: 480px) {
-            :root {
-                --h1-size:        1.55rem;
-                --h2-size:        1.15rem;
-                --h3-size:        0.95rem;
-                --body-size:      0.9rem;
-                --card-text-size: 0.85rem;
+            /* Pain cards row 1 (hero row) — full width, tall */
+            .pain-row .pain-card {
+                min-height: 440px;
+                max-width: 100%;
+                width: 100%;
             }
 
-            .container { padding: 0 14px; }
+            /* Case cards — sem aspect-ratio, altura fixa generosa */
+            .case-card {
+                aspect-ratio: unset;
+                height: 420px;
+            }
+            .deliverable-content { padding-left: 0; }
+            .deliverable-item:hover { transform: translateY(-5px); }
+            .cases-grid { grid-template-columns: 1fr; max-width: 100%; padding: 0 8px; }
+            /* Reduce seção padding */
+            section {
+                padding: 60px 0;
+            }
 
-            section,
             .pain-section,
             .benefits-section,
             .alpha-section,
             .deliverables-section,
             .faq-section,
-            .social-proof,
-            .logo-bar {
-                padding: 44px 0;
+            .social-proof {
+                padding: 60px 0;
             }
 
-            .hero { padding-top: 48px; }
-            .hero-title { font-size: 1.45rem; }
-            .hero-image-wrapper { height: 160px; }
-            .hero .btn { font-size: 0.9rem; padding: 14px 16px; }
+            .how-it-works {
+                padding-top: 60px !important;
+                padding-bottom: 60px !important;
+            }
 
-            .marquee-item { width: 88px; height: 88px; border-radius: 10px; }
-            .marquee-item i { font-size: 36px !important; }
+            .pain-row-4 .pain-card {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+                min-height: 440px;
+            }
 
-            .pain-card img { height: 100px; }
-            .step-number { width: 60px; height: 60px; font-size: 1.3rem; }
-            .founder-card img { height: 170px; }
+            /* Founder images: altura e posição no mobile */
+            .founder-card img {
+                height: 380px;
+                object-position: center 15%;
+            }
 
-            .faq-question { font-size: 0.78rem; padding: 12px 14px; }
+            .founder-info {
+                padding: 20px 16px;
+            }
 
-            .alpha-stats { grid-template-columns: 1fr 1fr; }
-            .stat-card h3 { font-size: 1.1rem; }
+            /* FAQ question: fonte menor pra não cortar */
+            .faq-question {
+                font-size: 0.9rem;
+                padding: 16px 18px;
+            }
 
-            .btn, .btn-outline, .btn-outline-dark, .submit-btn {
-                font-size: 0.9rem !important;
-                padding: 14px 16px !important;
+            /* Footer: centralizar no mobile */
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* Container padding lateral mínimo */
+            .container {
+                padding: 0 18px;
             }
         }
 
@@ -1563,59 +1315,92 @@
     .benefit-icon i {
         font-size: 20px;
     }
+
+    /* ============================================
+       FIXES DE RESPONSIVIDADE MOBILE
+       ============================================ */
+
+    @media (max-width: 768px) {
+        /* FIX 4: Botões outline com largura 100% */
+        .btn-outline,
+        .btn-outline-dark {
+            width: 100% !important;
+            max-width: 100% !important;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Pain cards: altura generosa em telas pequenas */
+        .pain-card {
+            min-height: 400px !important;
+        }
+
+        /* Case cards também */
+        .case-card {
+            height: 380px;
+        }
+
+        /* Founder img */
+        .founder-card img {
+            height: 340px;
+        }
+
+        /* FIX 6: Logos do carrossel menores */
+        .marquee-item {
+            width: 110px;
+            height: 110px;
+        }
+        .marquee-item img {
+            padding: 14px;
+        }
+
+        /* FIX 7: Tipografia menor */
+        :root {
+            --h2-size: 1.3rem;
+            --h1-size: 1.8rem;
+        }
+
+    }
     </style>
 </head>
 
 <body>
-
+<main>
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg-text">SCALE<br>FAST</div>
-        <div class="container">
-            <div class="hero-content fade-in">
-                <img src="./logo-grupow3.svg" alt="Grupo W3" class="hero-logo">
-                <h1 class="hero-title">Receba um plano de ação personalizado para destravar seu e-commerce e <span class="highlight">aumentar seu faturamento com lucro e previsibilidade</span></h1>
-
-                <p class="hero-subtitle">Em 1 hora, um especialista da <strong>Metodologia Ames</strong> (responsável por mais de 100 milhões de faturamento/ano no e-commerce) vai pessoalmente identificar os gargalos da sua operação e montar um plano estratégico para destravar o seu negócio.</p>
-
-                <a href="#agendar" class="btn">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
-            </div>
-            <div class="hero-image-wrapper fade-in">
-                <!-- IMPORTANTE: Substitua por uma imagem PNG do especialista com fundo transparente para obter o efeito exato -->
-                <img src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-businessman-in-suit-transparent-background-png-image_10214876.png"
-                    alt="Especialista Comercial" class="hero-image" loading="eager" fetchpriority="high">
-            </div>
+    <section class="hero" id="hero">
+        <div class="hero-image-wrapper">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/Hero-Mobile.png">
+                <img src="/Hero-Desktop.png" width="1920" height="1228"
+                    alt="Leonardo Ames - Fundador da Ame Kids e Grupo W3 | Seu e-commerce fatura mais que 20 mil por mês?" class="hero-image" loading="eager" fetchpriority="high">
+            </picture>
+        </div>
+        <div class="hero-cta-wrapper">
+            <a href="#agendar" class="hero-cta">AGENDAR MINHA CONSULTORIA <i class="hgi-stroke hgi-arrow-up-right-01"></i></a>
         </div>
     </section>
 
     <!-- Logo Bar (Marquee) -->
     <div class="logo-bar">
-        <p class="fade-in">QUEM CONFIA NA W3</p>
+        <p class="fade-in">QUEM JA FEZ PARTE DA CONSULTORIA</p>
         <div class="marquee-wrapper fade-in">
             <div class="marquee-content">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i class="hgi-stroke hgi-activity-01"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i class="hgi-stroke hgi-award-01"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i class="hgi-stroke hgi-briefcase-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i class="hgi-stroke hgi-cloud-angled-zap"></i></div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i class="hgi-stroke hgi-cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i class="hgi-stroke hgi-hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i class="hgi-stroke hgi-layers-01"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i class="hgi-stroke hgi-arrow-expand-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i class="hgi-stroke hgi-rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i class="hgi-stroke hgi-favourite"></i></div>
+                <div class="marquee-item"><img src="/marcas/Captura_de_tela_2026-01-12_212358.webp" alt="Marca 1" width="144" height="70" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/GM_Rosa_Do_Deserto.avif" alt="GM Rosa do Deserto" width="144" height="144" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_10_Design-sem-nome-97-e1766176018301.png" alt="Marca 3" width="144" height="52" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_11_cropped-tktx-pomadas-anestesicas-logo-1-1-300x77-1.webp" alt="TKTX" width="144" height="37" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp" alt="Marca 5" width="144" height="45" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Marca 6" width="144" height="57" loading="lazy"></div>
             </div>
             <!-- Cópia para loop infinito -->
             <div class="marquee-content" aria-hidden="true">
-                <div class="marquee-item" style="background:#1a1a1a; color:#ff3333"><i class="hgi-stroke hgi-activity-01"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(45deg, #181818, #3a2e1d); color:#d1a153"><i class="hgi-stroke hgi-award-01"></i></div>
-                <div class="marquee-item" style="background:#0f172a; color:#d1a153"><i class="hgi-stroke hgi-briefcase-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#0e1726"><i class="hgi-stroke hgi-cloud-angled-zap"></i></div>
-                <div class="marquee-item" style="background:#262626; color:#a0a0a0"><i class="hgi-stroke hgi-cpu"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#2563eb"><i class="hgi-stroke hgi-hexagon"></i></div>
-                <div class="marquee-item" style="background:#0f0f2d; color:#e11d48"><i class="hgi-stroke hgi-layers-01"></i></div>
-                <div class="marquee-item" style="background:#050505; border: 1px solid #333; color:#fff"><i class="hgi-stroke hgi-arrow-expand-01"></i></div>
-                <div class="marquee-item" style="background:#fff; color:#000"><i class="hgi-stroke hgi-rocket"></i></div>
-                <div class="marquee-item" style="background:linear-gradient(135deg, #d4af37, #aa7c11); color:#fff"><i class="hgi-stroke hgi-favourite"></i></div>
+                <div class="marquee-item"><img src="/marcas/Captura_de_tela_2026-01-12_212358.webp" alt="Marca 1" width="144" height="70" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/GM_Rosa_Do_Deserto.avif" alt="GM Rosa do Deserto" width="144" height="144" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_10_Design-sem-nome-97-e1766176018301.png" alt="Marca 3" width="144" height="52" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_11_cropped-tktx-pomadas-anestesicas-logo-1-1-300x77-1.webp" alt="TKTX" width="144" height="37" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp" alt="Marca 5" width="144" height="45" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Marca 6" width="144" height="57" loading="lazy"></div>
             </div>
         </div>
     </div>
@@ -1623,34 +1408,36 @@
     <!-- Pain / Agitation -->
     <section class="pain-section">
         <div class="container">
-            <div style="text-align: center; color: var(--primary); font-weight: 800; font-size: 1.15rem; text-transform: uppercase; margin-bottom: 20px;"
-                class="fade-in">ATENÇÃO</div>
-            <h2 class="fade-in">Se você é dono de e-commerce e está enfrentando desafios para ter <span class="highlight">previsibilidade nos resultados</span>, veja se isso se reflete na sua operação</h2>
-            <p class="pain-footer-text fade-in" style="margin-top: 0; margin-bottom: 50px;">Se você se identificou com alguns desses pontos, é sinal de que seu sistema precisa de ajustes estratégicos — veja como estruturar um modelo realmente escalável.</p>
+            <h2 class="fade-in" style="max-width: 900px; margin: 0 auto 2rem; text-align: center; font-size: 1.3rem; line-height: 1.5; text-transform: uppercase;">
+                ATENÇÃO, SE VOCÊ É DONO DE E-COMMERCE E ESTÁ ENFRENTANDO DESAFIOS PARA TER <span class="highlight">PREVISIBILIDADE NOS RESULTADOS DO SEU NEGÓCIO,</span> VEJA SE ISSO SE REFLETE NA SUA OPERAÇÃO
+            </h2>
 
-            <div class="pain-grid">
-                <div class="pain-row pain-row-3">
+            <div class="pain-grid" style="margin-top: 60px;">
+                <div class="pain-row pain-row-4">
                     <div class="pain-card fade-in">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-illustration-download-in-svg-png-gif-file-formats--store-cart-service-e-commerce-pack-e-commerce-shopping-illustrations-4251268.png"
-                            alt="Site Próprio" loading="lazy" decoding="async">
-                        <p><strong>Escala Travada:</strong> Sente que seu e-commerce não consegue desempenhar como deveria e você não consegue escalar de verdade.</p>
+                        <img src="/pain1.png" alt="Dono de e-commerce" width="480" height="480" loading="lazy" decoding="async">
+                        <p>Sente que seu e-commerce não consegue desempenhar como deveria e você <strong>não consegue escalar de verdade</strong></p>
                     </div>
                     <div class="pain-card fade-in">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-marketplace-illustration-download-in-svg-png-gif-file-formats--shopping-store-retail-e-commerce-pack-e-commerce-shopping-illustrations-4251270.png"
-                            alt="Marketplaces" loading="lazy" decoding="async">
-                        <p><strong>Platô de Crescimento:</strong> Está em um platô de crescimento há algum tempo, tendo seu resultado muitas vezes caindo se comparado ao passado.</p>
+                        <img src="/pain2.png" alt="Platô de crescimento" width="480" height="480" loading="lazy" decoding="async">
+                        <p>Está em um <strong>platô de crescimento</strong> a um tempo, tendo seu resultado muitas vezes caindo se comparado ao passado</p>
                     </div>
                     <div class="pain-card fade-in">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/store-illustration-download-in-svg-png-gif-file-formats--shop-front-retail-building-marketplace-marketplace-pack-e-commerce-shopping-illustrations-4251277.png"
-                            alt="Lojas Físicas" loading="lazy" decoding="async">
-                        <p><strong>Tráfego Pago sem Resultado:</strong> O tráfego pago não está performando e não sabe como fazer o jogo virar. Cada vez mais difícil realizar uma venda comparado a antigamente.</p>
+                        <img src="/pain3.png" alt="Tráfego pago" width="480" height="480" loading="lazy" decoding="async">
+                        <p>O <strong>tráfego pago não está performando</strong> e não sabe como fazer o jogo virar</p>
+                    </div>
+                    <div class="pain-card fade-in">
+                        <img src="/pain4.png" alt="Dificuldade em vendas" width="480" height="480" loading="lazy" decoding="async">
+                        <p>Vê que está cada vez mais difícil realizar uma venda comparado a antigamente, e que as vendas tem acontecido com <strong>muito mais dificuldade</strong></p>
                     </div>
                 </div>
             </div>
 
+            <p class="pain-footer-text fade-in" style="margin-top: 50px;">Se você se identificou com alguns desses pontos, é sinal de que seu sistema precisa de ajustes estratégicos — veja como estruturar um modelo realmente escalável.</p>
+
             <div class="pain-footer-action fade-in">
                 <a href="#agendar" class="btn-outline">
-                    QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
+                    QUERO APLICAR PARA UMA VAGA <i class="hgi-stroke hgi-circle-arrow-right-01"></i>
                 </a>
             </div>
         </div>
@@ -1659,7 +1446,7 @@
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="fade-in">Conheça os benefícios que você terá após <span class="highlight">destravar o seu e-commerce</span></h2>
+            <h2 class="fade-in">Conheça os benefícios que você terá após construir <span class="highlight">sua máquina de vendas</span></h2>
             <div class="benefits-grid">
 
                 <div class="benefit-card fade-in">
@@ -1672,7 +1459,7 @@
                         </svg>
                     </div>
                     <h3>Previsibilidade nos Resultados</h3>
-                    <p>Com canais de vendas bem alinhados, sua operação alcança resultados altos e previsíveis, eliminando surpresas.</p>
+                    <p>Com processos e time comercial bem alinhados, sua operação alcança resultados altos e previsíveis, eliminando surpresas.</p>
                 </div>
 
                 <div class="benefit-card fade-in">
@@ -1683,7 +1470,7 @@
                         </svg>
                     </div>
                     <h3>Maximização de Lucros</h3>
-                    <p>Adote uma abordagem de alta margem de lucro, permitindo que seu e-commerce cresça com eficiência e segurança financeira.</p>
+                    <p>Adote uma abordagem de alta margem de lucro, permitindo que sua operação cresça com eficiência e segurança financeira.</p>
                 </div>
 
                 <div class="benefit-card fade-in">
@@ -1694,7 +1481,7 @@
                         </svg>
                     </div>
                     <h3>Crescimento Sem Limites</h3>
-                    <p>Implemente um modelo de escalabilidade claro e eficiente, multiplicando lucro e faturamento baseado em dados reais.</p>
+                    <p>Implante um modelo de escalabilidade claro e eficiente, multiplicando operações e faturamento baseado em dados.</p>
                 </div>
 
                 <div class="benefit-card fade-in">
@@ -1744,7 +1531,7 @@
     <!-- How it works -->
     <section class="how-it-works" style="padding-top: 100px; padding-bottom: 100px;">
         <div class="container">
-            <h2 class="fade-in">O que vai acontecer nas <span class="highlight">60 minutos de imersão no seu
+            <h2 class="fade-in">O que vai acontecer nestes <span class="highlight">90 minutos de imersão no seu
                     negócio?</span></h2>
             <div style="text-align: center; color: var(--text-gray); font-size: 1.15rem; margin-bottom: 50px;"
                 class="fade-in">Não é uma reunião rápida de apresentação. É uma sessão de trabalho focada nos seus
@@ -1754,17 +1541,21 @@
                 <div class="flow-step">
                     <div class="step-number">1</div>
                     <h3>Análise e Raio-X Atual</h3>
-                    <p>Vamos olhar para a operação atual do seu e-commerce, identificar onde estão os gargalos e descobrir por que razão não está faturando o que realmente poderia.</p>
+                    <p>Vamos olhar para a sua operação atual, identificar onde estão os gargalos comerciais e descobrir
+                        por que razão não está a faturar mais.</p>
                 </div>
                 <div class="flow-step">
                     <div class="step-number">2</div>
                     <h3>Estruturação de Escala</h3>
-                    <p>Com base no nosso ecossistema e metodologias que já geraram centenas de milhões, vamos mostrar o que precisa mudar em seu site, tráfego, marketplaces e estrutura para escalar de verdade.</p>
+                    <p>Com base no nosso ecossistema e metodologias que já geraram milhões, vamos mostrar-lhe o que
+                        precisa de mudar na sua captação, tráfego e estrutura.</p>
                 </div>
                 <div class="flow-step">
                     <div class="step-number">3</div>
                     <h3>O Seu Plano de Ação</h3>
-                    <p>Após a consultoria gratuita, você sairá da reunião com um caminho claro. Terá em mãos os próximos passos exatos para escalar seu e-commerce e alcançar o melhor resultado da história do seu negócio.</p>
+                    <p>Após a consultoria grátis, sairá da reunião com um caminho claro. Terá em mãos os próximos passos
+                        exatos para ter o melhor ano da história do seu negócio, com resultados reais e crescimento
+                        contínuo.</p>
                 </div>
             </div>
 
@@ -1778,46 +1569,20 @@
 
     <!-- What you get (Removed to match 6-section layout) -->
 
-    <!-- About Consultoria Section -->
-    <section class="about-section">
-        <!-- Background: substitua por uma foto da equipe/escritório com fundo escuro -->
-        <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=60"
-            alt=""
-            class="about-bg"
-            aria-hidden="true"
-            loading="lazy"
-        >
-        <div class="about-bg-overlay"></div>
-        <div class="container fade-in">
-            <p class="about-eyebrow">Sobre a</p>
-            <h2 class="about-title">
-                Consultoria Personalizada<span class="highlight">de E-commerce</span>
-            </h2>
-
-            <div class="about-card">
-                <p>Semanalmente, disponibilizamos horários exclusivos para realizar consultorias de pré-avaliação focadas em empresários que buscam otimizar seus e-commerces e aumentar seus resultados.</p>
-                <p>Essas consultorias têm como objetivo ajudar a identificar gargalos, oferecer direcionamento estratégico e criar um plano de ação personalizado, para que você consiga escalar seu e-commerce, treinar sua equipe e alcançar mais lucratividade, previsibilidade e crescimento constante.</p>
-            </div>
-
-            <a href="#agendar" class="btn-outline">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
-        </div>
-    </section>
-
     <!-- Social Proof (Cases) -->
     <section class="social-proof">
         <div class="container">
-            <h2 class="fade-in">DEPOIMENTOS DE QUEM JÁ PASSOU PELA CONSULTORIA</h2>
+            <h2 class="fade-in">CASES de quem já passou por essa análise</h2>
 
             <div class="cases-grid">
                 <div class="case-card fade-in">
-                    <img src="https://institutofga.com/wp-content/uploads/2026/01/img-case-02.webp" alt="Case 1" loading="lazy" decoding="async">
+                    <img src="/case1.jpg" alt="Case de sucesso - E-commerce acelerado pela Metodologia Ames" width="400" height="500" loading="lazy" decoding="async">
                 </div>
                 <div class="case-card fade-in">
-                    <img src="https://institutofga.com/wp-content/uploads/2026/01/img-case-03.webp" alt="Case 2" loading="lazy" decoding="async">
+                    <img src="/case2.jpg" alt="Case de sucesso - Resultados comprovados com a Metodologia Ames" width="400" height="500" loading="lazy" decoding="async">
                 </div>
                 <div class="case-card fade-in">
-                    <img src="https://institutofga.com/wp-content/uploads/2026/01/img-case-04.webp" alt="Case 3" loading="lazy" decoding="async">
+                    <img src="/case3.jpg" alt="Case de sucesso - E-commerce escalado com lucro e previsibilidade" width="400" height="500" loading="lazy" decoding="async">
                 </div>
             </div>
 
@@ -1835,61 +1600,58 @@
         <div class="container">
             <div class="alpha-top fade-in">
                 <div>
-                    <h2>Sobre a <span class="highlight">Consultoria Personalizada de E-commerce</span></h2>
-                    <p>Semanalmente, disponibilizamos horários exclusivos para realizar consultorias de pré-avaliação focadas em empresários que buscam otimizar seus e-commerces e aumentar seus resultados.</p>
-                    <p>Essas consultorias têm como objetivo ajudar a identificar gargalos, oferecer direcionamento estratégico e criar um plano de ação personalizado, para que você consiga escalar seu e-commerce, treinar sua equipe e alcançar mais lucratividade, previsibilidade e crescimento constante.</p>
+                    <h2>A Ame Kids é a prova viva de que a <span class="highlight">metodologia Ames funciona</span></h2>
+                    <p>Com uma operação altamente estruturada, a Ame Kids ultrapassou R$ 1 milhão em faturamento mensal, consolidando-se como referência em e-commerce de alta performance.</p>
+                    <p>Todo o modelo de tráfego, site, marketplaces e operação aplicado na Ame Kids hoje é ensinado na W3, permitindo que donos de e-commerce utilizem estratégias testadas e comprovadas no mercado real.</p>
+                    <p>A Ame Kids alcançou R$ 20 milhões em faturamento anual em menos de 4 anos, validando um modelo de crescimento replicável, previsível e escalável.</p>
                 </div>
                 <div>
-                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_5375.jpg"
-                        alt="Equipe W3" class="alpha-image" loading="lazy" decoding="async">
+                    <img src="/amekids.jpg" width="600" height="400"
+                        alt="Ame Kids - Case de sucesso com mais de R$20 milhões em faturamento anual" class="alpha-image" loading="lazy" decoding="async">
                 </div>
             </div>
 
             <div class="alpha-stats fade-in">
                 <div class="stat-card">
-                    <h3>+[XX]</h3>
+                    <h3>+150</h3>
                     <p>E-commerces Acelerados</p>
                 </div>
-                <div class="stat-card">
-                    <h3>+[XX]</h3>
-                    <p>Gestores e vendedores treinados</p>
-                </div>
-                <div class="stat-card">
-                    <h3>+[XX]M</h3>
+<div class="stat-card">
+                    <h3>+40M</h3>
                     <p>Em vendas nas nossas operações</p>
                 </div>
                 <div class="stat-card">
-                    <h3>+[XX]M</h3>
-                    <p>De faturamento gerado para mentorados</p>
+                    <h3>+100M</h3>
+                    <p>De faturamento gerado para e-commerces acelerados</p>
                 </div>
             </div>
 
             <div class="alpha-founders fade-in">
                 <div class="founder-card">
-                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_9194-1-scaled-e1772825012847.jpg"
-                        alt="Leonardo Ames" loading="lazy" decoding="async">
+                    <img src="/leonardo.jpg" width="400" height="350"
+                        alt="Leonardo Ames - Fundador da Ame Kids e Grupo W3" loading="lazy" decoding="async">
                     <div class="founder-info">
                         <h4>LEONARDO AMES</h4>
-                        <span>Founder & CEO da Mentoria Ames | W3</span>
-                        <p>Criador da Metodologia Ames. Já gerou mais de R$ [XX] em faturamento com processos replicáveis para qualquer e-commerce.</p>
+                        <span>Fundador da Ame Kids | Fundador do Grupo W3</span>
+                        <p>Criador da metodologia do Grupo W3. Já faturou mais de R$30 milhões no próprio e-commerce e hoje lidera a estratégia de crescimento de mais de 100 negócios digitais.</p>
                     </div>
                 </div>
                 <div class="founder-card">
-                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_9314-scaled-e1772825032833.jpg"
-                        alt="Gustavo Hofmann" loading="lazy" decoding="async">
+                    <img src="/gustavo.jpg" width="400" height="350"
+                        alt="Gustavo Hofmann - Co-Fundador e CMO do Grupo W3" loading="lazy" decoding="async">
                     <div class="founder-info">
                         <h4>GUSTAVO HOFMANN</h4>
-                        <span>Co-Founder da Mentoria Ames | W3</span>
-                        <p>Especialista em tráfego e escala. Lidera um ecossistema que já movimentou mais de R$ [XX] em vendas para e-commerces.</p>
+                        <span>Co-Fundador e CMO do Grupo W3</span>
+                        <p>Responsável pelo marketing de alguns dos maiores e-commerces do Brasil. Já geriu mais de R$100 milhões em mídia paga, escalando operações em múltiplos nichos.</p>
                     </div>
                 </div>
                 <div class="founder-card">
-                    <img src="https://institutofga.com/wp-content/uploads/2026/03/IMG_9441-1-scaled-e1772825071864.jpg"
-                        alt="Lucas Monteiro" loading="lazy" decoding="async">
+                    <img src="/lucas.jpg" width="400" height="350"
+                        alt="Lucas Monteiro - Co-Fundador e COO do Grupo W3" loading="lazy" decoding="async">
                     <div class="founder-info">
                         <h4>LUCAS MONTEIRO</h4>
-                        <span>Diretor de Operações da Mentoria Ames | W3</span>
-                        <p>Responsável pelo operacional da W3. Construiu os processos que sustentam [XX]+ mentorados escalando sem travar o crescimento.</p>
+                        <span>Co-Fundador e COO do Grupo W3</span>
+                        <p>Responsável pela estrutura e processos que sustentam grandes operações. Especialista em transformar caos em previsibilidade e destravar o crescimento de e-commerces.</p>
                     </div>
                 </div>
             </div>
@@ -1916,9 +1678,7 @@
                         QUANTO TEMPO DURA O DIAGNÓSTICO?
                     </div>
                     <div class="faq-answer" style="max-height: 200px;">
-                        <p>O diagnóstico tem duração média de 30 minutos, tempo ideal para analisarmos com profundidade
-                            os principais pontos da sua operação e identificarmos o que está limitando o crescimento da
-                            sua agência.</p>
+                        <p>O diagnóstico tem duração média de 1 hora, tempo ideal para analisarmos com profundidade os principais pontos da sua operação e identificarmos o que está limitando o crescimento do seu e-commerce.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 2 -->
@@ -1928,7 +1688,7 @@
                         QUEM REALIZA O DIAGNÓSTICO?
                     </div>
                     <div class="faq-answer">
-                        <p>A conversa acontece 100% online, via Google Meet, conduzida por um dos nossos especialistas da W3. É um bate-papo direto, sem compromisso, focado em gerar clareza real sobre o cenário da sua operação.</p>
+                        <p>A conversa acontece 100% online, via Google Meet, conduzida por um dos nossos especialistas em e-commerce do grupo W3. É um bate-papo direto, sem compromisso, focado em gerar clareza real sobre o cenário do seu negócio.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 3 -->
@@ -1938,7 +1698,7 @@
                         COMO DEVO ME PREPARAR PARA O DIAGNÓSTICO?
                     </div>
                     <div class="faq-answer">
-                        <p>Traga as principais dores e desafios que seu e-commerce enfrenta, seja em vendas, tráfego, time ou processos. Assim, conseguimos direcionar o diagnóstico para o que realmente importa e te mostrar o caminho mais rápido pra escalar.</p>
+                        <p>Traga as principais dores e desafios que seu e-commerce enfrenta, seja no seu site, tráfego, time ou processos. Assim, conseguimos direcionar o diagnóstico para o que realmente importa e te mostrar o caminho mais rápido pra escalar.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 4 -->
@@ -1958,7 +1718,7 @@
                         O DIAGNÓSTICO É PERSONALIZADO PARA O MEU NEGÓCIO?
                     </div>
                     <div class="faq-answer">
-                        <p>Sim. Cada diagnóstico é 100% individual e personalizado, com base nos dados e no momento atual do seu e-commerce. Nosso objetivo é te mostrar exatamente onde estão os gargalos e como resolvê-los para alcançar o próximo nível de faturamento e previsibilidade.</p>
+                        <p>Sim. Cada diagnóstico é 100% individual e personalizado, com base nos dados e no momento atual da sua agência. Nosso objetivo é te mostrar exatamente onde estão os gargalos e como resolvê-los para alcançar o próximo nível de faturamento e previsibilidade.</p>
                     </div>
                 </div>
             </div>
@@ -2318,12 +2078,13 @@
     });
     </script>
 
+</main>
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo"><img src="./logo-grupow3.svg" alt="Grupo W3" style="height: 36px; width: auto;"></div>
+                <div class="footer-logo"><img src="/logo/logo-grupow3 (1).png" alt="Grupo W3 - Metodologia Ames" width="120" height="48" style="height: 48px; width: auto;"></div>
                 <div class="footer-links">
-                    <a href="#">Política de privacidade</a> | <a href="#">Termos de uso</a>
+                    <span>© 2026 AMH Soluções Digitais LTDA. Todos direitos reservados</span>
                 </div>
             </div>
         </div>
