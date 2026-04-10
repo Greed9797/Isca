@@ -150,77 +150,63 @@
             padding: 0 !important;
         }
 
-        .hero-cta-wrapper {
-            position: absolute;
-            bottom: 14.5%;
-            left: 8%;
-            z-index: 10;
-        }
-
-        /* Desktop: 381x86, font 20px, padding 30 50, radius 20, gap 10 */
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.52vw;
-            padding: 1.56vw 2.6vw;
-            width: 19.84vw;
-            height: 4.48vw;
-            background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
-            border-radius: 1.04vw;
-            border: none;
-            color: #F3F3F3;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.04vw;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
-            box-sizing: border-box;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(245, 89, 0, 0.5);
-            background: linear-gradient(90deg, #FF6A1A 0%, #F98B2E 100%);
-        }
-
-        .hero-cta i {
-            font-size: 1.3vw;
-        }
-
-        /* Mobile: 242x55, font 12.7px, padding 19 32, radius 13, gap 6 */
-        @media (max-width: 768px) {
-            .hero-cta-wrapper {
-                bottom: 58%;
-                left: 8.2%;
-            }
-            .hero-cta {
-                width: 58.4vw;
-                height: 13.3vw;
-                padding: 4.6vw 7.7vw;
-                font-size: 3.07vw;
-                border-radius: 3.07vw;
-                gap: 1.5vw;
-            }
-            .hero-cta i {
-                font-size: 3.8vw;
-            }
-        }
-
+        /* 1. Contêiner de ancoragem — position: relative para o botão absolute */
         .hero-image-wrapper {
             position: relative;
             width: 100%;
-            z-index: 0;
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
         }
 
+        /* 2. A imagem dita o tamanho da caixa */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        /* 3. Botão DESKTOP — coordenadas relativas à imagem */
+        .hero-cta {
+            position: absolute;
+            left: 4.8%;
+            bottom: 12.5%;
+            width: 25.5%;
+            height: 10%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
+            color: #F3F3F3;
+            font-family: var(--font-heading, sans-serif);
+            font-weight: 700;
+            font-size: 1.2vw;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            z-index: 10;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 25px rgba(245, 89, 0, 0.5);
+        }
+
+        /* 4. Botão MOBILE — coordenadas para Hero-Mobile.png */
+        @media (max-width: 768px) {
+            .hero-cta {
+                left: 10%;
+                bottom: 5%;
+                width: 80%;
+                height: 12%;
+                font-size: 4vw;
+            }
         }
 
         /* Logo Marquee */
@@ -1346,9 +1332,9 @@
                 <img src="/Hero-Desktop.png"
                     alt="Leonardo Ames - Fundador da Ame Kids e Grupo W3 | Seu e-commerce fatura mais que 20 mil por mês?" class="hero-image" loading="eager" fetchpriority="high">
             </picture>
-        </div>
-        <div class="hero-cta-wrapper">
-            <a href="#agendar" class="hero-cta">QUERO APLICAR AGORA <i class="hgi-stroke hgi-arrow-up-right-01"></i></a>
+            <a href="#agendar" class="hero-cta">
+                QUERO APLICAR AGORA <i class="hgi-stroke hgi-arrow-up-right-01"></i>
+            </a>
         </div>
     </section>
 
