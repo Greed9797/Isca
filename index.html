@@ -153,29 +153,33 @@
         .hero-cta-wrapper {
             position: absolute;
             bottom: 18%;
-            left: 7%;
+            left: 6.25%;
             z-index: 10;
         }
 
+        /* Desktop: 381x86, font 20px, padding 30 50, radius 20, gap 10 */
         .hero-cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 19px 32px;
+            gap: 0.52vw;
+            padding: 1.56vw 2.6vw;
+            width: 19.84vw;
+            height: 4.48vw;
             background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
-            border-radius: 13px;
+            border-radius: 1.04vw;
             border: none;
             color: #F3F3F3;
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 1.04vw;
             text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
             white-space: nowrap;
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
+            box-sizing: border-box;
         }
 
         .hero-cta:hover {
@@ -185,25 +189,25 @@
         }
 
         .hero-cta i {
-            font-size: 16px;
+            font-size: 1.3vw;
         }
 
-        @media (max-width: 992px) {
-            .hero-cta-wrapper {
-                bottom: 18%;
-                left: 5%;
-            }
-        }
-
+        /* Mobile: 242x55, font 12.7px, padding 19 32, radius 13, gap 6 */
         @media (max-width: 768px) {
             .hero-cta-wrapper {
                 bottom: 58%;
-                left: 8%;
-                transform: none;
+                left: 8.2%;
             }
             .hero-cta {
-                padding: 16px 28px;
-                font-size: 0.75rem;
+                width: 58.4vw;
+                height: 13.3vw;
+                padding: 4.6vw 7.7vw;
+                font-size: 3.07vw;
+                border-radius: 3.07vw;
+                gap: 1.5vw;
+            }
+            .hero-cta i {
+                font-size: 3.8vw;
             }
         }
 
