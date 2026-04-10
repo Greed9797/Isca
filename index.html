@@ -180,6 +180,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
             box-sizing: border-box;
+            margin: 1px 1px 32px 8px;
         }
 
         .hero-cta:hover {
@@ -190,6 +191,13 @@
 
         .hero-cta i {
             font-size: 1.3vw;
+        }
+
+        /* Tablet/iPad: margin ajustado */
+        @media (max-width: 992px) {
+            .hero-cta {
+                margin: 1px 1px 20px 6px;
+            }
         }
 
         /* Mobile: 242x55, font 12.7px, padding 19 32, radius 13, gap 6 */
@@ -205,6 +213,7 @@
                 font-size: 3.07vw;
                 border-radius: 3.07vw;
                 gap: 1.5vw;
+                margin: 0;
             }
             .hero-cta i {
                 font-size: 3.8vw;
