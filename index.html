@@ -151,38 +151,46 @@
 
         .hero-cta-wrapper {
             position: absolute;
-            bottom: 31.5%;
+            bottom: 24%;
             left: 7%;
             z-index: 10;
         }
 
-        .hero-cta-wrapper .btn-outline {
-            font-size: 1rem !important;
-            padding: 16px 36px !important;
-            white-space: nowrap;
-            background: transparent !important;
-            border-color: transparent !important;
-            color: transparent !important;
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 19px 32px;
+            background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
+            border-radius: 13px;
+            border: none;
+            color: #F3F3F3;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            text-decoration: none;
             cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
         }
 
-        .hero-cta-wrapper .btn-outline:hover {
-            background: rgba(247, 107, 0, 0.15) !important;
-            border-color: #F76B00 !important;
-            color: #fff !important;
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(245, 89, 0, 0.5);
+            background: linear-gradient(90deg, #FF6A1A 0%, #F98B2E 100%);
+        }
+
+        .hero-cta i {
+            font-size: 16px;
         }
 
         @media (max-width: 992px) {
             .hero-cta-wrapper {
                 bottom: 18%;
                 left: 5%;
-            }
-            .hero-cta-wrapper .btn-outline {
-                font-size: 0.85rem !important;
-                padding: 12px 24px !important;
-                background: transparent !important;
-                border-color: #F76B00 !important;
-                color: #fff !important;
             }
         }
 
@@ -192,18 +200,9 @@
                 left: 8%;
                 transform: none;
             }
-            .hero-cta-wrapper .btn-outline {
-                font-size: 0.75rem !important;
-                padding: 14px 24px !important;
-                background: transparent !important;
-                border-color: transparent !important;
-                color: transparent !important;
-            }
-            .hero-cta-wrapper .btn-outline:hover,
-            .hero-cta-wrapper .btn-outline:active {
-                background: rgba(247, 107, 0, 0.15) !important;
-                border-color: #F76B00 !important;
-                color: #fff !important;
+            .hero-cta {
+                padding: 16px 28px;
+                font-size: 0.75rem;
             }
         }
 
@@ -1344,7 +1343,7 @@
             </picture>
         </div>
         <div class="hero-cta-wrapper">
-            <a href="#agendar" class="btn-outline">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
+            <a href="#agendar" class="hero-cta">QUERO APLICAR AGORA <i class="hgi-stroke hgi-arrow-up-right-01"></i></a>
         </div>
     </section>
 
