@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cg.leonardoames.com.br/sitemap.xml
