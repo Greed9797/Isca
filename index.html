@@ -144,216 +144,32 @@
         /* Hero */
         .hero {
             background-color: #050505;
-            background-image: radial-gradient(circle at 70% 30%, #1a1005 0%, #050505 60%);
-            padding-top: 100px;
-            padding-bottom: 0px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
             position: relative;
             overflow: hidden;
             border-bottom: 2px solid var(--border-color);
         }
 
-        .hero-bg-text {
+        .hero-cta-overlay {
             position: absolute;
-            top: 15%;
-            right: 5%;
-            font-size: 14rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.015);
-            z-index: 0;
-            letter-spacing: 5px;
-            user-select: none;
-            line-height: 0.8;
-            text-align: right;
-            text-transform: uppercase;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTEwIDB2NDBNMjAgMHY0ME0zMCAwdjQwTTAgMjBoNDBNMCAzMGg0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwgMDwgMCwgMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==') repeat;
-            opacity: 0.3;
-            z-index: 0;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        }
-
-        .hero .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            min-height: 90vh;
-            padding-top: 40px;
-        }
-
-        .hero-logo {
-            height: 52px;
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        .hero-content {
-            flex: 0 0 55%;
-            max-width: 600px;
-            padding-bottom: 60px;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: var(--h1-size);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        .hero-title .highlight {
-            color: var(--primary);
-            display: block;
-        }
-
-        .hero-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-            font-weight: 400;
-            line-height: 1.6;
-            margin-right: -40px;
-        }
-
-        .hero-subtitle strong {
-            color: #fff;
-            font-weight: 800;
-        }
-
-        .hero-bullets {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-bullets li {
-            font-size: var(--body-size);
-            color: var(--text-primary);
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .hero-bullets i {
-            color: var(--primary);
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-            stroke-width: 3;
-            margin-top: 2px;
-        }
-
-        .hero .btn {
-            background-color: #24d366;
-            color: #0f2e1b;
-            font-size: 1.1rem;
-            padding: 20px 40px;
-            width: 100%;
-            max-width: 480px;
-            margin-bottom: 10px;
-            box-shadow: 0 0 20px rgba(36, 211, 102, 0.3);
-        }
-
-        .hero .btn:hover {
-            background-color: #2ce771;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(36, 211, 102, 0.5);
-        }
-
-        .hero-urgency {
-            font-size: 0.85rem;
-            color: #ff3333;
-            max-width: 480px;
-            text-align: center;
-            line-height: 1.5;
+            /* Posicionado sobre o botão "QUERO APLICAR AGORA" na imagem */
+            bottom: 33%;
+            left: 5%;
+            width: 22%;
+            height: 7%;
+            z-index: 10;
+            cursor: pointer;
         }
 
         .hero-image-wrapper {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 48%;
-            height: 100%;
-            pointer-events: none;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            z-index: 1;
+            position: relative;
+            width: 100%;
+            z-index: 0;
         }
 
         .hero-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            object-position: bottom right;
-            filter: drop-shadow(-20px 0px 40px rgba(0, 0, 0, 0.8));
-            margin-right: -180px;
-        }
-
-        /* Hero badge (+150 e-commerces) */
-        .hero-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .hero-badge-stat {
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 1.4rem;
-            color: var(--primary);
-        }
-
-        .hero-badge-label {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Label do especialista sob a imagem */
-        .hero-person-label {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.75);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 8px;
-            padding: 10px 20px;
-            text-align: center;
-            backdrop-filter: blur(8px);
-            white-space: nowrap;
-        }
-
-        .hero-person-label strong {
+            width: 100%;
+            height: auto;
             display: block;
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .hero-person-label span {
-            font-size: 0.78rem;
-            color: var(--primary);
         }
 
         /* Logo Marquee */
@@ -1213,73 +1029,6 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            .hero {
-                padding-top: 80px;
-                min-height: auto;
-            }
-
-            .hero-bg-text {
-                font-size: 5rem;
-                top: auto;
-                bottom: 15%;
-                right: 0;
-                left: 0;
-                text-align: center;
-                color: rgba(255, 255, 255, 0.04);
-                z-index: 2;
-            }
-
-            .hero .container {
-                flex-direction: column;
-                padding-top: 20px;
-                text-align: left;
-                min-height: 100vh;
-                position: relative;
-            }
-
-            .hero-content {
-                flex: none;
-                max-width: 100%;
-                z-index: 3;
-                padding-bottom: 260px;
-            }
-
-            .hero-logo {
-                margin: 0 auto 20px 0;
-                height: 42px;
-            }
-
-            .hero-title {
-                font-size: 2.4rem;
-            }
-
-            .hero-subtitle {
-                margin-right: 0;
-                font-size: 0.95rem;
-            }
-
-            .hero-image-wrapper {
-                position: absolute;
-                bottom: 0;
-                right: 50%;
-                transform: translateX(50%);
-                width: 90%;
-                height: 50%;
-                z-index: 1;
-                justify-content: center;
-                pointer-events: none;
-            }
-
-            .hero .btn {
-                max-width: 100%;
-                text-align: center;
-            }
-
-            .hero-urgency {
-                max-width: 100%;
-                text-align: center;
-            }
-
             .social-proof-badges {
                 justify-content: center;
             }
@@ -1312,14 +1061,23 @@
             }
         }
 
+        /* ── Hero mobile: imagem cobre com altura mínima ── */
+        @media (max-width: 992px) {
+            .hero-image {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                object-position: 25% center;
+            }
+        }
+
         /* ── Mobile structural fixes ── */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.2rem; }
-            .hero-bg-text { font-size: 3.5rem; }
-            .hero-person-label { display: none; }
-            .hero-logo { height: 38px !important; margin-bottom: 18px; }
-            .hero-badge { margin-top: 14px; }
-            .hero-badge-stat { font-size: 1.2rem; }
+            .hero-image {
+                height: 65vh;
+                object-position: 10% center;
+            }
+
             .pain-row-2 .pain-card,
             .pain-row-3 .pain-card { max-width: 100%; width: 100%; min-height: 440px; }
             .benefits-grid { grid-template-columns: 1fr; }
@@ -1360,12 +1118,6 @@
                 padding-top: 60px !important;
                 padding-bottom: 60px !important;
             }
-
-            /* Hero subtitle menor no mobile */
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
 
             .pain-row-4 .pain-card {
                 flex: none;
@@ -1503,18 +1255,6 @@
        ============================================ */
 
     @media (max-width: 768px) {
-        /* FIX 1: Imagem do hero */
-        .hero-image {
-            margin-right: 0;
-            width: auto;
-            max-height: 100%;
-        }
-
-        /* FIX 3: Padding do hero */
-        .hero {
-            padding-top: 55px;
-        }
-
         /* FIX 4: Botões outline com largura 100% */
         .btn-outline,
         .btn-outline-dark {
@@ -1525,15 +1265,6 @@
     }
 
     @media (max-width: 480px) {
-        /* Hero título ainda menor em telas pequenas */
-        .hero-title {
-            font-size: 1.95rem;
-        }
-
-        .hero-content {
-            padding-bottom: 230px;
-        }
-
         /* Pain cards: altura generosa em telas pequenas */
         .pain-card {
             min-height: 400px !important;
@@ -1564,10 +1295,6 @@
             --h1-size: 1.8rem;
         }
 
-        /* FIX 8: Texto decorativo menor em telas muito pequenas */
-        .hero-bg-text {
-            font-size: 3.5rem;
-        }
     }
     </style>
 </head>
@@ -1575,31 +1302,13 @@
 <body>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg-text">MENTORIA<br>AMES</div>
-        <div class="container">
-            <div class="hero-content fade-in">
-                <img src="/logo/logo-grupow3 (1).png" alt="Grupo W3" class="hero-logo">
-                <h1 class="hero-title">Seu e-commerce fatura mais que <span class="highlight">20 mil por mês?</span></h1>
-
-                <p class="hero-subtitle">Em 1 hora, um especialista da <strong>Metodologia Ames</strong> vai identificar os pontos principais da sua operação e montar um plano estratégico para aumentar seu faturamento com lucro e previsibilidade.</p>
-
-                <a href="#agendar" class="btn">QUERO APLICAR AGORA <i class="hgi-stroke hgi-circle-arrow-right-01"></i></a>
-
-                <div class="hero-badge">
-                    <span class="hero-badge-stat">+150</span>
-                    <span class="hero-badge-label">e-commerces acelerados</span>
-                </div>
-            </div>
-            <div class="hero-image-wrapper fade-in">
-                <img src="/Hero-Desktop.png"
-                    alt="Leonardo Ames" class="hero-image" loading="eager" fetchpriority="high">
-                <div class="hero-person-label">
-                    <strong>Leonardo Ames</strong>
-                    <span>Fundador da Ame Kids e Grupo W3</span>
-                </div>
-            </div>
+    <section class="hero" id="hero">
+        <div class="hero-image-wrapper">
+            <img src="/Hero-Desktop.png"
+                alt="Leonardo Ames - Fundador da Ame Kids e Grupo W3 | Seu e-commerce fatura mais que 20 mil por mês?" class="hero-image" loading="eager" fetchpriority="high">
         </div>
+        <!-- CTA invisível posicionado sobre o botão da imagem -->
+        <a href="#agendar" class="hero-cta-overlay" aria-label="Quero aplicar agora"></a>
     </section>
 
     <!-- Logo Bar (Marquee) -->
