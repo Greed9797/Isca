@@ -1962,23 +1962,35 @@
                     <input type="tel" id="whatsapp" name="whatsapp" placeholder="Whatsapp com DDD" maxlength="15" required>
                 </div>
 
-                <!-- 4. Área de atuação -->
+                <!-- 4. Onde vende -->
                 <div class="form-group">
-                    <select id="area" name="area" required>
-                        <option value="" disabled selected hidden>Qual sua área?</option>
-                        <option value="Sou fabricante">Sou fabricante</option>
-                        <option value="Revendedor">Revendedor</option>
+                    <select id="channel" name="channel" required>
+                        <option value="" disabled selected hidden>Onde você vende?</option>
+                        <option value="site_proprio">Site próprio</option>
+                        <option value="marketplace">Marketplace</option>
+                        <option value="loja_fisica">Loja Física / sem e-commerce</option>
                     </select>
                 </div>
 
-                <!-- 5. Faturamento -->
+                <!-- 5. Tipo de negócio -->
+                <div class="form-group">
+                    <select id="businessType" name="businessType" required>
+                        <option value="" disabled selected hidden>Qual seu tipo de negócio?</option>
+                        <option value="fabricante">Fabricante / Importador</option>
+                        <option value="revendedor">Revendedor</option>
+                    </select>
+                </div>
+
+                <!-- 6. Faturamento -->
                 <div class="form-group">
                     <select id="revenue" name="revenue" required>
                         <option value="" disabled selected hidden>Qual é o seu faturamento mensal?</option>
-                        <option value="De R$ 10 mil a R$ 30 mil">De R$ 10 mil a R$ 30 mil</option>
-                        <option value="De R$ 50 mil a R$ 100 mil">De R$ 50 mil a R$ 100 mil</option>
-                        <option value="De R$ 250 mil a R$ 500 mil">De R$ 250 mil a R$ 500 mil</option>
-                        <option value="R$ 1 milhão+">R$ 1 milhão+</option>
+                        <option value="10k-30k">De R$ 10 mil a R$ 30 mil</option>
+                        <option value="30k-50k">De R$ 30 mil a R$ 50 mil</option>
+                        <option value="50k-100k">De R$ 50 mil a R$ 100 mil</option>
+                        <option value="100k-250k">De R$ 100 mil a R$ 250 mil</option>
+                        <option value="250k-500k">De R$ 250 mil a R$ 500 mil</option>
+                        <option value="1m+">R$ 1 milhão+</option>
                     </select>
                 </div>
 
@@ -2215,10 +2227,52 @@
                 e.target.value = value;
             });
 
+            // ══════════════════════════════════════════
+            // WEBHOOKS — substitua pelos seus URLs reais
+            // ══════════════════════════════════════════
+            const WEBHOOK_QUALIFICADO     = "SEU_WEBHOOK_N8N_QUALIFICADO";
+            const WEBHOOK_NAO_QUALIFICADO = "SEU_WEBHOOK_N8N_NAO_QUALIFICADO";
+            const REDIRECT_QUALIFICADO    = "URL_CALENDLY_OU_OBRIGADO";
+            const REDIRECT_NAO_QUALIFICADO = "URL_PAGINA_OBRIGADO_GENERICO";
+
+            // ══════════════════════════════════════════
+            // TABELA DE QUALIFICAÇÃO
+            // canal + tipo → faturamento mínimo (em k)
+            // ══════════════════════════════════════════
+            const QUALIFICATION_RULES = {
+                "site_proprio__fabricante":  20,   // Site próprio + fabricante = 20k+
+                "site_proprio__revendedor":  30,   // Site próprio + revendedor = 30k+
+                "marketplace__fabricante":   20,   // Marketplace + fabricante  = 20k+
+                "marketplace__revendedor":   30,   // Marketplace + revendedor  = 30k+
+                "loja_fisica__fabricante":   100,  // Loja física + fabricante  = 100k+
+                "loja_fisica__revendedor":   100,  // Loja física + revendedor  = 100k+
+            };
+
+            // Converte valor do select de faturamento para número mínimo (em k)
+            function revenueToNumber(val) {
+                const map = {
+                    "10k-30k":   10,
+                    "30k-50k":   30,
+                    "50k-100k":  50,
+                    "100k-250k": 100,
+                    "250k-500k": 250,
+                    "1m+":       1000,
+                };
+                return map[val] || 0;
+            }
+
+            function isQualified(channel, businessType, revenue) {
+                const key = channel + "__" + businessType;
+                const minRevenue = QUALIFICATION_RULES[key];
+                if (minRevenue === undefined) return false;
+                const userRevenue = revenueToNumber(revenue);
+                return userRevenue >= minRevenue;
+            }
+
             // Submit de Form
             form.addEventListener("submit", async function(e) {
-                e.preventDefault(); 
-                
+                e.preventDefault();
+
                 const originalBtnText = submitBtn.innerText;
                 submitBtn.innerText = "CARREGANDO...";
                 submitBtn.disabled = true;
@@ -2226,11 +2280,15 @@
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
 
-                const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/consultoria-gratuita"; 
-                const SUCCESS_REDIRECT_URL = "URL_DO_CALENDLY_OU_OBRIGADO";
+                // Avaliar qualificação
+                const qualified = isQualified(data.channel, data.businessType, data.revenue);
+                data.qualified = qualified;
+
+                const webhookUrl = qualified ? WEBHOOK_QUALIFICADO : WEBHOOK_NAO_QUALIFICADO;
+                const redirectUrl = qualified ? REDIRECT_QUALIFICADO : REDIRECT_NAO_QUALIFICADO;
 
                 try {
-                    const response = await fetch(WEBHOOK_URL, {
+                    const response = await fetch(webhookUrl, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -2239,15 +2297,15 @@
                     });
 
                     if (response.ok) {
-                        window.location.href = SUCCESS_REDIRECT_URL;
+                        window.location.href = redirectUrl;
                     } else {
                         throw new Error("Erro na comunicação com o servidor.");
                     }
-                    
+
                 } catch (error) {
                     console.error("Form Submission Error:", error);
                     alert("Ocorreu um erro ao enviar sua aplicação. Por favor, verifique seus dados ou tente novamente mais tarde.");
-                    
+
                     submitBtn.innerText = originalBtnText;
                     submitBtn.disabled = false;
                 }
