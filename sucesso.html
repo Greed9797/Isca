@@ -3,70 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo W3 - Contato</title>
-    
-    <!-- Google Fonts: Inter -->
+    <title>Obrigado - Grupo W3 | Metodologia Ames</title>
+    <meta name="description" content="Obrigado por se inscrever. Nossa equipe do Grupo W3 entrará em contato em breve.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            bg: '#000000',
-                            accent: '#F5A623', // Yellow/Gold accent for FGA
-                        }
-                    }
-                }
-            }
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
-    </script>
+        .success-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .success-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(247, 107, 0, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .logo {
+            height: 48px;
+            width: auto;
+            margin-bottom: 50px;
+        }
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #F76B00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+        }
+        .check-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #F76B00;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            max-width: 700px;
+            margin-bottom: 24px;
+        }
+        h1 .highlight {
+            color: #F76B00;
+        }
+        .subtitle {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #000;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 24px 0;
+            text-align: center;
+        }
+        footer p {
+            color: #666;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 640px) {
+            h1 { font-size: 1.7rem; }
+            .subtitle { font-size: 0.95rem; }
+            .check-icon { width: 64px; height: 64px; }
+            .check-icon svg { width: 28px; height: 28px; }
+        }
+    </style>
 </head>
-<body class="font-sans antialiased bg-brand-bg flex flex-col min-h-screen text-white">
+<body>
+    <div class="success-container">
+        <img src="/logo/logo-grupow3 (1).png" alt="Grupo W3" class="logo">
 
-    <!-- Top Navigation Placeholder (Optional, just the logo) -->
-    <header class="w-full py-8 flex justify-center mt-10">
-        <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-white">
-            Grupo W3<span class="text-brand-accent">.</span>
-        </h1>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center justify-center px-4 md:px-10 pb-20">
-        <div class="max-w-[700px] text-center w-full">
-            <h2 class="text-[32px] md:text-[44px] font-bold leading-[1.2] mb-6">
-                Você acaba de dar o primeiro passo<br>
-                para <span class="text-brand-accent">romper a barreira de faturamento<br> do seu E-commerce.</span>
-            </h2>
-            
-            <p class="text-[#a0a0a0] text-[15px] md:text-[18px] mb-12 max-w-[600px] mx-auto leading-relaxed">
-                Obrigado pelo interesse. Nossa equipe de especialistas do Grupo W3 já recebeu seus dados e 
-                entrará em contato em breve para validar seu diagnóstico.
-            </p>
-
-            <a href="https://api.whatsapp.com/send?phone=YOUR_NUMBER_HERE" target="_blank" 
-               class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-4 rounded-[6px] transition-colors w-full sm:w-auto text-[14px]">
-                <i class="fa-brands fa-whatsapp text-[18px]"></i>
-                FALAR DIRETO COM O SUPORTE
-            </a>
+        <div class="check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
         </div>
-    </main>
 
-    <!-- Footer -->
-    <footer class="w-full bg-[#111] border-t border-[#222] py-8 text-center mt-auto">
-        <p class="text-[#666] text-[13px]">Copyright Grupo W3. Todos os direitos reservados.</p>
+        <h1>
+            Você acaba de dar o primeiro passo para <span class="highlight">escalar o faturamento do seu e-commerce.</span>
+        </h1>
+
+        <p class="subtitle">
+            Obrigado pelo interesse. Nossa equipe de especialistas do Grupo W3 já recebeu seus dados e
+            entrará em contato em breve para validar seu diagnóstico.
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2026 AMH Soluções Digitais LTDA. Todos direitos reservados</p>
     </footer>
-
 </body>
 </html>
