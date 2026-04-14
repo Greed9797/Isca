@@ -2230,10 +2230,14 @@
             // ══════════════════════════════════════════
             // WEBHOOKS — substitua pelos seus URLs reais
             // ══════════════════════════════════════════
-            const WEBHOOK_QUALIFICADO     = "SEU_WEBHOOK_N8N_QUALIFICADO";
-            const WEBHOOK_NAO_QUALIFICADO = "SEU_WEBHOOK_N8N_NAO_QUALIFICADO";
-            const REDIRECT_QUALIFICADO    = "URL_CALENDLY_OU_OBRIGADO";
-            const REDIRECT_NAO_QUALIFICADO = "URL_PAGINA_OBRIGADO_GENERICO";
+            // Produção
+            const WEBHOOK_QUALIFICADO     = "https://ia-n8n.nwwqtc.easypanel.host/webhook/qualificado";
+            const WEBHOOK_NAO_QUALIFICADO = "https://ia-n8n.nwwqtc.easypanel.host/webhook/desqualificado";
+            // Teste (descomente para usar em dev):
+            // const WEBHOOK_QUALIFICADO     = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/qualificado";
+            // const WEBHOOK_NAO_QUALIFICADO = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/desqualificado";
+            const REDIRECT_QUALIFICADO    = "/sucesso.html";
+            const REDIRECT_NAO_QUALIFICADO = "/sucesso.html";
 
             // ══════════════════════════════════════════
             // TABELA DE QUALIFICAÇÃO
