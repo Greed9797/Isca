@@ -26,9 +26,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.hugeicons.com" crossorigin>
     <!-- Google Fonts — non-render-blocking -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
     <!-- Hugeicons — non-render-blocking (savings ~736ms) -->
     <link rel="preload" as="style" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
     <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" media="print" onload="this.media='all'">
@@ -161,38 +161,114 @@
             padding: 100px 0;
         }
 
-        /* Hero */
+        /* Hero — background image + HTML text overlay */
         .hero {
-            background-color: #050505;
             position: relative;
             overflow: hidden;
-            border-bottom: 2px solid var(--border-color);
+            min-height: 100vh;
+            background-color: #000;
+            background-image: url('/hero-bg-desktop.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 0 !important;
+            display: flex;
+            flex-direction: column;
         }
 
-        .hero-cta-wrapper {
-            position: absolute;
-            bottom: 14.5%;
-            left: 8%;
-            z-index: 10;
+        /* Tarja topo */
+        .hero-bar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 1px solid #404040;
+            backdrop-filter: blur(12.5px);
+            -webkit-backdrop-filter: blur(12.5px);
+            text-align: center;
+            padding: 18px 20px;
+            z-index: 5;
+            flex-shrink: 0;
         }
 
-        /* Desktop: 461x86, font 20px, radius 20, gap 10 */
+        .hero-bar p {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.05em;
+            color: #fff;
+            margin: 0;
+        }
+
+        .hero-bar .highlight {
+            color: #F47A14;
+        }
+
+        /* Content wrapper */
+        .hero-content-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero-content {
+            max-width: 730px;
+            padding-left: 164px;
+        }
+
+        .hero-logo {
+            height: 59px;
+            width: auto;
+            margin-bottom: 58px;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: 'DM Sans', var(--font-heading);
+            font-weight: 500;
+            font-size: 58px;
+            line-height: 68px;
+            letter-spacing: -0.05em;
+            color: #fff;
+            margin-bottom: 58px;
+        }
+
+        .hero-title .highlight {
+            color: #F47A14;
+        }
+
+        .hero-subtitle {
+            font-family: 'DM Sans', var(--font-body);
+            font-weight: 300;
+            font-size: 26px;
+            line-height: 38px;
+            letter-spacing: -0.05em;
+            color: #fff;
+            max-width: 716px;
+            margin-bottom: 58px;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
         .hero-cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.52vw;
-            padding: 1.56vw 2.6vw;
-            width: 24vw;
-            height: 4.48vw;
+            gap: 10px;
+            padding: 30px 50px;
+            width: 461px;
+            height: 86px;
             background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
-            border-radius: 1.04vw;
+            border-radius: 20px;
             border: none;
             color: #F3F3F3;
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 1.04vw;
+            font-size: 20px;
             text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
@@ -200,7 +276,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
             box-sizing: border-box;
-            margin: 1px 1px 40px 10px;
         }
 
         .hero-cta:hover {
@@ -210,46 +285,151 @@
         }
 
         .hero-cta i {
-            font-size: 1.3vw;
+            font-size: 25px;
         }
 
-        /* Tablet/iPad: margin ajustado */
-        @media (max-width: 992px) {
-            .hero-cta {
-                margin: 1px 1px 20px 6px;
-            }
+        .hero-clients {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Mobile: 260x49, font 11.3px, padding 17 28, radius 11, gap 5.6 */
+        .hero-clients-dots {
+            display: flex;
+        }
+
+        .hero-clients-dots span {
+            width: 33px;
+            height: 33px;
+            border-radius: 50%;
+            background: #1A1A1A;
+            border: 3px solid #0C0C0F;
+            margin-right: -8px;
+        }
+
+        .hero-clients p {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 21.8px;
+            letter-spacing: -0.05em;
+            color: #fff;
+            margin-left: 12px;
+        }
+
+        .hero-disclaimer {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: -0.05em;
+            color: #AAA;
+            line-height: 30px;
+        }
+
+        .hero-spacer {
+            display: none;
+        }
+
+        /* ── Hero Mobile ── */
         @media (max-width: 768px) {
-            .hero-cta-wrapper {
-                bottom: 47%;
-                left: 8.2%;
+            .hero {
+                background-image: url('/hero-bg-mobile.webp');
+                min-height: auto;
             }
+
+            .hero-bar p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .hero-content-wrapper {
+                padding: 30px 0 0;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                padding: 0 34px;
+                max-width: 100%;
+            }
+
+            .hero-logo {
+                height: 33px;
+                margin-bottom: 33px;
+            }
+
+            .hero-title {
+                font-size: 32.6px;
+                line-height: 38px;
+                margin-bottom: 33px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 35px;
+            }
+
+            .hero-cta-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+            }
+
             .hero-cta {
-                width: 62.8vw;
-                height: 11.8vw;
-                padding: 4.1vw 6.8vw;
-                font-size: 2.72vw;
-                border-radius: 2.72vw;
-                gap: 1.36vw;
-                margin: 0;
+                width: 260px;
+                height: 49px;
+                padding: 17px 28px;
+                font-size: 11.3px;
+                border-radius: 11px;
+                gap: 5.6px;
             }
+
             .hero-cta i {
-                font-size: 3.4vw;
+                font-size: 14px;
+            }
+
+            .hero-disclaimer {
+                font-size: 11.3px;
+                line-height: 17px;
+            }
+
+            .hero-clients p {
+                font-size: 12.3px;
+            }
+
+            .hero-clients-dots span {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* Space for the person photo at bottom of bg */
+            .hero-spacer {
+                display: block;
+                height: 500px;
             }
         }
 
-        .hero-image-wrapper {
-            position: relative;
-            width: 100%;
-            z-index: 0;
-        }
+        @media (max-width: 992px) and (min-width: 769px) {
+            .hero-content {
+                padding-left: 80px;
+                max-width: 600px;
+            }
 
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
+            .hero-title {
+                font-size: 44px;
+                line-height: 52px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+                line-height: 30px;
+            }
+
+            .hero-cta {
+                width: 380px;
+                height: 72px;
+                font-size: 16px;
+                padding: 24px 40px;
+            }
         }
 
         /* Logo Marquee */
@@ -1369,16 +1549,39 @@
 <main>
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-image-wrapper">
-            <picture>
-                <source media="(max-width: 768px)" srcset="/Hero-Mobile.png">
-                <img src="/Hero-Desktop.png" width="1920" height="1228"
-                    alt="Leonardo Ames - Fundador da Ame Kids e Grupo W3 | Seu e-commerce fatura mais que 20 mil por mês?" class="hero-image" loading="eager" fetchpriority="high">
-            </picture>
+        <div class="hero-bar">
+            <p>EXCLUSIVO <span style="font-weight:400">PARA</span> DONOS DE E-COMMERCE <span style="font-weight:400">QUE</span> <span class="highlight">FATURAM MAIS QUE 20K/MÊS</span></p>
         </div>
-        <div class="hero-cta-wrapper">
-            <a href="#agendar" class="hero-cta">AGENDAR MINHA CONSULTORIA <i class="hgi-stroke hgi-arrow-up-right-01"></i></a>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <img src="/logo/logo-grupow3 (1).png" alt="Grupo W3" class="hero-logo" loading="eager">
+
+                <h1 class="hero-title">
+                    Receba um plano de ação personalizado para destravar seu e-commerce para <span class="highlight">aumentar seu faturamento</span> com <span class="highlight">lucro</span> e <span class="highlight">previsibilidade</span>.
+                </h1>
+
+                <p class="hero-subtitle">
+                    Em 1 hora, um especialista da <strong>Metodologia Ames</strong> (responsável por mais de 100 milhões de faturamento/ano no e-commerce) vai pessoalmente identificar os gargalos da sua operação e montar um plano estratégico para destravar o seu negócio.
+                </p>
+
+                <div class="hero-cta-row">
+                    <a href="#agendar" class="hero-cta">
+                        AGENDAR MINHA CONSULTORIA <i class="hgi-stroke hgi-arrow-up-right-01"></i>
+                    </a>
+                    <div class="hero-clients">
+                        <div class="hero-clients-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <p>+150 e-commerces</p>
+                    </div>
+                </div>
+
+                <p class="hero-disclaimer">*Cadastre-se acima para concorrer a uma vaga</p>
+            </div>
         </div>
+
+        <div class="hero-spacer"></div>
     </section>
 
     <!-- Logo Bar (Marquee) -->
