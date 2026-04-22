@@ -2251,7 +2251,8 @@
             // ══════════════════════════════════════════
             const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook/landing-page";
             // const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/landing-page";
-            const REDIRECT_URL = "/typ-1";
+            const REDIRECT_URL_QUALIFIED   = "/typ-1";
+            const REDIRECT_URL_DISQUALIFIED = "/typ-df";
 
             // ══════════════════════════════════════════
             // TABELA DE QUALIFICAÇÃO
@@ -2367,7 +2368,7 @@
                     });
 
                     if (response.ok) {
-                        window.location.href = REDIRECT_URL;
+                        window.location.href = qualified ? REDIRECT_URL_QUALIFIED : REDIRECT_URL_DISQUALIFIED;
                     } else {
                         throw new Error("Erro na comunicação com o servidor.");
                     }
