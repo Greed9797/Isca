@@ -2081,6 +2081,7 @@
                         <option value="site_proprio">Site próprio</option>
                         <option value="marketplace">Marketplace</option>
                         <option value="loja_fisica">Loja Física / sem e-commerce</option>
+                        <option value="fabricante_sem_ecommerce">Fabricante / sem e-commerce</option>
                     </select>
                 </div>
 
@@ -2365,12 +2366,18 @@
             // canal + tipo → faturamento mínimo (em k)
             // ══════════════════════════════════════════
             const QUALIFICATION_RULES = {
-                "site_proprio__fabricante":  20,
-                "site_proprio__revendedor":  30,
-                "marketplace__fabricante":   20,
-                "marketplace__revendedor":   30,
-                "loja_fisica__fabricante":   100,
-                "loja_fisica__revendedor":   100,
+                "site_proprio__fabricante":              20,
+                "site_proprio__importador":              20,
+                "site_proprio__revendedor":              30,
+                "marketplace__fabricante":               20,
+                "marketplace__importador":               20,
+                "marketplace__revendedor":               30,
+                "loja_fisica__fabricante":               100,
+                "loja_fisica__importador":               100,
+                "loja_fisica__revendedor":               100,
+                "fabricante_sem_ecommerce__fabricante":  100,
+                "fabricante_sem_ecommerce__importador":  100,
+                "fabricante_sem_ecommerce__revendedor":  100,
             };
 
             const REVENUE_LABELS = {
@@ -2384,9 +2391,10 @@
             };
 
             const CHANNEL_LABELS = {
-                "site_proprio": "Site próprio",
-                "marketplace":  "Marketplace",
-                "loja_fisica":  "Loja Física / sem e-commerce",
+                "site_proprio":             "Site próprio",
+                "marketplace":              "Marketplace",
+                "loja_fisica":              "Loja Física / sem e-commerce",
+                "fabricante_sem_ecommerce": "Fabricante / sem e-commerce",
             };
 
             const BUSINESS_LABELS = {
