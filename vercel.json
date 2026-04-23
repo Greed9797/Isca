@@ -5,11 +5,23 @@
   "cleanUrls": true,
   "headers": [
     {
-      "source": "/(.*\\.(webp|avif|png|jpg|jpeg|svg|ico|woff2|woff))",
+      "source": "/cards/:file",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/(.*\\.(js|css))",
+      "source": "/marcas/:file",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/logo/:file",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/:file(hero-bg.*|amekids.*|case.*|favicon.*|.*\\.webp|.*\\.png|.*\\.jpg|.*\\.avif|.*\\.svg|.*\\.ico|.*\\.woff2|.*\\.woff)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/:file(.*\\.js|.*\\.css)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     },
     {
