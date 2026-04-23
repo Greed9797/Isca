@@ -39,6 +39,25 @@
     src="https://www.facebook.com/tr?id=2132201073841264&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+    <!-- Meta CAPI — server-side deduplication -->
+    <script>
+    function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():''}
+    function capiTrack(eventName, extra){
+        var id = eventName+'_'+Date.now();
+        if(window.fbq) fbq('track', eventName, {}, {eventID: id});
+        fetch('/api/track', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(Object.assign({
+                event_name: eventName,
+                event_id: id,
+                event_source_url: location.href,
+                fbp: getCookie('_fbp'),
+                fbc: getCookie('_fbc'),
+            }, extra || {}))
+        }).catch(function(){});
+    }
+    window.addEventListener('load', function(){ capiTrack('PageView'); });
+    </script>
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
