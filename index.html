@@ -1567,14 +1567,9 @@
         }
 
     }
-    /* Swiper critical CSS — prevents CLS when async bundle loads */
-    .swiper { overflow: hidden; contain: layout size style; }
-    .swiper-wrapper { display: flex; width: 100%; height: 100%; box-sizing: content-box; }
-    .swiper-slide { flex-shrink: 0; width: 100%; height: 100%; position: relative; }
     </style>
-    <!-- Swiper CSS — non-render-blocking -->
-    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+    <!-- Swiper CSS — render-blocking to ensure correct card layout -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
