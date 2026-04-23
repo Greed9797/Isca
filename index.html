@@ -2501,7 +2501,12 @@
                     });
 
                     if (response.ok) {
-                        window.location.href = qualified ? REDIRECT_QUALIFICADO : REDIRECT_NAO_QUALIFICADO;
+                        if (qualified) {
+                            fbq('track', 'Lead');
+                            window.location.href = REDIRECT_QUALIFICADO;
+                        } else {
+                            window.location.href = REDIRECT_NAO_QUALIFICADO;
+                        }
                     } else {
                         throw new Error("Erro na comunicação com o servidor.");
                     }
