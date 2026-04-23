@@ -46,6 +46,7 @@
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp">
     <!-- Google Fonts — non-render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -185,7 +186,7 @@
             height: 100vh;
             max-height: 100vh;
             background-color: #000;
-            background-image: url('/hero-bg-desktop.png');
+            background-image: url('/hero-bg-desktop.webp');
             background-size: cover;
             background-position: right center;
             background-repeat: no-repeat;
@@ -350,7 +351,7 @@
         /* ── Hero Mobile ── */
         @media (max-width: 768px) {
             .hero {
-                background-image: url('/hero-bg-mobile.png');
+                background-image: url('/hero-bg-mobile.webp');
                 background-position: center bottom;
                 background-size: cover;
                 height: auto;
@@ -1572,6 +1573,65 @@
     </style>
     <!-- Swiper CSS (pain cards mobile carousel) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Grupo W3",
+          "url": "https://cg.leonardoames.com.br",
+          "logo": "https://cg.leonardoames.com.br/logo/logo-grupow3.webp",
+          "description": "Metodologia de aceleração de e-commerces responsável por mais de R$100 milhões em faturamento gerado para negócios digitais."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quanto tempo dura o diagnóstico?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O diagnóstico tem duração média de 1 hora, tempo ideal para analisarmos com profundidade os principais pontos da sua operação e identificarmos o que está limitando o crescimento do seu e-commerce."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quem realiza o diagnóstico?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A conversa acontece 100% online, via Google Meet, conduzida por um dos nossos especialistas em e-commerce do grupo W3. É um bate-papo direto, sem compromisso, focado em gerar clareza real sobre o cenário do seu negócio."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como devo me preparar para o diagnóstico?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Traga as principais dores e desafios que seu e-commerce enfrenta, seja no seu site, tráfego, time ou processos. Assim, conseguimos direcionar o diagnóstico para o que realmente importa e te mostrar o caminho mais rápido pra escalar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Posso convidar alguém para participar comigo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Claro! Você pode convidar seu sócio ou alguém do time de liderança para participar da reunião. Isso ajuda a alinhar a visão e facilitar a aplicação das estratégias discutidas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O diagnóstico é personalizado para o meu negócio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Cada diagnóstico é 100% individual e personalizado, com base nos dados e no momento atual da sua operação. Nosso objetivo é te mostrar exatamente onde estão os gargalos e como resolvê-los para alcançar o próximo nível de faturamento e previsibilidade."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -1652,22 +1712,22 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-1.png" alt="Crescimento Travado" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-1.webp" alt="Crescimento Travado" width="1147" height="1398" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-2.png" alt="Resultados Estagnados" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-2.webp" alt="Resultados Estagnados" width="1147" height="1398" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-3.png" alt="Tráfego Sem Retorno" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-3.webp" alt="Tráfego Sem Retorno" width="1147" height="1398" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-4.png" alt="Vendas em Queda" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-4.webp" alt="Vendas em Queda" width="1147" height="1398" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -2597,7 +2657,7 @@
         });
     </script>
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script>
 
         new Swiper('.pain-swiper', {
