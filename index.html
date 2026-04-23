@@ -2514,10 +2514,8 @@
 
                     if (response.ok) {
                         if (qualified) {
-                            fbq('track', 'Lead');
                             window.location.href = REDIRECT_QUALIFICADO;
                         } else {
-                            fbq('trackCustom', 'Desqualificado');
                             window.location.href = REDIRECT_NAO_QUALIFICADO;
                         }
                     } else {
