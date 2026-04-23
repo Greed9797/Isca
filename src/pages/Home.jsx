@@ -103,28 +103,49 @@ export default function App() {
         </div>
       </section>
 
-      {/* 02. EXCLUSÃO QUALIFICADA (FGA + W3) */}
-      <section className="py-16 px-4 bg-[#050505] border-b border-zinc-900">
-         <div className="max-w-6xl mx-auto">
-            <h3 className="text-center text-zinc-400 text-sm md:text-base font-bold uppercase tracking-widest mb-10">Quem confia na W3</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-[#0a0a0a] border border-zinc-800 p-6 rounded-lg text-center hover:border-[#F55900]/30 transition-colors">
-                    <Globe className="w-8 h-8 text-[#F55900] mx-auto mb-4" />
-                    <h4 className="text-white font-bold mb-2">E-commerce Próprio</h4>
-                    <p className="text-zinc-500 text-sm">Marcas faturando +R$30k/mês que precisam escalar sem comprometer o lucro.</p>
-                </div>
-                <div className="bg-[#0a0a0a] border border-zinc-800 p-6 rounded-lg text-center hover:border-[#F55900]/30 transition-colors">
-                    <Store className="w-8 h-8 text-[#F55900] mx-auto mb-4" />
-                    <h4 className="text-white font-bold mb-2">Marketplaces</h4>
-                    <p className="text-zinc-500 text-sm">Sellers de Shopee e ML que querem fugir da guerra de preços e ter uma operação independente.</p>
-                </div>
-                <div className="bg-[#0a0a0a] border border-zinc-800 p-6 rounded-lg text-center hover:border-[#F55900]/30 transition-colors">
-                    <MapPin className="w-8 h-8 text-[#F55900] mx-auto mb-4" />
-                    <h4 className="text-white font-bold mb-2">Lojas Físicas</h4>
-                    <p className="text-zinc-500 text-sm">Varejo tradicional que fatura alto localmente e precisa profissionalizar a operação digital.</p>
-                </div>
-            </div>
-         </div>
+      {/* 02. MARCAS QUE CONFIAM NA W3 */}
+      <section className="py-16 px-4 bg-[#050505] border-b border-zinc-900 overflow-hidden">
+        <h3 className="text-center text-zinc-400 text-sm md:text-base font-bold uppercase tracking-widest mb-10">
+          Marcas que confiam na W3
+        </h3>
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+          <div className="flex animate-marquee gap-16 w-max">
+            {[
+              { src: "/marcas/GM_Rosa_Do_Deserto.avif", alt: "GM Rosa do Deserto" },
+              { src: "/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp", alt: "Marca Parceira" },
+              { src: "/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp", alt: "Marca Parceira" },
+              { src: "/marcas/Captura_de_tela_2026-01-12_212358.webp", alt: "Marca Parceira" },
+              { src: "/marcas/imgi_10_Design-sem-nome-97-e1766176018301.png", alt: "Marca Parceira" },
+              { src: "/marcas/imgi_11_cropped-tktx-pomadas-anestesicas-logo-1-1-300x77-1.webp", alt: "Marca Parceira" },
+              { src: "/marcas/high-torque-2.webp", alt: "High Torque" },
+              { src: "/marcas/marca-nova-1.webp", alt: "Marca Parceira" },
+              { src: "/marcas/marca-nova-2.png", alt: "Marca Parceira" },
+              { src: "/marcas/marca-nova-3.png", alt: "Marca Parceira" },
+              { src: "/marcas/veln.webp", alt: "VELN" },
+              { src: "/marcas/GM_Rosa_Do_Deserto.avif", alt: "GM Rosa do Deserto" },
+              { src: "/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp", alt: "Marca Parceira" },
+              { src: "/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp", alt: "Marca Parceira" },
+              { src: "/marcas/Captura_de_tela_2026-01-12_212358.webp", alt: "Marca Parceira" },
+              { src: "/marcas/imgi_10_Design-sem-nome-97-e1766176018301.png", alt: "Marca Parceira" },
+              { src: "/marcas/imgi_11_cropped-tktx-pomadas-anestesicas-logo-1-1-300x77-1.webp", alt: "Marca Parceira" },
+              { src: "/marcas/high-torque-2.webp", alt: "High Torque" },
+              { src: "/marcas/marca-nova-1.webp", alt: "Marca Parceira" },
+              { src: "/marcas/marca-nova-2.png", alt: "Marca Parceira" },
+              { src: "/marcas/marca-nova-3.png", alt: "Marca Parceira" },
+              { src: "/marcas/veln.webp", alt: "VELN" },
+            ].map((logo, i) => (
+              <div key={i} className="flex items-center justify-center shrink-0 h-14 w-36">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-12 max-w-[140px] w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 03. PAIN & AGITATION (FGA Framework aplicado ao W3) */}
