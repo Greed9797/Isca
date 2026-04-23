@@ -136,20 +136,19 @@ export default function App() {
             description="Se você se identificou com alguns desses pontos, é sinal de que seu sistema precisa de ajustes estratégicos — veja como estruturar um modelo realmente escalável."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
             {[
-              { icon: DollarSign, title: "Escala Travada", text: "Sente que seu e-commerce não consegue desempenhar como deveria e você não consegue escalar de verdade." },
-              { icon: TrendingUp, title: "Platô de Crescimento", text: "Está em um platô de crescimento há algum tempo, tendo seu resultado muitas vezes caindo se comparado ao passado." },
-              { icon: BarChart3, title: "Tráfego Pago Sem Resultado", text: "O tráfego pago não está performando e não sabe como fazer o jogo virar. Cada vez mais difícil realizar uma venda comparado a antigamente." }
+              { img: "/images/card-pain-1.png" },
+              { img: "/images/card-pain-2.png" },
+              { img: "/images/card-pain-3.png" },
+              { img: "/images/card-pain-4.png" },
             ].map((item, i) => (
-              <div key={i} className="bg-[#0a0a0a] border border-zinc-900 p-8 rounded-xl hover:border-[#F55900]/50 transition-colors group">
-                <div className="w-14 h-14 bg-zinc-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#F55900]/10 transition-colors">
-                   <item.icon className="w-7 h-7 text-[#F55900] group-hover:scale-110 transition-transform" />
-                </div>
-                <h4 className="text-white text-xl font-bold mb-3 uppercase tracking-wide">{item.title}</h4>
-                <p className="text-zinc-400 leading-relaxed text-sm">
-                  {item.text}
-                </p>
+              <div key={i} className="rounded-xl overflow-hidden border border-zinc-900 hover:border-[#F55900]/50 transition-colors group">
+                <img
+                  src={item.img}
+                  alt={`Desafio ${i + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             ))}
           </div>
