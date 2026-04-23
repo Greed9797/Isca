@@ -2002,8 +2002,9 @@
                 <!-- 4. Tipo de negócio -->
                 <div class="form-group">
                     <select id="businessType" name="businessType" required>
-                        <option value="" disabled selected hidden>*Qual seu tipo de negócio?</option>
-                        <option value="fabricante">Fabricante / Importador</option>
+                        <option value="" disabled selected>*Qual seu tipo de negócio?</option>
+                        <option value="fabricante">Fabricante</option>
+                        <option value="importador">Importador</option>
                         <option value="revendedor">Revendedor</option>
                     </select>
                 </div>
@@ -2324,7 +2325,8 @@
             };
 
             const BUSINESS_LABELS = {
-                "fabricante":  "Fabricante / Importador",
+                "fabricante":  "Fabricante",
+                "importador":  "Importador",
                 "revendedor":  "Revendedor",
             };
 
