@@ -2,9 +2,17 @@
 <html lang="pt-BR">
 
 <head>
+        <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WSP9Q75T');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico Comercial Gratuito - Metodologia Ames | Grupo W3</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="description" content="Agende um diagnóstico gratuito com um especialista da Metodologia Ames. Em 1 hora, identificamos os gargalos do seu e-commerce e montamos um plano estratégico para escalar com lucro e previsibilidade. +150 e-commerces acelerados.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://cg.leonardoames.com.br/">
@@ -21,7 +29,21 @@
     <meta name="twitter:title" content="Diagnóstico Comercial Gratuito - Metodologia Ames">
     <meta name="twitter:description" content="Agende seu diagnóstico gratuito e escale seu e-commerce com a Metodologia Ames.">
     <meta name="twitter:image" content="https://cg.leonardoames.com.br/Hero-Desktop.png">
-    <!-- Preconnect -->
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2132201073841264');
+    fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+        <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.hugeicons.com" crossorigin>
@@ -1548,6 +1570,12 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSP9Q75T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Meta Pixel noscript fallback -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2132201073841264&ev=PageView&noscript=1" /></noscript>
 <main>
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -2228,16 +2256,12 @@
             });
 
             // ══════════════════════════════════════════
-            // WEBHOOKS — substitua pelos seus URLs reais
+            // WEBHOOK — fluxo único N8N
             // ══════════════════════════════════════════
-            // Produção
-            const WEBHOOK_QUALIFICADO     = "https://ia-n8n.nwwqtc.easypanel.host/webhook/qualificado";
-            const WEBHOOK_NAO_QUALIFICADO = "https://ia-n8n.nwwqtc.easypanel.host/webhook/desqualificado";
-            // Teste (descomente para usar em dev):
-            // const WEBHOOK_QUALIFICADO     = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/qualificado";
-            // const WEBHOOK_NAO_QUALIFICADO = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/desqualificado";
-            const REDIRECT_QUALIFICADO    = "https://cg.leonardoames.com.br/typ-1";
-            const REDIRECT_NAO_QUALIFICADO = "https://cg.leonardoames.com.br/typ-df";
+            const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook/landing-page";
+            // const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/landing-page";
+            const REDIRECT_QUALIFICADO     = "/typ-1";
+            const REDIRECT_NAO_QUALIFICADO = "/typ-df";
 
             // ══════════════════════════════════════════
             // TABELA DE QUALIFICAÇÃO
@@ -2252,17 +2276,38 @@
                 "loja_fisica__revendedor":   100,  // Loja física + revendedor  = 100k+
             };
 
-            // Converte valor do select de faturamento para número mínimo (em k)
+            const REVENUE_LABELS = {
+                "0-20k":     "De R$ 0 a R$ 20 mil",
+                "20k-30k":   "De R$ 20 mil a R$ 30 mil",
+                "30k-50k":   "De R$ 30 mil a R$ 50 mil",
+                "50k-100k":  "De R$ 50 mil a R$ 100 mil",
+                "100k-500k": "De R$ 100 mil a R$ 500 mil",
+                "500k-1m":   "De R$ 500 mil a R$ 1 milhão",
+                "1m+":       "R$ 1 milhão+",
+            };
+
+            const CHANNEL_LABELS = {
+                "site_proprio": "Site próprio",
+                "marketplace":  "Marketplace",
+                "loja_fisica":  "Loja Física / sem e-commerce",
+            };
+
+            const BUSINESS_LABELS = {
+                "fabricante":  "Fabricante / Importador",
+                "revendedor":  "Revendedor",
+            };
+
             function revenueToNumber(val) {
                 const map = {
-                    "10k-30k":   10,
+                    "0-20k":     0,
+                    "20k-30k":   20,
                     "30k-50k":   30,
                     "50k-100k":  50,
-                    "100k-250k": 100,
-                    "250k-500k": 250,
+                    "100k-500k": 100,
+                    "500k-1m":   500,
                     "1m+":       1000,
                 };
-                return map[val] || 0;
+                return map[val] ?? -1;
             }
 
             function isQualified(channel, businessType, revenue) {
@@ -2277,31 +2322,70 @@
             form.addEventListener("submit", async function(e) {
                 e.preventDefault();
 
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                // Validação de campos obrigatórios
+                const fields = [
+                    { key: "fullName", label: "nome" },
+                    { key: "email", label: "e-mail" },
+                    { key: "whatsapp", label: "WhatsApp" },
+                    { key: "businessType", label: "tipo de negócio" },
+                    { key: "channel", label: "canal de venda" },
+                    { key: "revenue", label: "faturamento" },
+                ];
+                for (const f of fields) {
+                    if (!data[f.key] || !data[f.key].trim()) {
+                        alert("Por favor, preencha o campo: " + f.label);
+                        return;
+                    }
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email.trim())) {
+                    alert("Por favor, insira um e-mail válido.");
+                    return;
+                }
+
+                const phoneDigits = data.whatsapp.replace(/\D/g, "");
+                if (phoneDigits.length < 10) {
+                    alert("Por favor, insira um número de WhatsApp válido com DDD.");
+                    return;
+                }
+
                 const originalBtnText = submitBtn.innerText;
                 submitBtn.innerText = "CARREGANDO...";
                 submitBtn.disabled = true;
 
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData.entries());
-
-                // Avaliar qualificação
                 const qualified = isQualified(data.channel, data.businessType, data.revenue);
-                data.qualified = qualified;
 
-                const webhookUrl = qualified ? WEBHOOK_QUALIFICADO : WEBHOOK_NAO_QUALIFICADO;
-                const redirectUrl = qualified ? REDIRECT_QUALIFICADO : REDIRECT_NAO_QUALIFICADO;
+                const payload = {
+                    response: {
+                        formId: "landing-page-cg",
+                        referrerUrl: window.location.href,
+                        deviceType: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
+                        submittedAt: new Date().toISOString(),
+                        variables: { qualified: qualified },
+                        answers: {
+                            fullName: { fieldTitle: "Qual seu nome completo?", content: data.fullName },
+                            email: { fieldTitle: "Qual seu melhor e-mail?", content: data.email },
+                            whatsapp: { fieldTitle: "Número de WhatsApp com DDD", content: data.whatsapp },
+                            businessType: { fieldTitle: "Qual seu tipo de negócio?", content: BUSINESS_LABELS[data.businessType] || data.businessType },
+                            channel: { fieldTitle: "Onde você vende?", content: CHANNEL_LABELS[data.channel] || data.channel },
+                            revenue: { fieldTitle: "Qual é o seu faturamento mensal?", content: REVENUE_LABELS[data.revenue] || data.revenue },
+                        },
+                    },
+                };
 
                 try {
-                    const response = await fetch(webhookUrl, {
+                    const response = await fetch(WEBHOOK_URL, {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload),
                     });
 
                     if (response.ok) {
-                        window.location.href = redirectUrl;
+                        window.location.href = qualified ? REDIRECT_QUALIFICADO : REDIRECT_NAO_QUALIFICADO;
                     } else {
                         throw new Error("Erro na comunicação com o servidor.");
                     }
