@@ -1,6 +1,12 @@
+import { createHash } from 'node:crypto';
+
 const PIXEL_ID = '2132201073841264';
 const API_VERSION = 'v19.0';
 const CAPI_URL = `https://graph.facebook.com/${API_VERSION}/${PIXEL_ID}/events`;
+
+function sha256(str) {
+    return createHash('sha256').update(str).digest('hex');
+}
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'https://cg.leonardoames.com.br');
@@ -26,8 +32,8 @@ export default async function handler(req, res) {
     };
     if (fbp) user_data.fbp = fbp;
     if (fbc) user_data.fbc = fbc;
-    if (em)  user_data.em  = em;
-    if (ph)  user_data.ph  = ph;
+    if (em)  user_data.em  = sha256(em.toLowerCase().trim());
+    if (ph)  user_data.ph  = sha256(ph.replace(/\D/g, ''));
 
     const payload = {
         data: [{
