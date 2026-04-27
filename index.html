@@ -66,8 +66,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <!-- Critical preloads -->
     <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp">
-    <link rel="preload" href="/hero-bg-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
-    <link rel="preload" href="/hero-bg-desktop.webp" as="image" type="image/webp" media="(min-width: 769px)">
+    <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp">
     <!-- Google Fonts — non-render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -200,20 +199,32 @@
             padding: 100px 0;
         }
 
-        /* Hero — background image + HTML text overlay */
+        /* ── Hero VSL ── */
         .hero {
             position: relative;
             overflow: hidden;
-            height: 100vh;
-            max-height: 100vh;
-            background-color: #000;
-            background-image: url('/hero-bg-desktop.webp');
-            background-size: cover;
-            background-position: right center;
-            background-repeat: no-repeat;
+            background: #111111;
             padding: 0 !important;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: clamp(160px, 32vw, 480px);
+            color: rgba(255,255,255,0.04);
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            letter-spacing: -0.02em;
+            line-height: 1;
         }
 
         /* Tarja topo */
@@ -225,6 +236,7 @@
             padding: 18px 20px;
             z-index: 5;
             flex-shrink: 0;
+            position: relative;
         }
 
         .hero-bar p {
@@ -236,246 +248,156 @@
             margin: 0;
         }
 
-        .hero-bar .highlight {
-            color: #F47A14;
-        }
+        .hero-bar .highlight { color: #F47A14; }
 
-        /* Content wrapper */
-        .hero-content-wrapper {
+        .hero-vsl-wrapper {
             flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 20px 0;
-        }
-
-        .hero-content {
-            max-width: 680px;
-            padding-left: 164px;
+            justify-content: center;
+            padding: 48px 20px 56px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-logo {
-            height: 45px;
+            height: 48px;
             width: auto;
-            margin-bottom: 20px;
+            margin-bottom: 36px;
             display: block;
         }
 
-        .hero-title {
-            font-family: 'DM Sans', var(--font-heading);
-            font-weight: 500;
-            font-size: 42px;
-            line-height: 50px;
-            letter-spacing: -0.05em;
+        .vsl-container {
+            position: relative;
+            width: 65%;
+            max-width: 920px;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .vsl-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        .vsl-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .vsl-overlay-btn {
+            background: #F47A14;
+            border-radius: 14px;
+            padding: 24px 52px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .vsl-overlay:hover .vsl-overlay-btn {
+            transform: scale(1.04);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+        }
+
+        .vsl-overlay-top, .vsl-overlay-bottom {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 20px;
             color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.5);
+            letter-spacing: -0.02em;
         }
 
-        .hero-title .highlight {
-            color: #F47A14;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.5);
+        .vsl-overlay-icon {
+            font-size: 72px;
+            line-height: 1;
         }
 
-        .hero-subtitle {
+        .hero-vsl-text {
+            text-align: center;
+            max-width: 680px;
+            margin-bottom: 28px;
+        }
+
+        .hero-vsl-text p {
             font-family: 'DM Sans', var(--font-body);
             font-weight: 300;
             font-size: 18px;
-            line-height: 26px;
-            letter-spacing: -0.05em;
+            line-height: 28px;
             color: #fff;
-            max-width: 600px;
-            margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
 
-        .hero-cta-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .hero-cta {
+        .hero-cta-outlined {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-            padding: 20px 40px;
-            width: 400px;
-            height: 64px;
-            background: linear-gradient(90deg, #F55900 0%, #F47917 100%);
-            border-radius: 16px;
-            border: none;
-            color: #F3F3F3;
+            padding: 18px 48px;
+            border: 2px solid #F47A14;
+            border-radius: 8px;
+            background: transparent;
+            color: #fff;
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 17px;
+            font-size: 18px;
             text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.02em;
             white-space: nowrap;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(245, 89, 0, 0.35);
-            box-sizing: border-box;
         }
 
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(245, 89, 0, 0.5);
-            background: linear-gradient(90deg, #FF6A1A 0%, #F98B2E 100%);
-        }
-
-        .hero-cta i {
-            font-size: 20px;
-        }
-
-        .hero-clients {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hero-clients-dots {
-            display: flex;
-        }
-
-        .hero-clients-dots span {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #1A1A1A;
-            border: 3px solid #0C0C0F;
-            margin-right: -8px;
-        }
-
-        .hero-clients p {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 18px;
-            letter-spacing: -0.05em;
-            color: #fff;
-            margin-left: 12px;
+        .hero-cta-outlined:hover {
+            background: rgba(244, 122, 20, 0.12);
+            box-shadow: 0 0 24px rgba(244, 122, 20, 0.25);
         }
 
         .hero-disclaimer {
             font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: -0.05em;
-            color: #AAA;
-            line-height: 24px;
+            font-weight: 500;
+            font-size: 13px;
+            color: #888;
+            margin-top: 14px;
         }
 
-        .hero-spacer {
-            display: none;
-        }
-
-        /* ── Hero Mobile ── */
+        /* ── Hero VSL Mobile ── */
         @media (max-width: 768px) {
-            .hero {
-                background-image: url('/hero-bg-mobile.webp');
-                background-position: center bottom;
-                background-size: cover;
-                height: auto;
-                max-height: none;
-                min-height: auto;
-            }
+            .hero-bar p { font-size: 0.85rem; line-height: 1.4; }
 
-            .hero-bar p {
-                font-size: 0.85rem;
-                line-height: 1.4;
-            }
+            .hero-vsl-wrapper { padding: 32px 16px 48px; }
 
-            .hero-content-wrapper {
-                padding: 20px 0 50px;
-                align-items: flex-start;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 80%, transparent 100%);
-            }
+            .hero-logo { height: 34px; margin-bottom: 24px; }
 
-            .hero-content {
-                padding: 0 34px;
-                max-width: 100%;
-            }
+            .vsl-container { width: 100%; border-radius: 6px; margin-bottom: 28px; }
 
-            .hero-logo {
-                height: 33px;
-                margin-bottom: 18px;
-            }
+            .vsl-overlay-btn { padding: 16px 28px; }
 
-            .hero-title {
-                font-size: 28px;
-                line-height: 33px;
-                margin-bottom: 20px;
-                font-weight: 700;
-            }
+            .vsl-overlay-top, .vsl-overlay-bottom { font-size: 15px; }
 
-            .hero-subtitle {
-                font-size: 15px;
-                line-height: 22px;
-                margin-bottom: 24px;
-            }
+            .vsl-overlay-icon { font-size: 48px; }
 
-            .hero-cta-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 25px;
-            }
+            .hero-vsl-text p { font-size: 15px; line-height: 22px; }
 
-            .hero-cta {
-                width: 100%;
-                height: auto;
-                padding: 20px 28px;
-                font-size: 15px;
-                border-radius: 14px;
-                gap: 8px;
-            }
-
-            .hero-cta i {
-                font-size: 14px;
-            }
-
-            .hero-disclaimer {
-                font-size: 11.3px;
-                line-height: 17px;
-            }
-
-            .hero-clients p {
-                font-size: 12.3px;
-            }
-
-            .hero-clients-dots span {
-                width: 24px;
-                height: 24px;
-            }
-
-            /* Space for the person photo at bottom of bg */
-            .hero-spacer {
-                display: block;
-                height: 500px;
-            }
+            .hero-cta-outlined { font-size: 14px; padding: 16px 24px; width: 100%; justify-content: center; }
         }
 
         @media (max-width: 992px) and (min-width: 769px) {
-            .hero-content {
-                padding-left: 80px;
-                max-width: 600px;
-            }
-
-            .hero-title {
-                font-size: 44px;
-                line-height: 52px;
-            }
-
-            .hero-subtitle {
-                font-size: 20px;
-                line-height: 30px;
-            }
-
-            .hero-cta {
-                width: 380px;
-                height: 72px;
-                font-size: 16px;
-                padding: 24px 40px;
-            }
+            .vsl-container { width: 82%; }
         }
 
         /* Logo Marquee */
@@ -1663,29 +1585,40 @@
             <p>EXCLUSIVO <span style="font-weight:400">PARA</span> DONOS DE E-COMMERCE <span style="font-weight:400">QUE</span> <span class="highlight">FATURAM MAIS QUE 20K/MÊS</span></p>
         </div>
 
-        <div class="hero-content-wrapper">
-            <div class="hero-content">
-                <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager">
+        <div class="hero-watermark" aria-hidden="true">W3</div>
 
-                <h1 class="hero-title">
-                    Receba um plano de ação personalizado para destravar seu e-commerce e <span class="highlight">aumentar seu faturamento</span> com <span class="highlight">lucro</span> e <span class="highlight">previsibilidade</span>.
-                </h1>
+        <div class="hero-vsl-wrapper">
+            <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager">
 
-                <p class="hero-subtitle">
-                    Em 1 hora, um especialista da <strong>Metodologia Ames</strong> (<span class="highlight">responsável por mais de 100 milhões de faturamento/ano no e-commerce</span>) vai pessoalmente identificar os gargalos da sua operação e montar um plano estratégico para destravar o seu negócio.
-                </p>
-
-                <div class="hero-cta-row">
-                    <a href="#agendar" class="hero-cta">
-                        AGENDAR MINHA CONSULTORIA <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                    </a>
+            <div class="vsl-container">
+                <div class="vsl-overlay" id="vslOverlay">
+                    <div class="vsl-overlay-btn">
+                        <span class="vsl-overlay-top">Clique aqui</span>
+                        <span class="vsl-overlay-icon">🔇</span>
+                        <span class="vsl-overlay-bottom">para ativar o som</span>
+                    </div>
                 </div>
-
-                <p class="hero-disclaimer">*Cadastre-se acima para concorrer a uma vaga</p>
+                <iframe
+                    id="pandaPlayer"
+                    src="https://player-vz-75e71015-90c.tv.pandavideo.com.br/embed/?v=8538a14d-5c71-464d-9082-73d7cc965094&autoplay=1&muted=1"
+                    style="border:none;"
+                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                    allowfullscreen="true"
+                    width="720" height="360"
+                    fetchpriority="high">
+                </iframe>
             </div>
-        </div>
 
-        <div class="hero-spacer"></div>
+            <div class="hero-vsl-text">
+                <p>Cadastre-se abaixo para ser selecionado para um <strong>diagnóstico estratégico</strong> com um especialista da Grupo W3, focado em escalar e otimizar suas operações comerciais.</p>
+            </div>
+
+            <a href="#agendar" class="hero-cta-outlined">
+                QUERO APLICAR AGORA &nbsp;→
+            </a>
+
+            <p class="hero-disclaimer">*Cadastre-se abaixo para concorrer a uma vaga</p>
+        </div>
     </section>
 
     <!-- Logo Bar (Marquee) -->
@@ -2743,6 +2676,17 @@
         } else {
             window.addEventListener('load', function() { setTimeout(initSwipers, 200); });
         }
+    </script>
+    <script>
+    (function(){
+        var overlay = document.getElementById('vslOverlay');
+        var player  = document.getElementById('pandaPlayer');
+        if(!overlay || !player) return;
+        overlay.addEventListener('click', function(){
+            player.src = player.src.replace('&muted=1','').replace('&autoplay=1','') + '&autoplay=1';
+            overlay.style.display = 'none';
+        });
+    })();
     </script>
 </body>
 
