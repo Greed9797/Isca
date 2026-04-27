@@ -96,6 +96,19 @@ const ConsultancyModal = ({ isOpen, onClose }) => {
 
       if (error) throw error;
 
+      const evtId = 'Lead_' + Date.now();
+      const nameParts = formData.nome.trim().split(/\s+/);
+      if (window.fbq) window.fbq('track', 'Lead', {}, { eventID: evtId });
+      if (window.capiSend) window.capiSend({
+        event_name: 'Lead',
+        event_id: evtId,
+        event_source_url: location.href,
+        em: formData.email.toLowerCase().trim(),
+        ph: formData.whatsapp.replace(/\D/g, ''),
+        fn: nameParts[0] || '',
+        ln: nameParts.slice(1).join(' ') || '',
+      });
+
       window.location.href = "sucesso.html";
     } catch (err) {
       console.error('Error submitting form:', err);
