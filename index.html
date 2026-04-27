@@ -2542,6 +2542,7 @@
                             fbq("trackCustom", "Desqualificado", {}, {eventID: evtId});
                         }
 
+                        const nameParts = data.fullName.trim().split(/\s+/);
                         fetch("/api/track", {
                             method: "POST",
                             headers: {"Content-Type": "application/json"},
@@ -2554,6 +2555,8 @@
                                 fbc: getCookie("_fbc"),
                                 em: data.email.toLowerCase().trim(),
                                 ph: data.whatsapp.replace(/\D/g, ""),
+                                fn: nameParts[0] || "",
+                                ln: nameParts.slice(1).join(" ") || "",
                             }),
                         }).catch(function(){});
 
