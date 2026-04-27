@@ -33,7 +33,8 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2132201073841264');
-    fbq('track', 'PageView');
+    window._pvId = 'PageView_'+Date.now();
+    fbq('track', 'PageView', {}, {eventID: window._pvId});
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2132201073841264&ev=PageView&noscript=1"
@@ -55,7 +56,9 @@
         if(window.fbq) fbq('track', eventName, {}, {eventID: id});
         capiSend(Object.assign({event_name:eventName, event_id:id, event_source_url:location.href, fbp:getCookie('_fbp'), fbc:getCookie('_fbc')}, extra||{}));
     }
-    window.addEventListener('load', function(){ capiTrack('PageView'); });
+    window.addEventListener('load', function(){
+        capiSend({event_name:'PageView', event_id:window._pvId, event_source_url:location.href, fbp:getCookie('_fbp'), fbc:getCookie('_fbc')});
+    });
     </script>
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

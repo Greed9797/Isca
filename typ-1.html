@@ -17,7 +17,8 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2132201073841264');
-    fbq('track', 'PageView');
+    window._pvId = 'PageView_'+Date.now();
+    fbq('track', 'PageView', {}, {eventID: window._pvId});
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2132201073841264&ev=PageView&noscript=1"
@@ -25,11 +26,9 @@
     <!-- End Meta Pixel Code -->
     <script>
     function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():''}
+    function capiSend(p){var j=JSON.stringify(p);navigator.sendBeacon?navigator.sendBeacon('/api/track',new Blob([j],{type:'application/json'})):fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:j}).catch(function(){})}
     window.addEventListener('load', function(){
-        var id='PageView_'+Date.now();
-        fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({event_name:'PageView',event_id:id,event_source_url:location.href,
-        fbp:getCookie('_fbp'),fbc:getCookie('_fbc')})}).catch(function(){});
+        capiSend({event_name:'PageView',event_id:window._pvId,event_source_url:location.href,fbp:getCookie('_fbp'),fbc:getCookie('_fbc')});
     });
     </script>
 
