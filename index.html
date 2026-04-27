@@ -42,19 +42,18 @@
     <!-- Meta CAPI — server-side deduplication -->
     <script>
     function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():''}
+    function capiSend(payload){
+        var json = JSON.stringify(payload);
+        if(navigator.sendBeacon){
+            navigator.sendBeacon('/api/track', new Blob([json], {type:'application/json'}));
+        } else {
+            fetch('/api/track', {method:'POST', headers:{'Content-Type':'application/json'}, body:json}).catch(function(){});
+        }
+    }
     function capiTrack(eventName, extra){
         var id = eventName+'_'+Date.now();
         if(window.fbq) fbq('track', eventName, {}, {eventID: id});
-        fetch('/api/track', {
-            method:'POST', headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(Object.assign({
-                event_name: eventName,
-                event_id: id,
-                event_source_url: location.href,
-                fbp: getCookie('_fbp'),
-                fbc: getCookie('_fbc'),
-            }, extra || {}))
-        }).catch(function(){});
+        capiSend(Object.assign({event_name:eventName, event_id:id, event_source_url:location.href, fbp:getCookie('_fbp'), fbc:getCookie('_fbc')}, extra||{}));
     }
     window.addEventListener('load', function(){ capiTrack('PageView'); });
     </script>
@@ -2543,22 +2542,17 @@
                         }
 
                         const nameParts = data.fullName.trim().split(/\s+/);
-                        fetch("/api/track", {
-                            method: "POST",
-                            headers: {"Content-Type": "application/json"},
-                            keepalive: true,
-                            body: JSON.stringify({
-                                event_name: evtName,
-                                event_id: evtId,
-                                event_source_url: location.href,
-                                fbp: getCookie("_fbp"),
-                                fbc: getCookie("_fbc"),
-                                em: data.email.toLowerCase().trim(),
-                                ph: data.whatsapp.replace(/\D/g, ""),
-                                fn: nameParts[0] || "",
-                                ln: nameParts.slice(1).join(" ") || "",
-                            }),
-                        }).catch(function(){});
+                        capiSend({
+                            event_name: evtName,
+                            event_id: evtId,
+                            event_source_url: location.href,
+                            fbp: getCookie("_fbp"),
+                            fbc: getCookie("_fbc"),
+                            em: data.email.toLowerCase().trim(),
+                            ph: data.whatsapp.replace(/\D/g, ""),
+                            fn: nameParts[0] || "",
+                            ln: nameParts.slice(1).join(" ") || "",
+                        });
 
                         if (qualified) {
                             window.location.href = REDIRECT_QUALIFICADO;
