@@ -286,48 +286,7 @@
             border: none;
         }
 
-        .vsl-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .vsl-overlay-btn {
-            background: #F47A14;
-            border-radius: 14px;
-            padding: 24px 52px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .vsl-overlay:hover .vsl-overlay-btn {
-            transform: scale(1.04);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.7);
-        }
-
-        .vsl-overlay-top, .vsl-overlay-bottom {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 20px;
-            color: #fff;
-            letter-spacing: -0.02em;
-        }
-
-        .vsl-overlay-icon {
-            font-size: 72px;
-            line-height: 1;
-        }
-
-        .hero-vsl-text {
+.hero-vsl-text {
             text-align: center;
             max-width: 680px;
             margin-bottom: 28px;
@@ -1591,13 +1550,6 @@
             <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager">
 
             <div class="vsl-container">
-                <div class="vsl-overlay" id="vslOverlay">
-                    <div class="vsl-overlay-btn">
-                        <span class="vsl-overlay-top">Clique aqui</span>
-                        <span class="vsl-overlay-icon">🔇</span>
-                        <span class="vsl-overlay-bottom">para ativar o som</span>
-                    </div>
-                </div>
                 <iframe
                     id="pandaPlayer"
                     src="https://player-vz-75e71015-90c.tv.pandavideo.com.br/embed/?v=8538a14d-5c71-464d-9082-73d7cc965094&autoplay=1&muted=1"
@@ -2677,17 +2629,7 @@
             window.addEventListener('load', function() { setTimeout(initSwipers, 200); });
         }
     </script>
-    <script>
-    (function(){
-        var overlay = document.getElementById('vslOverlay');
-        var player  = document.getElementById('pandaPlayer');
-        if(!overlay || !player) return;
-        overlay.addEventListener('click', function(){
-            player.src = player.src.replace('&muted=1','').replace('&autoplay=1','') + '&autoplay=1';
-            overlay.style.display = 'none';
-        });
-    })();
-    </script>
+
 </body>
 
 </html>
