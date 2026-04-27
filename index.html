@@ -203,29 +203,20 @@
         .hero {
             position: relative;
             overflow: hidden;
-            background: #111111;
+            background-color: #111111;
+            background-image:
+                linear-gradient(rgba(17,17,17,0.82), rgba(17,17,17,0.82)),
+                url('/logo/hero-bg-brand-desktop.svg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
             padding: 0 !important;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        .hero-watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: clamp(160px, 32vw, 480px);
-            color: rgba(255,255,255,0.04);
-            white-space: nowrap;
-            pointer-events: none;
-            user-select: none;
-            z-index: 0;
-            letter-spacing: -0.02em;
-            line-height: 1;
-        }
+        .hero-watermark { display: none; }
 
         /* Tarja topo */
         .hero-bar {
@@ -336,6 +327,11 @@
 
         /* ── Hero VSL Mobile ── */
         @media (max-width: 768px) {
+            .hero {
+                background-image:
+                    linear-gradient(rgba(17,17,17,0.82), rgba(17,17,17,0.82)),
+                    url('/logo/hero-bg-brand-mobile.svg');
+            }
             .hero-bar p { font-size: 0.85rem; line-height: 1.4; }
 
             .hero-vsl-wrapper { padding: 32px 16px 48px; }
