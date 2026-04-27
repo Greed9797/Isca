@@ -1,12 +1,13 @@
 <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-  <!-- W mark fills left half -->
+  <rect width="1440" height="900" fill="#FFFFFF"/>
+  <!-- W mark in gray fills left half -->
   <g transform="translate(0,119) scale(21.24) translate(-137.94,-13.73)">
-    <path d="M146.054 44.9439L137.94 13.7326H143.993L152.765 44.9439H146.054L155.967 13.7326H162.239L171.844 44.9439H165.046L155.967 13.7326H162.239L152.765 44.9439H146.054Z" fill="#1A1A1A"/>
+    <path d="M146.054 44.9439L137.94 13.7326H143.993L152.765 44.9439H146.054L155.967 13.7326H162.239L171.844 44.9439H165.046L155.967 13.7326H162.239L152.765 44.9439H146.054Z" fill="#5C5C5C"/>
   </g>
-  <!-- /// slashes fill right half -->
+  <!-- /// 3 orange slashes fill right half -->
   <g transform="translate(720,146) scale(19.46) translate(-163,-13.73)">
     <path d="M193.792 13.7326L184.847 44.9439H191.646L199.936 13.7326H193.792Z" fill="#F47A14"/>
-    <path d="M184.045 13.7326L175.1 44.9439H181.899L190.189 13.7326H184.045Z" fill="#1A1A1A"/>
+    <path d="M184.045 13.7326L175.1 44.9439H181.899L190.189 13.7326H184.045Z" fill="#F47A14"/>
     <path d="M180.139 13.7326L173.372 39.2032L169.914 27.9662L173.994 13.7326H180.139Z" fill="#F47A14"/>
   </g>
 </svg>
