@@ -203,10 +203,8 @@
         .hero {
             position: relative;
             overflow: hidden;
-            background-color: #111111;
-            background-image:
-                linear-gradient(rgba(17,17,17,0.82), rgba(17,17,17,0.82)),
-                url('/logo/hero-bg-brand-desktop.svg');
+            background-color: #000000;
+            background-image: url('/logo/hero-bg-brand-desktop.svg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -327,11 +325,7 @@
 
         /* ── Hero VSL Mobile ── */
         @media (max-width: 768px) {
-            .hero {
-                background-image:
-                    linear-gradient(rgba(17,17,17,0.82), rgba(17,17,17,0.82)),
-                    url('/logo/hero-bg-brand-mobile.svg');
-            }
+            .hero { background-image: url('/logo/hero-bg-brand-mobile.svg'); }
             .hero-bar p { font-size: 0.85rem; line-height: 1.4; }
 
             .hero-vsl-wrapper { padding: 32px 16px 48px; }
@@ -339,12 +333,6 @@
             .hero-logo { height: 34px; margin-bottom: 24px; }
 
             .vsl-container { width: 100%; border-radius: 6px; margin-bottom: 28px; }
-
-            .vsl-overlay-btn { padding: 16px 28px; }
-
-            .vsl-overlay-top, .vsl-overlay-bottom { font-size: 15px; }
-
-            .vsl-overlay-icon { font-size: 48px; }
 
             .hero-vsl-text p { font-size: 15px; line-height: 22px; }
 
