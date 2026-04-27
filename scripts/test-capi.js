@@ -57,7 +57,7 @@ async function testDirect() {
             user_data,
         }],
         access_token: token,
-        // test_event_code: 'TEST12345',  // descomente e coloque seu código do Events Manager
+        ...(testCode && { test_event_code: testCode }),
     };
 
     console.log('\n📡  Modo: direto na Meta CAPI');
@@ -117,7 +117,8 @@ async function testLocal() {
 }
 
 // ─── Execução ─────────────────────────────────────────────────────────────────
-const mode = process.argv[2] || 'direct';
+const mode      = process.argv[2] || 'direct';
+const testCode  = process.argv[3] || null;
 
 if (mode === 'local') {
     await testLocal();
