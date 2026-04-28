@@ -78,6 +78,22 @@ export default function App() {
 
       {/* 01. HERO SECTION (VSL Integrada + Copy focada no Lead) */}
       <section className="relative pt-32 pb-24 px-4 overflow-hidden border-b border-zinc-900 flex flex-col items-center">
+        {/* BG Pattern Desktop */}
+        <img
+          src="/bg-desktop.png"
+          alt=""
+          aria-hidden="true"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center opacity-[0.18] pointer-events-none select-none"
+          style={{ mixBlendMode: 'screen' }}
+        />
+        {/* BG Pattern Mobile */}
+        <img
+          src="/bg-mobile.png"
+          alt=""
+          aria-hidden="true"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-[0.18] pointer-events-none select-none"
+          style={{ mixBlendMode: 'screen' }}
+        />
         {/* Efeitos de Luz - W3 Style */}
         <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[600px] bg-[#F55900]/15 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
