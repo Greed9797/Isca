@@ -220,9 +220,9 @@
             inset: 0;
             background: linear-gradient(180deg,
                 rgba(0, 0, 0, 0.30) 0%,
-                rgba(0, 0, 0, 0.70) 20%,
-                rgba(0, 0, 0, 0.95) 32%,
-                rgb(0, 0, 0) 45%,
+                rgba(0, 0, 0, 0.40) 65%,
+                rgba(0, 0, 0, 0.80) 80%,
+                rgb(0, 0, 0) 92%,
                 rgb(0, 0, 0) 100%);
             pointer-events: none;
             z-index: 0;
@@ -350,16 +350,16 @@
                 z-index: 0;
             }
 
-            /* Dark overlay: pattern só no topo, fade pra preto sólido */
+            /* Dark overlay: pattern cobre tela toda, preto só no fim */
             .hero::after {
                 content: '';
                 position: absolute;
                 inset: 0;
                 background: linear-gradient(180deg,
                     rgba(0, 0, 0, 0.25) 0%,
-                    rgba(0, 0, 0, 0.65) 14%,
-                    rgba(0, 0, 0, 0.95) 24%,
-                    rgb(0, 0, 0) 32%,
+                    rgba(0, 0, 0, 0.50) 55%,
+                    rgba(0, 0, 0, 0.80) 78%,
+                    rgb(0, 0, 0) 90%,
                     rgb(0, 0, 0) 100%);
                 pointer-events: none;
                 z-index: 1;
