@@ -60,6 +60,14 @@
         capiSend({event_name:'PageView', event_id:window._pvId, event_source_url:location.href, fbp:getCookie('_fbp'), fbc:getCookie('_fbc')});
     });
     </script>
+    <!-- Google Ads Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17916389822"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17916389822');
+    </script>
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2455,8 +2463,10 @@
 
                         if (qualified) {
                             fbq("track", "Lead", {}, {eventID: evtId});
+                            gtag('event', 'conversion', {'send_to': 'AW-17916389822/DYdcCJnoqKQcEL7Tmd9C'});
                         } else {
                             fbq("trackCustom", "Desqualificado", {}, {eventID: evtId});
+                            gtag('event', 'Desqualificado');
                         }
 
                         const nameParts = data.fullName.trim().split(/\s+/);
