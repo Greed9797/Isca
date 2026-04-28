@@ -372,15 +372,20 @@
 
             .hero-bar p { font-size: 0.85rem; line-height: 1.4; }
 
-            .hero-vsl-wrapper { padding: 32px 16px 48px; }
+            /* Compacto: tudo cabe no viewport */
+            .hero { min-height: auto; }
+            .hero-vsl-wrapper { padding: 16px 16px 20px; }
 
-            .hero-logo { height: 34px; margin-bottom: 24px; }
+            .hero-logo { height: 56px; margin-bottom: 12px; }
 
-            .vsl-container { width: 100%; border-radius: 6px; margin-bottom: 28px; }
+            .vsl-container { width: 100%; border-radius: 6px; margin-bottom: 12px; }
 
-            .hero-vsl-text p { font-size: 15px; line-height: 22px; }
+            .hero-vsl-text { margin-bottom: 14px; }
+            .hero-vsl-text p { font-size: 14px; line-height: 20px; }
 
-            .hero-cta-outlined { font-size: 14px; padding: 16px 24px; width: 100%; justify-content: center; }
+            .hero-cta-outlined { font-size: 16px; padding: 18px 24px; width: 100%; justify-content: center; }
+
+            .hero-disclaimer { margin-top: 8px; font-size: 12px; }
         }
 
         @media (max-width: 992px) and (min-width: 769px) {
