@@ -338,13 +338,32 @@
 
         /* ── Hero VSL Mobile ── */
         @media (max-width: 768px) {
-            .hero { background-image: url('/public/bg-mobile.png'); }
+            /* Remove bg from element; use ::before flipped + ::after overlay */
+            .hero { background-image: none; }
+
+            /* Flipped bg image — scaleY(-1) coloca laranja no topo */
             .hero::before {
-                background: linear-gradient(180deg,
-                    rgba(0, 0, 0, 0.65) 0%,
-                    rgba(0, 0, 0, 0.85) 50%,
-                    rgba(0, 0, 0, 0.95) 100%);
+                background: url('/public/bg-mobile.png') center/cover no-repeat;
+                transform: scaleY(-1);
+                z-index: 0;
             }
+
+            /* Dark overlay (acima do bg, abaixo do conteúdo) */
+            .hero::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.55) 0%,
+                    rgba(0, 0, 0, 0.82) 55%,
+                    rgba(0, 0, 0, 0.95) 100%);
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            /* Conteúdo acima dos dois pseudo-elements */
+            .hero-vsl-wrapper { z-index: 2 !important; }
+
             .hero-bar p { font-size: 0.85rem; line-height: 1.4; }
 
             .hero-vsl-wrapper { padding: 32px 16px 48px; }
