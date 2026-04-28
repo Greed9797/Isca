@@ -214,6 +214,18 @@
             min-height: 100vh;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.55) 0%,
+                rgba(0, 0, 0, 0.78) 50%,
+                rgba(0, 0, 0, 0.92) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .hero-watermark { display: none; }
 
         /* Tarja topo */
@@ -297,7 +309,8 @@
             padding: 18px 48px;
             border: 2px solid #F47A14;
             border-radius: 8px;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
             color: #fff;
             font-family: var(--font-heading);
             font-weight: 700;
@@ -326,6 +339,12 @@
         /* ── Hero VSL Mobile ── */
         @media (max-width: 768px) {
             .hero { background-image: url('/public/bg-mobile.png'); }
+            .hero::before {
+                background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.65) 0%,
+                    rgba(0, 0, 0, 0.85) 50%,
+                    rgba(0, 0, 0, 0.95) 100%);
+            }
             .hero-bar p { font-size: 0.85rem; line-height: 1.4; }
 
             .hero-vsl-wrapper { padding: 32px 16px 48px; }
