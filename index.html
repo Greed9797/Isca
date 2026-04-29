@@ -2683,15 +2683,15 @@
         function initSwipers() {
             if (typeof Swiper === 'undefined') { setTimeout(initSwipers, 50); return; }
             new Swiper('.pain-swiper', {
-                slidesPerView: 1.1,
+                slidesPerView: 1.15,
                 spaceBetween: 16,
-                centeredSlides: true,
-                loop: true,
-                autoplay: { delay: 4000, disableOnInteraction: false },
+                centeredSlides: false,
+                loop: false,
+                autoplay: { delay: 4000, disableOnInteraction: true },
                 pagination: { el: '.pain-pagination', clickable: true },
                 breakpoints: {
-                    640: { slidesPerView: 2, centeredSlides: false },
-                    1024: { slidesPerView: 4, centeredSlides: false },
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 4 },
                 },
             });
             new Swiper('.founders-swiper', {
