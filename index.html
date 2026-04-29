@@ -77,8 +77,8 @@
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <!-- Critical preloads -->
     <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp" fetchpriority="high">
-    <link rel="preload" href="/public/bg-desktop.webp" as="image" type="image/webp" media="(min-width: 769px)">
-    <link rel="preload" href="/public/bg-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
+    <link rel="preload" href="/public/bg-desktop.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" href="/public/bg-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
     <!-- Google Fonts — non-render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -1620,7 +1620,7 @@
         <picture>
             <source media="(max-width: 768px)" srcset="/public/bg-mobile.webp" width="750" height="1334">
             <img class="hero-bg" src="/public/bg-desktop.webp" alt="" width="1920" height="1080"
-                 fetchpriority="high" decoding="async" loading="eager" aria-hidden="true">
+                 fetchpriority="high" decoding="sync" loading="eager" aria-hidden="true">
         </picture>
 
         <div class="hero-watermark" aria-hidden="true">W3</div>
