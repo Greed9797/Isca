@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo W3 - Obrigado</title>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code — fbevents.js deferred to after load -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
+    n.queue=[];
+    f.addEventListener('load',function(){t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    s.parentNode.insertBefore(t,s);},false);
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2132201073841264');
     window._pvId = 'PageView_'+Date.now();
     fbq('track', 'PageView', {}, {eventID: window._pvId});
@@ -34,7 +35,8 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
