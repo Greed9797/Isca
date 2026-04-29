@@ -73,9 +73,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
     <!-- Critical preloads -->
-    <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp">
-    <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp">
+    <link rel="preload" href="/logo/logo-grupow3.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="/public/bg-desktop.webp" as="image" type="image/webp" media="(min-width: 769px)">
+    <link rel="preload" href="/public/bg-mobile.webp" as="image" type="image/webp" media="(max-width: 768px)">
     <!-- Google Fonts — non-render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500&family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -213,7 +216,7 @@
             position: relative;
             overflow: hidden;
             background-color: #000000;
-            background-image: url('/public/bg-desktop.png');
+            background-image: url('/public/bg-desktop.webp');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -356,7 +359,7 @@
 
             /* Flipped bg image — scaleY(-1) coloca laranja no topo */
             .hero::before {
-                background: url('/public/bg-mobile.png') center/cover no-repeat;
+                background: url('/public/bg-mobile.webp') center/cover no-repeat;
                 transform: scaleY(-1);
                 z-index: 0;
             }
@@ -1515,8 +1518,9 @@
 
     }
     </style>
-    <!-- Swiper CSS — render-blocking to ensure correct card layout -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Swiper CSS — non-blocking load -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1586,7 +1590,7 @@
         <div class="hero-watermark" aria-hidden="true">W3</div>
 
         <div class="hero-vsl-wrapper">
-            <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager">
+            <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager" fetchpriority="high">
 
             <div class="vsl-container">
                 <iframe
