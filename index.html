@@ -301,6 +301,38 @@
             border: none;
         }
 
+        .vsl-facade {
+            position: absolute;
+            inset: 0;
+            cursor: pointer;
+            background: #0d0d0d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vsl-play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(232, 103, 60, 0.95);
+            color: #fff;
+            font-size: 30px;
+            border: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(232, 103, 60, 0.5);
+            transition: transform 0.15s, box-shadow 0.15s;
+            pointer-events: none;
+        }
+
+        .vsl-facade:hover .vsl-play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 0 60px rgba(232, 103, 60, 0.7);
+        }
+
 .hero-vsl-text {
             text-align: center;
             max-width: 680px;
@@ -540,7 +572,7 @@
         /* Pain swiper */
         .pain-swiper { padding-bottom: 48px !important; }
         .pain-swiper .pain-card { max-width: 100%; min-width: unset; }
-        .pain-swiper .swiper-pagination-bullet { background: #F47A14; opacity: 0.5; }
+        .pain-swiper .swiper-pagination-bullet { background: #F47A14; opacity: 0.5; width: 24px !important; height: 24px !important; margin: 0 6px !important; }
         .pain-swiper .swiper-pagination-bullet-active { opacity: 1; }
 
         /* Founders swiper */
@@ -1593,16 +1625,32 @@
             <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager" fetchpriority="high">
 
             <div class="vsl-container">
-                <iframe
-                    id="pandaPlayer"
-                    src="https://player-vz-75e71015-90c.tv.pandavideo.com.br/embed/?v=8538a14d-5c71-464d-9082-73d7cc965094&autoplay=1&muted=1"
-                    style="border:none;"
-                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-                    allowfullscreen="true"
-                    width="720" height="360"
-                    fetchpriority="high">
-                </iframe>
+                <div id="vslFacade" class="vsl-facade" role="button" tabindex="0"
+                     aria-label="Reproduzir vídeo do diagnóstico Grupo W3">
+                    <button class="vsl-play-btn" aria-hidden="true">&#9654;</button>
+                </div>
             </div>
+            <script>
+            (function(){
+                var f = document.getElementById('vslFacade');
+                function loadVSL(){
+                    if(f.dataset.loaded) return;
+                    f.dataset.loaded = '1';
+                    var ifr = document.createElement('iframe');
+                    ifr.id = 'pandaPlayer';
+                    ifr.src = 'https://player-vz-75e71015-90c.tv.pandavideo.com.br/embed/?v=8538a14d-5c71-464d-9082-73d7cc965094&autoplay=1&muted=0';
+                    ifr.title = 'Vídeo de diagnóstico — Grupo W3';
+                    ifr.setAttribute('allow', 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture');
+                    ifr.setAttribute('allowfullscreen', 'true');
+                    ifr.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+                    f.parentNode.replaceChild(ifr, f);
+                }
+                f.addEventListener('click', loadVSL);
+                f.addEventListener('keydown', function(e){
+                    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVSL(); }
+                });
+            })();
+            </script>
 
             <div class="hero-vsl-text">
                 <p>Cadastre-se abaixo para ser selecionado para um <strong>diagnóstico estratégico</strong> com um especialista do Grupo W3, focado em escalar e otimizar suas operações comerciais.</p>
@@ -1622,23 +1670,23 @@
         <div class="marquee-wrapper">
             <div class="marquee-content">
                 <div class="marquee-item"><img src="/marcas/GM_Rosa_Do_Deserto.avif" alt="GM Rosa do Deserto" width="144" height="144" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp" alt="The Greg's" width="144" height="45" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Fiu Kids" width="144" height="57" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/high-torque-2.webp" alt="High Torque" width="144" height="50" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-1.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-2.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-3.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_8-288.webp" alt="The Greg's" width="144" height="45" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/logo-fiu-288.webp" alt="Fiu Kids" width="144" height="57" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/high-torque-2-288.webp" alt="High Torque" width="144" height="50" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-1-288.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-2-288.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-3-288.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/veln.webp" alt="VELN" width="144" height="30" loading="lazy"></div>
             </div>
             <!-- Cópia para loop infinito -->
             <div class="marquee-content" aria-hidden="true">
                 <div class="marquee-item"><img src="/marcas/GM_Rosa_Do_Deserto.avif" alt="GM Rosa do Deserto" width="144" height="144" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/imgi_8_logo-1333108012-1765067149-20caa28c6ab81ab7b9eed5c2c9bf914e1765067149-480-0-e1766175677973.webp" alt="The Greg's" width="144" height="45" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Fiu Kids" width="144" height="57" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/high-torque-2.webp" alt="High Torque" width="144" height="50" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-1.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-2.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-3.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/imgi_8-288.webp" alt="The Greg's" width="144" height="45" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/logo-fiu-288.webp" alt="Fiu Kids" width="144" height="57" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/high-torque-2-288.webp" alt="High Torque" width="144" height="50" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-1-288.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-2-288.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-3-288.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/veln.webp" alt="VELN" width="144" height="30" loading="lazy"></div>
             </div>
         </div>
@@ -1655,22 +1703,22 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-1.webp" alt="Crescimento Travado" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-1-720.webp" srcset="/cards/card-1-720.webp 720w, /cards/card-1.webp 1147w" sizes="(max-width: 768px) 90vw, 660px" alt="Crescimento Travado" width="720" height="877" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-2.webp" alt="Resultados Estagnados" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-2-720.webp" srcset="/cards/card-2-720.webp 720w, /cards/card-2.webp 1147w" sizes="(max-width: 768px) 90vw, 660px" alt="Resultados Estagnados" width="720" height="877" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-3.webp" alt="Tráfego Sem Retorno" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-3-720.webp" srcset="/cards/card-3-720.webp 720w, /cards/card-3.webp 1147w" sizes="(max-width: 768px) 90vw, 660px" alt="Tráfego Sem Retorno" width="720" height="877" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="pain-card">
-                            <img src="/cards/card-4.webp" alt="Vendas em Queda" width="1147" height="1398" loading="lazy" decoding="async">
+                            <img src="/cards/card-4-720.webp" srcset="/cards/card-4-720.webp 720w, /cards/card-4.webp 1147w" sizes="(max-width: 768px) 90vw, 660px" alt="Vendas em Queda" width="720" height="877" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
