@@ -22,16 +22,16 @@
     <meta name="twitter:title" content="Diagnóstico Comercial Gratuito - Metodologia Ames">
     <meta name="twitter:description" content="Agende seu diagnóstico gratuito e escale seu e-commerce com a Metodologia Ames.">
     <meta name="twitter:image" content="https://cg.leonardoames.com.br/Hero-Desktop.png">
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code — fbevents.js deferred to after load to reduce TBT -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    n.queue=[];
+    f.addEventListener('load',function(){t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);},false)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2132201073841264');
     window._pvId = 'PageView_'+Date.now();
     fbq('track', 'PageView', {}, {eventID: window._pvId});
@@ -1626,7 +1626,7 @@
                 <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Fiu Kids" width="144" height="57" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/high-torque-2.webp" alt="High Torque" width="144" height="50" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/marca-nova-1.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-2.png" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-2.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/marca-nova-3.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/veln.webp" alt="VELN" width="144" height="30" loading="lazy"></div>
             </div>
@@ -1637,7 +1637,7 @@
                 <div class="marquee-item"><img src="/marcas/logo-1507664936-1765793872-0ad103a251e7d41a3bcc975bcd1b0a401765793872-640-0.webp" alt="Fiu Kids" width="144" height="57" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/high-torque-2.webp" alt="High Torque" width="144" height="50" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/marca-nova-1.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
-                <div class="marquee-item"><img src="/marcas/marca-nova-2.png" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
+                <div class="marquee-item"><img src="/marcas/marca-nova-2.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/marca-nova-3.webp" alt="Marca Parceira" width="144" height="60" loading="lazy"></div>
                 <div class="marquee-item"><img src="/marcas/veln.webp" alt="VELN" width="144" height="30" loading="lazy"></div>
             </div>
@@ -1886,7 +1886,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="founder-card">
-                            <img src="/leonardo.jpg" width="400" height="350" alt="Leonardo Ames - Fundador e CEO do Grupo W3" loading="lazy" decoding="async">
+                            <img src="/leonardo.webp" width="400" height="350" alt="Leonardo Ames - Fundador e CEO do Grupo W3" loading="lazy" decoding="async">
                             <div class="founder-info">
                                 <h4>LEONARDO AMES</h4>
                                 <span>Fundador e CEO do Grupo W3</span>
@@ -1896,7 +1896,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="founder-card">
-                            <img src="/gustavo.jpg" width="400" height="350" alt="Gustavo Hofmann - Fundador e CMO do Grupo W3" loading="lazy" decoding="async">
+                            <img src="/gustavo.webp" width="400" height="350" alt="Gustavo Hofmann - Fundador e CMO do Grupo W3" loading="lazy" decoding="async">
                             <div class="founder-info">
                                 <h4>GUSTAVO HOFMANN</h4>
                                 <span>Fundador e CMO do Grupo W3</span>
@@ -1906,7 +1906,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="founder-card">
-                            <img src="/lucas.jpg" width="400" height="350" alt="Lucas Monteiro - Fundador e COO do Grupo W3" loading="lazy" decoding="async">
+                            <img src="/lucas.webp" width="400" height="350" alt="Lucas Monteiro - Fundador e COO do Grupo W3" loading="lazy" decoding="async">
                             <div class="founder-info">
                                 <h4>LUCAS MONTEIRO</h4>
                                 <span>Fundador e COO do Grupo W3</span>
