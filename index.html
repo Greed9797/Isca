@@ -1620,7 +1620,7 @@
         <picture>
             <source media="(max-width: 768px)" srcset="/public/bg-mobile.webp" width="750" height="1334">
             <img class="hero-bg" src="/public/bg-desktop.webp" alt="" width="1920" height="1080"
-                 fetchpriority="high" decoding="async" loading="eager" aria-hidden="true">
+                 fetchpriority="high" decoding="async" loading="eager">
         </picture>
 
         <div class="hero-watermark" aria-hidden="true">W3</div>
@@ -1629,30 +1629,26 @@
             <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager" fetchpriority="high">
 
             <div class="vsl-container">
-                <div id="vslFacade" class="vsl-facade" role="button" tabindex="0"
-                     aria-label="Reproduzir vídeo do diagnóstico Grupo W3">
-                    <button class="vsl-play-btn" aria-hidden="true">&#9654;</button>
+                <div id="vslFacade" class="vsl-facade">
                 </div>
             </div>
             <script>
             (function(){
                 var f = document.getElementById('vslFacade');
+                var loaded = false;
                 function loadVSL(){
-                    if(f.dataset.loaded) return;
-                    f.dataset.loaded = '1';
+                    if(loaded) return;
+                    loaded = true;
                     var ifr = document.createElement('iframe');
                     ifr.id = 'pandaPlayer';
-                    ifr.src = 'https://player-vz-75e71015-90c.tv.pandavideo.com.br/embed/?v=8538a14d-5c71-464d-9082-73d7cc965094&autoplay=1&muted=0';
+                    ifr.src = 'https://player-vz-75e71015-90c.tv.pandavideo.com.br/embed/?v=8538a14d-5c71-464d-9082-73d7cc965094&autoplay=1&muted=1';
                     ifr.title = 'Vídeo de diagnóstico — Grupo W3';
                     ifr.setAttribute('allow', 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture');
                     ifr.setAttribute('allowfullscreen', 'true');
                     ifr.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
                     f.parentNode.replaceChild(ifr, f);
                 }
-                f.addEventListener('click', loadVSL);
-                f.addEventListener('keydown', function(e){
-                    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVSL(); }
-                });
+                window.addEventListener('load', function(){ setTimeout(loadVSL, 800); });
             })();
             </script>
 
