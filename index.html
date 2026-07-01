@@ -256,7 +256,7 @@
             background: linear-gradient(135deg, #1a0a00 0%, #3d1800 30%, #5a2400 50%, #3d1800 70%, #1a0a00 100%);
             border-bottom: 1px solid rgba(244, 122, 20, 0.3);
             text-align: center;
-            padding: 18px 20px;
+            padding: 14px 20px;
             z-index: 5;
             flex-shrink: 0;
             position: relative;
@@ -265,10 +265,13 @@
         .hero-bar p {
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: -0.05em;
+            font-size: 0.98rem;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
             color: #fff;
-            margin: 0;
+            margin: 0 auto;
+            max-width: 1100px;
         }
 
         .hero-bar .highlight { color: #F47A14; }
@@ -343,18 +346,20 @@
 
 .hero-vsl-text {
             text-align: center;
-            max-width: 680px;
+            max-width: 760px;
             margin-bottom: 28px;
         }
 
         .hero-vsl-text p {
-            font-family: 'DM Sans', var(--font-body);
-            font-weight: 300;
-            font-size: 18px;
-            line-height: 28px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 34px;
             color: #fff;
             letter-spacing: -0.02em;
         }
+
+        .hero-vsl-text strong { color: #F47A14; font-weight: 700; }
 
         .hero-cta-outlined {
             display: inline-flex;
@@ -422,7 +427,7 @@
             .vsl-container { width: 100%; border-radius: 6px; margin-bottom: 12px; }
 
             .hero-vsl-text { margin-bottom: 14px; }
-            .hero-vsl-text p { font-size: 14px; line-height: 20px; }
+            .hero-vsl-text p { font-size: 19px; line-height: 26px; }
 
             .hero-cta-outlined { font-size: 16px; padding: 18px 24px; width: 100%; justify-content: center; }
 
@@ -1616,6 +1621,10 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
 
+        <div class="hero-bar">
+            <p>Diagnóstico exclusivo para donos de e-commerce que faturam <span class="highlight">acima de +20K</span> e desejam escalar com lucro e previsibilidade.</p>
+        </div>
+
         <picture>
             <source media="(max-width: 768px)" srcset="/public/bg-mobile.webp" width="750" height="1334">
             <img class="hero-bg" src="/public/bg-desktop.webp" alt="" width="1920" height="1080"
@@ -1625,7 +1634,9 @@
         <div class="hero-watermark" aria-hidden="true">W3</div>
 
         <div class="hero-vsl-wrapper">
-            <img src="/logo/logo-grupow3.webp" alt="Grupo W3" class="hero-logo" width="192" height="58" loading="eager" fetchpriority="high">
+            <div class="hero-vsl-text">
+                <p>Cadastre-se abaixo para ser selecionado para uma <strong>consultoria</strong> com um <strong>especialista da W3</strong>, focado em <strong>identificar e resolver os gargalos</strong> do seu negócio.</p>
+            </div>
 
             <div class="vsl-container">
                 <div id="vslFacade" class="vsl-facade">
@@ -1650,10 +1661,6 @@
                 window.addEventListener('load', function(){ setTimeout(loadVSL, 800); });
             })();
             </script>
-
-            <div class="hero-vsl-text">
-                <p>Cadastre-se abaixo para ser selecionado para um <strong>diagnóstico estratégico</strong> com um especialista do Grupo W3, focado em escalar e otimizar suas operações comerciais.</p>
-            </div>
 
             <a href="#agendar" class="hero-cta-outlined">
                 QUERO APLICAR AGORA &nbsp;→
