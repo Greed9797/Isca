@@ -2564,11 +2564,17 @@
                 }
 
                 try {
+                    // 8s de teto: VPS travada (respondendo devagar, sem cair) deixava
+                    // o visitante esperando o navegador desistir. Estourou, vai pro
+                    // plano B na hora — o lead não pode depender do tempo do n8n.
+                    const abort = new AbortController();
+                    const timer = setTimeout(() => abort.abort(), 8000);
                     const response = await fetch(WEBHOOK_URL, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(payload),
-                    });
+                        signal: abort.signal,
+                    }).finally(() => clearTimeout(timer));
 
                     if (response.ok) {
                         concluirEnvio();
