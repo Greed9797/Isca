@@ -2362,6 +2362,8 @@
             // WEBHOOK — fluxo único N8N
             // ══════════════════════════════════════════
             const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook/landing-page";
+            // rede de segurança: usado só quando o webhook acima não responde
+            const FALLBACK_URL = "https://leads-push.vercel.app/api/lead-publico";
             // const WEBHOOK_URL = "https://ia-n8n.nwwqtc.easypanel.host/webhook-test/landing-page";
             const REDIRECT_QUALIFICADO     = "/typ-1";
             const REDIRECT_NAO_QUALIFICADO = "/typ-df";
@@ -2510,6 +2512,57 @@
                     },
                 };
 
+                // Dispara pixel/CAPI e redireciona. Só roda depois que o lead
+                // está guardado em algum lugar — no n8n ou no plano B.
+                function concluirEnvio() {
+                    const evtName = qualified ? "Lead" : "Desqualificado";
+                    const evtId   = evtName + "_" + Date.now();
+
+                    if (qualified) {
+                        fbq("track", "Lead", {}, {eventID: evtId});
+                        gtag('event', 'conversion', {'send_to': 'AW-17916389822/DYdcCJnoqKQcEL7Tmd9C'});
+                        gtag('event', 'generate_lead', {'send_to': 'G-G6GPQQWQDF'});
+                    } else {
+                        fbq("trackCustom", "Desqualificado", {}, {eventID: evtId});
+                        gtag('event', 'Desqualificado', {'send_to': 'G-G6GPQQWQDF'});
+                    }
+
+                    const nameParts = data.fullName.trim().split(/\s+/);
+                    capiSend({
+                        event_name: evtName,
+                        event_id: evtId,
+                        event_source_url: location.href,
+                        fbp: getCookie("_fbp"),
+                        fbc: getCookie("_fbc"),
+                        em: data.email.toLowerCase().trim(),
+                        ph: data.whatsapp.replace(/\D/g, ""),
+                        fn: nameParts[0] || "",
+                        ln: nameParts.slice(1).join(" ") || "",
+                    });
+
+                    window.location.href = qualified ? REDIRECT_QUALIFICADO : REDIRECT_NAO_QUALIFICADO;
+                }
+
+                // Plano B: o webhook roda numa VPS. Quando ela cai, o lead
+                // morria aqui no navegador. Este endpoint fica no Vercel, grava
+                // o lead no painel e notifica o SDR na hora; o /api/sync devolve
+                // ao n8n depois, para criar o negócio no Pipedrive.
+                async function salvarNoPlanoB() {
+                    const r = await fetch(FALLBACK_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            nome: data.fullName,
+                            telefone: data.whatsapp,
+                            email: data.email,
+                            origem: "Landing Page CG",
+                            payload_original: payload,
+                        }),
+                    });
+                    if (!r.ok) throw new Error("plano B respondeu " + r.status);
+                    return r.json();
+                }
+
                 try {
                     const response = await fetch(WEBHOOK_URL, {
                         method: "POST",
@@ -2518,47 +2571,25 @@
                     });
 
                     if (response.ok) {
-                        // Dispara evento pixel + CAPI antes do redirect
-                        const evtName = qualified ? "Lead" : "Desqualificado";
-                        const evtId   = evtName + "_" + Date.now();
-
-                        if (qualified) {
-                            fbq("track", "Lead", {}, {eventID: evtId});
-                            gtag('event', 'conversion', {'send_to': 'AW-17916389822/DYdcCJnoqKQcEL7Tmd9C'});
-                            gtag('event', 'generate_lead', {'send_to': 'G-G6GPQQWQDF'});
-                        } else {
-                            fbq("trackCustom", "Desqualificado", {}, {eventID: evtId});
-                            gtag('event', 'Desqualificado', {'send_to': 'G-G6GPQQWQDF'});
-                        }
-
-                        const nameParts = data.fullName.trim().split(/\s+/);
-                        capiSend({
-                            event_name: evtName,
-                            event_id: evtId,
-                            event_source_url: location.href,
-                            fbp: getCookie("_fbp"),
-                            fbc: getCookie("_fbc"),
-                            em: data.email.toLowerCase().trim(),
-                            ph: data.whatsapp.replace(/\D/g, ""),
-                            fn: nameParts[0] || "",
-                            ln: nameParts.slice(1).join(" ") || "",
-                        });
-
-                        if (qualified) {
-                            window.location.href = REDIRECT_QUALIFICADO;
-                        } else {
-                            window.location.href = REDIRECT_NAO_QUALIFICADO;
-                        }
+                        concluirEnvio();
                     } else {
                         throw new Error("Erro na comunicação com o servidor.");
                     }
 
                 } catch (error) {
                     console.error("Form Submission Error:", error);
-                    alert("Ocorreu um erro ao enviar sua aplicação. Por favor, verifique seus dados ou tente novamente mais tarde.");
 
-                    submitBtn.innerText = originalBtnText;
-                    submitBtn.disabled = false;
+                    try {
+                        await salvarNoPlanoB();
+                        console.warn("Lead salvo pelo plano B (n8n indisponível).");
+                        concluirEnvio();
+                    } catch (fallbackError) {
+                        console.error("Fallback Error:", fallbackError);
+                        alert("Ocorreu um erro ao enviar sua aplicação. Por favor, verifique seus dados ou tente novamente mais tarde.");
+
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
                 }
             });
 
